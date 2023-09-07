@@ -1,0 +1,37 @@
+.hesabu-title.text-center Hesabu Game Feedback
+.main-container
+    .card
+        .card-header
+            h2 We'd love to hear what you think!
+        .card-body
+                =label_tag :your_Name ,'Name(optional)'
+                input.input-field(type="name" name="name" placeholder="Enter Your Name" size="20")
+                =label_tag :age ,'Age'
+                input.input-field(type="age" name="age" placeholder="Enter Your Age" size="20")
+                =label_tag :your_feedback ,'Tell us what you think about the game:'
+                input.input-field(type="feedback" name="name" placeholder="Your feedback" size="50")
+                label for="rating" Rate the game (1 to 5 stars):
+                select#rating[name="rating" required]
+                    option[value="1"] ★
+                    option[value="2"] ★★
+                    option[value="3"] ★★★
+                    option[value="4"] ★★★★
+                    option[value="5"] ★★★★★
+                
+        .card-footer 
+                button.btn.btn-primary#sendfeedbackButton Send Feedback
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

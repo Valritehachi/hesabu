@@ -1,0 +1,15 @@
+.hesabu-title.text-center Welcome Back
+.login-container.shiny-gradient
+  h2.title login
+  
+  =label_tag :username ,'Username'
+  input.input-field(type="username" name="username" placeholder="Enter your username" size="20")
+  =label_tag :password ,'Password'
+  input.input-field(type="password" name="password" placeholder="Enter your password" size="20")
+  .buttons
+    a.btn.btn-primary.form-control href="/hesabu/instructions" id='login' role="button" Login
+  
+.center-container
+  a.btn.btn-primary href="/hesabu/signup" id='signup' role="button" Sign Up
+  p Forgot Your Password?
+

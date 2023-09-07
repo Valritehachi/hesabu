@@ -1,0 +1,41 @@
+.main-container
+    .card
+        .card-header
+            h2 Join the Fun - Sign Up Now!🌟
+
+        .card-body
+            h3 Create Your Awesome Math Account
+            hr
+                = form_with url: '/hesabu/profiles', method: 'post', html: { id: 'new_profile_form' } 
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        =label_tag :username,'Pick A Cool Username:'
+                        = text_field_tag :username, nil, required: true, class: 'form-control'
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        =label_tag :password,'Create A Secret Password:'
+                        = text_field_tag :password, nil, required: true, class: 'form-control'        
+
+            h3 Let's Get to Know You:
+            hr
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        =label_tag :superhero_name,'Your Superhero Name:'
+                        = text_field_tag :superhero_name, nil, required: true, class: 'form-control'
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        =label_tag :age,'How Old Are You:'
+                        = number_field_tag :age, nil, required: true, class: 'form-control'        
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        =label_tag :love_puzzles,'Do You Like Puzzles?'
+                        = radio_button_tag :like_puzzles, 'yes' 
+                        = label_tag :like_puzzles, 'Yes'
+                        = radio_button_tag :like_puzzles, 'no' 
+                        = label_tag :like_puzzles, 'No'
+        
+           
+        .card-footer
+            .footer-content
+                h4 Let's Go, Math Hero!
+                a.btn.btn-primary href="/hesabu/instructions" id='signup' role="button" Sign Up 

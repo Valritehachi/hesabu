@@ -1,0 +1,69 @@
+section.settings
+    .hesabu-title.text-center Game Settings
+    .card
+        .card-header.text-center.bg-info.text-white
+            h3 Audio Settings
+        .card-body
+            .row
+                .col-lg-10.col-md-10.col-sm-10
+                    h4 Sound Effects
+                .col-lg-2.col-md-2.col-sm-2
+                    label.switch
+                        input type="checkbox" name="sound_toggle" id="sound_toggle"
+                        span.slider.round
+                    span#sound_status On
+            hr
+            .row
+                .col-lg-10.col-md-10.col-sm-10
+                    h4 Background Music
+                .col-lg-2.col-md-2.col-sm-2
+                    label.switch
+                        input type="checkbox" name="Background_music" id="Background_music"
+                        span.slider.round
+                    span#sound_status On
+            hr
+            .row
+                .col-lg-10.col-md-10.col-sm-10
+                    h4 Volume Control
+                    input.form-range#volumeSlider(type="range")
+                
+    .card
+        .card-header.text-center.bg-info.text-white
+            h3 Game Progress
+        .card-body
+            .row
+                .col-lg-10.col-md-10.col-sm-10
+                    h4 Save progress
+                .col-lg-2.col-md-2.col-sm-2
+                    button.btn.btn-primary#saveProgressButton Save Progress             
+            hr
+            .row.primary
+                .col-lg-10.col-md-10.col-sm-10
+                    h4 Reset progress
+                .col-lg-2.col-md-2.col-sm-2
+                    button.btn.btn-default#resetProgressButton Reset Progress
+    .card
+        .card-header.text-center.bg-info.text-white
+            h3 Feedback and Support
+        .card-body
+            .row.primary
+               .col-lg-12.col-md-12.col-sm-12.col-xs-12  
+                    a.btn.btn-default.sendfeedback-button href="/hesabu/feedback" id="sendfeedback" role="button" Send Feedback
+            hr
+            .row.primary
+               .col-lg-12.col-md-12.col-sm-12.col-xs-12  
+                    button.btn.btn-default#supportcenterButton Support Center
+            hr
+            .row.primary
+               .col-lg-12.col-md-12.col-sm-12.col-xs-12  
+                    button.btn.btn-default#reportabugButton Report a Bug
+            hr
+             .row.primary
+               .col-lg-12.col-md-12.col-sm-12.col-xs-12  
+                    button.btn.btn-default#logoutButton Logout
+           
+        .card-footer
+
+    .footer.fixed-bottom
+        a.btn.btn-default.savesettings-button href="/hesabu/instructions" id="savesettings" role="button" Save Settings
+        button#CancelExitButton Cancel/Exit
