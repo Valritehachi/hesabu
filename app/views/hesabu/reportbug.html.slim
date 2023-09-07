@@ -4,14 +4,15 @@
     .card-header
       h4 If you've encountered a bug or issue in our math adventure game, please let us know by filling out the form below.
     .card-body 
-      = label_tag :bug_description: ,'Bug Description:'
-      textarea.input-field(name="your_feedback" placeholder="Your feedback" rows="4" cols="50")
+      = label_tag :bug_description:, 'Bug Description:'
+      textarea.input-field(name="bug_description" placeholder="Bug description" rows="4" cols="50")
       label for="screenshot" Attach Screenshot (if possible):
       input type="file" id="screenshot" name="screenshot"
     .card-footer    
         button.btn.btn-primary#submitbugreportButton Submit Bug Report
 
-
+= label_tag :your_feedback, 'Tell us what you think about the game:'
+                textarea.input-field(name="your_feedback" placeholder="Your feedback" rows="4" cols="50")
 
 
        
