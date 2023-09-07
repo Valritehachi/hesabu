@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Your code here
-  var element = ocument.getElementById('get_started');
+  var element = document.getElementById('get_started');
   console.log(element)
   // element.addEventListener("click", function() {
   //       alert("Button clicked!");
