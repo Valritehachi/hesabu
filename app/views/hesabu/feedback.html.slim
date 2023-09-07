@@ -8,8 +8,8 @@
                 input.input-field(type="name" name="name" placeholder="Enter Your Name" size="20")
                 =label_tag :age ,'Age'
                 input.input-field(type="age" name="age" placeholder="Enter Your Age" size="20")
-                =label_tag :your_feedback ,'Tell us what you think about the game:'
-                input.input-field(type="feedback" name="name" placeholder="Your feedback" size="50")
+                = label_tag :your_feedback, 'Tell us what you think about the game:'
+                textarea.input-field(name="your_feedback" placeholder="Your feedback" rows="4" cols="50")
                 label for="rating" Rate the game (1 to 5 stars):
                 select#rating[name="rating" required]
                     option[value="1"] ★
