@@ -28,6 +28,7 @@ gem 'slim'
 gem 'aws-sdk-s3', '~> 1'
 gem 'role_model'
 gem 'wicked_pdf'
+gem 'devise'
 gem 'wkhtmltopdf-binary'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
