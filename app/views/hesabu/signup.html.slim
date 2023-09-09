@@ -6,7 +6,7 @@ section.signup
         .card-body
             h3 Create Your Awesome Math Account
             hr
-            = form_with url: '/hesabu/profiles', method: 'post', html: { id: 'new_profile_form' } do |form|
+            = form_with url: '/profiles', method: 'post', html: { id: 'new_profile_form' } do |form|
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :username,'Pick A Cool Username:'
