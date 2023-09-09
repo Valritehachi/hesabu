@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/feedback', to: 'hesabu#feedback'
   get '/reportbug', to: 'hesabu#reportbug'
 
+  resources :profiles
 end
