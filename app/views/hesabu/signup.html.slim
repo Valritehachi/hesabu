@@ -1,7 +1,7 @@
-.main-container
+section.signup
     .card
         .card-header
-            h2 Join the Fun - Sign Up Now!🌟
+            h2 = "Join the Fun - Sign Up Now!🌟"
 
         .card-body
             h3 Create Your Awesome Math Account
@@ -20,14 +20,16 @@
                 hr
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
-                        = form.label :superhero_name,'Your Superhero Name:'
-                        = form.text_field :superhero_name, nil, required: true, class: 'form-control'
+                        = form.label :name,'Your Superhero Name:'
+                        = form.text_field :name, nil, required: true, class: 'form-control'
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :age,'How Old Are You:'
                         = form.number_field :age, nil, required: true, class: 'form-control'        
-                
+                .row 
+                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
+                        h4 = "Let's Go, Math Hero!"
+                        = form.submit "Sign Up "
         .card-footer
             .footer-content
-                h4 Let's Go, Math Hero!
-                = form.submit class="btn btn-primary" id='signup' role="button" Sign Up 
+                
