@@ -10,22 +10,22 @@ section.signup
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :username,'Pick A Cool Username:'
-                        = form.text_field :username, nil, required: true, class: 'form-control'
+                        = form.text_field :username, required: true, class: 'form-control'
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :password,'Create A Secret Password:'
-                        = form.password_field :password, nil, required: true, class: 'form-control'        
+                        = form.password_field :password, required: true, class: 'form-control'        
 
                 h3 Let's Get to Know You:
                 hr
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :name,'Your Superhero Name:'
-                        = form.text_field :name, nil, required: true, class: 'form-control'
+                        = form.text_field :name, required: true, class: 'form-control'
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         = form.label :age,'How Old Are You:'
-                        = form.number_field :age, nil, required: true, class: 'form-control'        
+                        = form.number_field :age, required: true, class: 'form-control'        
                 .row 
                     .col-lg-12.col-md-12.col-sm.12.col-xs-12
                         h4 = "Let's Go, Math Hero!"
