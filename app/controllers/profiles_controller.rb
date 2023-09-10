@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
     def create
-        user_fields = params[:user]
+        user_fields = params.require(:user).permit!
         unless user_fields.present?
             flash[:error] = "Something went wrong. Please try again."
             redirect_to :back
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
             redirect_to :back
         end
 
-        player_data = params[:players]
+        player_data = params.require(:players).permit!
         if player_data.present?
             player_data.each do |player_fields|
                 player = user.players.create(
