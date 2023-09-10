@@ -4,20 +4,20 @@ class ProfilesController < ApplicationController
         user_fields = params.require(:user).permit!
         unless user_fields.present?
             flash[:error] = "Something went wrong. Please try again."
-            redirect_to  '/profiles'
+            return redirect_to  '/profiles'
         end
 
         Rails.logger.debug "User Fields #{user_fields}"
         user = User.where(email: user_fields['email'].downcase).first
         if user.present?
             flash[:error] = "user already exists."
-            redirect_to  '/profiles'
+            return redirect_to  '/profiles'
         end
 
         user = User.create(user_fields)
         unless user.valid?
             flash[:error] = "Error creating user: #{user.errors.to_s}."
-            redirect_to  '/profiles'
+            return redirect_to  '/profiles'
         end
 
         player_data = params.require(:players).permit!
