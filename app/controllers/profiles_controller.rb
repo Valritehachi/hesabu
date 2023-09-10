@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
         if player_data.present?
             player_data.each do |data|
                 player_fields = data.permit!
-                Rails.logger("PLAYER: #{player_fields}")
+                Rails.logger.debug("PLAYER: #{player_fields}")
                 player = user.players.create(
                     player_fields 
                 )
