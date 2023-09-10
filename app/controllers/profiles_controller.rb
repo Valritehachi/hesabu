@@ -20,9 +20,11 @@ class ProfilesController < ApplicationController
             return redirect_to  '/signup'
         end
 
-        player_data = params.require(:players).permit!
+        player_data = params["players"] #require(:player"s).permit!
         if player_data.present?
-            player_data.each do |player_fields|
+            player_data.each do |data|
+                player_fields = data.permit!
+                Rails.logger("PLAYER: #{player_fields}")
                 player = user.players.create(
                     player_fields 
                 )
