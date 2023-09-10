@@ -1,39 +1,42 @@
+
 section.signup
-    .card
-        .card-header
-            h2 = "Join the Fun - Sign Up Now!🌟"
+    .row 
+        .col-lg-3.col-md-3.col-sm-2
+        .col-lg-6.col-md-6.col-sm-8.col-12
+            .card
+                .card-header
+                    h2 = "Join the Fun - Sign Up Now!🌟"
 
-        .card-body
-            h3 Create Your Awesome Math Account
-            hr
-            = form_with url: '/profiles', method: 'post', html: { id: 'new_profile_form' } do |form|
-                .row 
-                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
-                        = form.label :username,'Pick A Cool Username:'
-                        = form.text_field :username, required: true, class: 'form-control'
-                .row 
-                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
-                        = form.label :password,'Create A Secret Password:'
-                        = form.password_field :password, required: true, class: 'form-control'        
+                .card-body
+                    h3 Create Your Awesome Math Account
+                    hr
+                    = form_with url: '/profiles', method: 'post', html: { id: 'new_profile_form' } do |form|
+                        .row 
+                            .col-lg-12.col-md-12.col-sm.12.col-12
+                                = form.label :username,'Pick A Cool Username:'
+                                = form.text_field :username, required: true, class: 'form-control'
+                        .row 
+                            .col-lg-12.col-md-12.col-sm.12.col-12
+                                = form.label :password,'Create A Secret Password:'
+                                = form.password_field :password, required: true, class: 'form-control'        
 
-                h3 Add up to 5 players 
-                hr
-                .row 
-                    .col-lg-1.col-md-1.col-sm.1.col-xs-1
-                    .col-lg-4.col-md-4.col-sm.4.col-xs-8
-                        | Name 
-                    .col-lg-2.col-md-2.col-sm.2.col-xs-4 
-                        | Age       
-                .row 
-                    .col-lg-1.col-md-1.col-sm.1.col-xs-1 1 
-                    .col-lg-4.col-md-4.col-sm.4.col-xs-8
-                        = form.text_field :name, required: true, class: 'form-control'
-                    .col-lg-2.col-md-2.col-sm.2.col-xs-4 
-                        = form.number_field :age, required: true, class: 'form-control'        
-                .row 
-                    .col-lg-12.col-md-12.col-sm.12.col-xs-12
-                        h4 = "Let's Go, Math Hero!"
-                        = form.submit "Sign Up "
-        .card-footer
-            .footer-content
-                
+                        h3 Add up to 5 players 
+                        hr
+                        .row 
+                            .col-lg-1.col-md-1.col-sm.1.col-1
+                            .col-lg-4.col-md-4.col-sm.4.col-8 Name 
+                            .col-lg-2.col-md-2.col-sm.2.col-4 Age       
+                        .row 
+                            .col-lg-1.col-md-1.col-sm.1.col-1 1 
+                            .col-lg-4.col-md-4.col-sm.4.col-8
+                                = form.text_field :name, required: true, class: 'form-control'
+                            .col-lg-2.col-md-2.col-sm.2.col-4 
+                                = form.number_field :age, required: true, class: 'form-control'        
+                        .row 
+                            .col-lg-12.col-md-12.col-sm.12.col-12
+                                h4 = "Let's Go, Math Hero!"
+                                = form.submit "Sign Up "
+                .card-footer
+                    .footer-content 
+        .col-lg-3.col-md-3.col-sm-2
+                        
