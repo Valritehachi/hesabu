@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
         end
 
         Rails.logger.debug "User Fields #{user_fields}"
-        user = User.where(email: user_fields[:email].downcase).first
+        user = User.where(email: user_fields['email'].downcase).first
         unless user.present?
             flash[:error] = "user already exists."
             redirect_to :back
