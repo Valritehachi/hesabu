@@ -13,8 +13,8 @@ section.signup
                     = form_with url: '/profiles', method: 'post', html: { id: 'new_profile_form' } do |form|
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
-                                = form.label :username,'Pick A Cool Username:'
-                                = form.text_field "user[username]", required: true, class: 'form-control'
+                                = form.label :username,'Enter Your Email:'
+                                = form.text_field "user[email]", required: true, class: 'form-control'
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
                                 = form.label :password,'Create A Secret Password:'
