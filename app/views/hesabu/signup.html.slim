@@ -14,11 +14,11 @@ section.signup
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
                                 = form.label :username,'Pick A Cool Username:'
-                                = form.text_field :username, required: true, class: 'form-control'
+                                = form.text_field "user[:username]", required: true, class: 'form-control'
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
                                 = form.label :password,'Create A Secret Password:'
-                                = form.password_field :password, required: true, class: 'form-control'        
+                                = form.password_field "user[:password]", required: true, class: 'form-control'        
 
                         h3 Add up to 5 players 
                         hr
