@@ -7,8 +7,4 @@ class Player
 
   belongs_to :user
 
-  class player < ApplicationRecord
-    belongs_to :user
-  end
-  
 end
