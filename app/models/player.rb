@@ -6,4 +6,9 @@ class Player
   field :age, type: Integer
 
   belongs_to :user
+
+  class player < ApplicationRecord
+    belongs_to :user
+  end
+  
 end
