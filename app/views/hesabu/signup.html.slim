@@ -35,7 +35,11 @@ section.signup
                                         - else
                                             = form.text_field "players[][name]", id: "name_#{index}", class: 'form-control'
                                 .col-lg-2.col-md-2.col-sm.2.col-4 
-                                     = form.number_field "players[][age]", id: "age_#{index}", required: true, class: 'form-control'
+                                        - if index == 1
+                                            = form.number_field "players[][age]", id: "age_#{index}", required: true, class: 'form-control'
+                                        -else 
+                                            = form.number_field "players[][age]", id: "age_#{index}",  class: 'form-control'
+
                                      
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
