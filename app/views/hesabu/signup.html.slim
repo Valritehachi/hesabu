@@ -32,7 +32,12 @@ section.signup
                                 .col-lg-4.col-md-4.col-sm.4.col-7
                                     = form.text_field "players[][name]", id: "name_#{index}", required: true, class: 'form-control'
                                 .col-lg-2.col-md-2.col-sm.2.col-4 
-                                    = form.number_field "players[][age]", id: "age_#{index}", required: true, class: 'form-control'   
+                                    = form.number_field "players[][age]", id: "age_#{index}", required: true, class: 'form-control'  
+
+                                    - if index == 1
+                                    = form.text_field "players[][name]", id: "name_#{index}", required: true, class: 'form-control'
+                                    - else
+                                    = form.text_field "players[][name]", id: "name_#{index}", class: 'form-control' 
                                      
                         .row 
                             .col-lg-12.col-md-12.col-sm.12.col-12
@@ -41,8 +46,6 @@ section.signup
                 .card-footer
                     .footer-content 
         .col-lg-3.col-md-3.col-sm-2
-
-
 
 
 
