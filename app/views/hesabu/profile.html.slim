@@ -3,10 +3,11 @@ profile
 
 .info
     h2 Parent Information
-    =label_tag :Name ,'Name' 
-    input.input-field(type="Name" name="Name" placeholder="Enter your Name" size="20")
-    =label_tag :Name ,'email' input
-    input-field(type="email" name="email" placeholder="Enter your Email" size="20")
+    label(for="name") Name:
+    input(type="text" name="name" placeholder="Enter your Name" size="20")
+
+    label(for="email") Email:
+    input(type="email" name="email" placeholder="Enter your Email" size="20")
     
 .info
     h2 Child Player Information
