@@ -10,7 +10,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           li.nav-item
             a.nav-link(href = navitem['path']
               class = "#{active}"
-              ariaCurrent = "#{'page' if active == true}" )  = navitem['title']
+              aria-current = "#{'page' if active == true}" )  = navitem['title']
       form.d-flex
         input.form-control.me-2 type="search" placeholder="Search" aria-label="Search"
         button.btn.btn-outline-success type="submit" Search
