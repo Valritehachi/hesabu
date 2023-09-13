@@ -5,16 +5,12 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       span.navbar-toggler-icon
     .collapse.navbar-collapse#navbarScroll
       ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll style="--bs-scroll-height: 100px;"
-        li.nav-item
-          a.nav-link.active aria-current="page" href="#" Home
-        li.nav-item
-          a.nav-link href="/gameinstructions" Instructions  
-        li.nav-item
-          a.nav-link href="/login" Login
-        li.nav-item
-          a.nav-link href="/signup" Sign up
-        li.nav-item
-          a.nav-link href="/profile" Profile
+        - @pages.each do |pageid,navitem|
+          - active = (@current_page == pageid) ? 'active' : ''
+          li.nav-item
+            a.nav-link(href: navitem['path'],
+              class: "#{active}",
+              'aria-current': "#{'page' if active == true}")  = navitem['title']
       form.d-flex
         input.form-control.me-2 type="search" placeholder="Search" aria-label="Search"
         button.btn.btn-outline-success type="submit" Search
