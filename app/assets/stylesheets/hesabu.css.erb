@@ -299,15 +299,13 @@ section.settings {
 
 nav.navbar {
   background-color: blue !important;
-  li.nav-item {
-    a.nav-link {
-      color: white !important;
-      &:hover {
-        background-color: red !important;
-      }
-      &.active {
-        color: grey !important;
-      }
-    }
+  .nav-link {
+    color: white !important;
+  }
+  .nav-link.active {
+    color: gray !important;
+  }
+  .nav-link:hover {
+    background-color: red !important;
   }
 }
