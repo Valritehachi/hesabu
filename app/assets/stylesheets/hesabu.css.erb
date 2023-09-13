@@ -298,17 +298,15 @@ section.settings {
 }
 
 nav.navbar {
-  background-color: blue;
+  background-color: blue !important;
   li.nav-item {
-    a {
-      color: white;
-    }
     &:hover {
-      background-color: red;
+      background-color: red !important;
     }
-    &.active {
-      a {
-         color: grey;
+    a {
+      color: white !important;
+      &.active {
+        color: grey !important;
       }
     }
   }
