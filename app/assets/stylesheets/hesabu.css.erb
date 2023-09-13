@@ -298,17 +298,18 @@ section.settings {
 }
 
 nav.navbar {
-  background-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
-}
-
-nav.navbar:hover {
-  background-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
-}
-
-nav.navbar:disabled {
-  background-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
-}
-
-nav.navbar:active {
-  background-color: rgba(var(--bs-emphasis-color-rgb), 1);
+  background-color: blue;
+  li.nav-item {
+    a {
+      color: white;
+    }
+    &:hover {
+      background-color: red;
+    }
+    &.active {
+      a {
+         color: grey;
+      }
+    }
+  }
 }
