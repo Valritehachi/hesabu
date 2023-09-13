@@ -4,7 +4,7 @@ class HesabuController < ApplicationController
     def initialize
         super
         @current_page = 'home'
-        @pages = {
+        @left_nav = {
             "home" => {
                 "title" => "Home",
                 "path" => "/"
@@ -12,7 +12,9 @@ class HesabuController < ApplicationController
             "gameinstructions" => {
                 "title" => "Instructions",
                 "path" => "/gameinstructions"
-            },
+            }
+        }
+        @right_nav = {
             "login" => {
                 "title" => "Login",
                 "path" => "/login"

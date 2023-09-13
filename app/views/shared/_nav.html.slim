@@ -5,14 +5,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       span.navbar-toggler-icon
     .collapse.navbar-collapse#navbarScroll
       ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll style="--bs-scroll-height: 100px;"
-        - @pages.each do |pageid,navitem|
+        - @left_nav.each do |pageid,navitem|
           - active = (@current_page == pageid) ? 'active' : ''
           li.nav-item
             a.nav-link(href = navitem['path']
               class = "#{active}"
               aria-current = "#{'page' if active == true}" )  = navitem['title']
       form.d-flex
-        input.form-control.me-2 type="search" placeholder="Search" aria-label="Search"
-        button.btn.btn-outline-success type="submit" Search
+        ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll style="--bs-scroll-height: 100px;"
+          - @right_nav.each do |pageid,navitem|
+            - active = (@current_page == pageid) ? 'active' : ''
+            li.nav-item
+              a.nav-link(href = navitem['path']
+                class = "#{active}"
+                aria-current = "#{'page' if active == true}" )  = navitem['title']
 
 
