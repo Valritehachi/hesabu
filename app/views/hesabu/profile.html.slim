@@ -1,39 +1,45 @@
-profile
-    h1 Hesabu Game Profile
-.main-container
-    .info
-        h2 Parent Information
-        label(for="name") Name:
-        input(type="text" name="name" placeholder="Enter your Name" size="20")
-        br
+section.settings
+    .hesabu-title.text-center Hesabu Game Profile
+    .card
+            .card-header.text-center.bg-info.text-white
+                h3 Parent Information
+            .card-body
+                .row
+                    label(for="name") Name:
+                    input(type="text" name="name" placeholder="Enter your Name" size="20")
+                hr
+                .row
+                    label(for="email") Email:
+                    input(type="email" name="email" placeholder="Enter your Email" size="20")
+            hr
+        .card
+            .card-header.text-center.bg-info.text-white
+                h3 Player Information
+            .card-body
+                .row
+                    label(for="name") Name:
+                    input(type="text" name="name" placeholder="Enter your Name" size="20")
+                hr
+                .row
+                    label(for="age") Age:
+                    input(type="number" name="age" placeholder="Enter your Age" min="0" max="120")
+                .row 
+                    label(for="grade") Grade:
+                    input(type="text" name="grade" placeholder="Enter your Grade" size="20") 
 
-        label(for="email") Email:
-        input(type="email" name="email" placeholder="Enter your Email" size="20")
-        br
-        
-    .info
-        h2 Child Player Information
-        label(for="name") Name:
-        input(type="text" name="name" placeholder="Enter your Name" size="20")
-        br
+        .card
+            .card-header.text-center.bg-info.text-white
+                h3 Game Progress
+            .card-body
+            
+                Current Level: 
+                Total Points: 
+                Time Played: 
 
-        label(for="age") Age:
-        input(type="number" name="age" placeholder="Enter your Age" min="0" max="120")
-        br
-
-        label(for="grade") Grade:
-        input(type="text" name="grade" placeholder="Enter your Grade" size="20") 
-
-    .info
-        h2 Game Progress
-        p Current Level: 
-        p Total Points: 
-        p Time Played: 
-
-    .dropdown
-        h2 Add Player
-        label for="playerName" Name:
-        input type="text" id="playerName"
-        label for="playerAge" Age:
-        input type="text" id="playerAge"
-        button id="addPlayer" Add
+        .dropdown
+            h2 Add Player
+            label for="playerName" Name:
+            input type="text" id="playerName"
+            label for="playerAge" Age:
+            input type="text" id="playerAge"
+            button id="addPlayer" Add
