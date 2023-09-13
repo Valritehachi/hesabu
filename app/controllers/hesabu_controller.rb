@@ -63,5 +63,9 @@ class HesabuController < ApplicationController
 
     def reportbug
     end
+
+    def profile
+        @current_page = 'profile'
+    end
     
 end
