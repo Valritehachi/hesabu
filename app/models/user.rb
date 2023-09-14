@@ -35,7 +35,9 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
   has_many :players, dependent: :destroy
-
+  def  name
+    email.split('@').first
+  end
   
 end
 
