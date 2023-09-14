@@ -7,12 +7,12 @@ section.settings
             .card-body
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
-                        = form.label :name, 'Name'
+                        = form.label :name, "Name (#{current_user.name})"
                     .col-lg-10.col-md-10.col-sm-10.col-12
                         = form.text_field "user[name]", required: true, class: 'form-control'
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
-                        = form.label :email, 'Email'
+                        = form.label :email, "Email (#{current_user.email})"
                     .col-lg-10.col-md-10.col-sm-10.col-12
                          =form.text_field "user[email]", required: true, class: 'form-control'
         
@@ -20,16 +20,14 @@ section.settings
         .card-header.text-center.bg-info.text-white
             h3 Player Information
         .card-body
+        - (1..5).each do |player_number|
             .row
-                label(for="name") Name:
-                input(type="text" name="name" placeholder="Enter your Name" size="20")
+                label(for="playerName#{player_number}") Name:
+                input(type="text" name="playerName#{player_number}" placeholder="Enter Player #{player_number}'s Name")
             .row
-                label(for="age") Age:
-                input(type="number" name="age" placeholder="Enter your Age" min="0" max="120")
-            .row 
-                label(for="grade") Grade:
-                input(type="text" name="grade" placeholder="Enter your Grade" size="20") 
-
+                label(for="playerAge#{player_number}") Age:
+                input(type="number" name="playerAge#{player_number}" placeholder="Enter Player #{player_number}'s Age" min="0" max="120")
+            
     .card.hesabu-form-panel
         .card-header.text-center.bg-info.text-white
             h3 Game Progress
@@ -46,3 +44,7 @@ section.settings
         label for="playerAge" Age:
         input type="text" id="playerAge"
         button id="addPlayer" Add Player
+
+
+
+       
