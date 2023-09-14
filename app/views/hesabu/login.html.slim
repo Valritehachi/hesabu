@@ -2,12 +2,12 @@
 .login-container.shiny-gradient
   h2.title login
   = form_with url: "/login", method: 'post', html: { id: 'login_form' } do |form|
-  =label_tag :email ,'Email'
-  input.input-field(type="email" name="email" placeholder="Enter your email" size="20")
-  =label_tag :password ,'Password'
-  input.input-field(type="password" name="password" placeholder="Enter your password" size="20")
-  .buttons
-    a.btn.btn-primary.form-control href="/instructions" id='login' role="button" Login
+    = form.label :email, 'Email'
+    = form.text_field "user[email]", required: true, class: 'form-control'
+    = form.label :password, 'Password'
+    = form.password_field "user[password]", required: true, class: 'form-control'
+    .buttons
+      form.submit class="btn btn-primary form-control" role="button" Login
   
 .center-container
   a.btn.btn-primary href="/signup" id='signup' role="button" Sign Up
