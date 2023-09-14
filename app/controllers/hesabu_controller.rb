@@ -99,6 +99,7 @@ class HesabuController < ApplicationController
         if player_name.present?
             players << { name: player_name, age: player_age, }
         end
+    end
 
 
 
