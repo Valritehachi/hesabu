@@ -1,15 +1,20 @@
 section.settings
     .hesabu-title.text-center Hesabu Game Profile
-    .card.hesabu-form-panel
-        .card-header.text-center.bg-info.text-white
-            h3 Parent Information
-        .card-body
-            .row
-                label(for="name") Name:
-                input(type="text" name="name" placeholder="Enter your Name" size="10")
-            .row
-                label(for="email") Email:
-                input(type="email" name="email" placeholder="Enter your Email" size="20")
+    = form_with url: "/profiles/#{current_user&.id}", method: 'patch', html: { id: 'update_profile_form' } do |form|
+        .card.hesabu-form-panel
+            .card-header.text-center.bg-info.text-white
+                h3 Parent Information
+            .card-body
+                .row
+                    .col-lg-2.col-md-2.col-sm-2.col-12
+                        = form.label :name, 'Name'
+                    .col-lg-10.col-md-10.col-sm-10.col-12
+                        = form.text_field "user[name]", required: true, class: 'form-control'
+                .row
+                    .col-lg-2.col-md-2.col-sm-2.col-12
+                        = form.label :email, 'Email'
+                    .col-lg-10.col-md-10.col-sm-10.col-12
+                        = form.text_field "user[email]", required: true, class: 'form-control'
         
     .card.hesabu-form-panel
         .card-header.text-center.bg-info.text-white
