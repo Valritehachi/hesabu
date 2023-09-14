@@ -91,13 +91,15 @@ class HesabuController < ApplicationController
 
     end
 
-    def players = []
+    def players
+        @players = []
         (1..5).each do |player_number|
-        player_name = params["playerName#{player_number}"]
-        player_age = params["playerAge#{player_number}"]
-        
-        if player_name.present?
-            players << { name: player_name, age: player_age, }
+          player_name = params["playerName#{player_number}"]
+          player_age = params["playerAge#{player_number}"]
+          
+          if player_name.present?
+                @players << { name: player_name, age: player_age }
+          end
         end
     end
 end
