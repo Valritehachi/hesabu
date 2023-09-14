@@ -1,9 +1,9 @@
 .hesabu-title.text-center Welcome Back
 .login-container.shiny-gradient
   h2.title login
-  
-  =label_tag :username ,'Username'
-  input.input-field(type="username" name="username" placeholder="Enter your username" size="20")
+  = form_with url: "/login", method: 'post', html: { id: 'login_form' } do |form|
+  =label_tag :email ,'Email'
+  input.input-field(type="email" name="email" placeholder="Enter your email" size="20")
   =label_tag :password ,'Password'
   input.input-field(type="password" name="password" placeholder="Enter your password" size="20")
   .buttons
