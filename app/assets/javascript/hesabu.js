@@ -85,7 +85,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+$(document).ready(function () {
+  var maxPlayers = 5;
 
+  $("#add-player-button").click(function () {
+      var currentPlayers = $("#player-list .player").length;
+
+      if (currentPlayers < maxPlayers) {
+          // Create a new player element
+          var newPlayer = $("<div class='player'>Player " + (currentPlayers + 1) + "</div>");
+          $("#player-list").append(newPlayer);
+      } else {
+          alert("You've reached the maximum number of players (5)!");
+      }
+  });
+});
 
 
 
