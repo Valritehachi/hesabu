@@ -68,4 +68,6 @@ class HesabuController < ApplicationController
         @current_page = 'profile'
     end
     
+    def login_user
+    end
 end

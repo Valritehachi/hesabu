@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'hesabu#index'
   get '/index', to: 'hesabu#index'
   get '/login', to: 'hesabu#login'
+  post '/login', to: 'hesabu#login_user'
   get '/instructions', to: 'hesabu#instructions'
   get '/start', to: 'hesabu#start'
   get '/signup', to: 'hesabu#signup'
