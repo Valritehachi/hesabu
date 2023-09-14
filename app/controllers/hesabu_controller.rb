@@ -69,5 +69,15 @@ class HesabuController < ApplicationController
     end
     
     def login_user
+        user_params = params.require(:user).permit!
+        user = User.where(email: user_params['email']).first
+        unless user.present?
+            flash[:error] = "User does not exist."
+            return redirect_to  '/login'
+        end
+        unless user.valid_password?
+            flash[:error] = "incorrect password."
+            return redirect_to  '/login'
+        end
     end
 end
