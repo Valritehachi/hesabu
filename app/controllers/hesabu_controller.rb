@@ -80,5 +80,13 @@ class HesabuController < ApplicationController
             flash[:error] = "incorrect password."
             return redirect_to  '/login'
         end
+
+        sign_in(:user, user)
+        unless user_signed_in?
+            flash[:error] = "user not signed in."
+            return redirect_to  '/login'
+        end
+
+        redirect_to '/instructions'
     end
 end

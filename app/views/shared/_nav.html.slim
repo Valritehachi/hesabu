@@ -19,5 +19,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
               a.nav-link(href = navitem['path']
                 class = "#{active}"
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
-
+          - if current_user 
+            li.nav-item
+              = current_user.email
 
