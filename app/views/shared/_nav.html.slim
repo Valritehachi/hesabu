@@ -20,6 +20,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 class = "#{active}"
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
           - if current_user 
-            li.nav-item
-              = current_user.email
-
+            li.nav-item.logged-in-user
+              = "Hi #{current_user.email.split('@').first}!"
+              a.ml-5 href='/users/sign_out' = "[logout]"
