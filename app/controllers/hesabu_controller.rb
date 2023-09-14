@@ -75,7 +75,8 @@ class HesabuController < ApplicationController
             flash[:error] = "User does not exist."
             return redirect_to  '/login'
         end
-        unless user.valid_password?
+
+        unless user.valid_password?(user_params['password'])
             flash[:error] = "incorrect password."
             return redirect_to  '/login'
         end
