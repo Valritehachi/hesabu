@@ -21,5 +21,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
           - if current_user 
             li.nav-item.logged-in-user
-              = "Hi #{current_user.email.split('@').first}!"
-              a.ml-5 href='/users/sign_out' = "[logout]"
+              = "Hi #{current_user.email.split('@').first}! "
+              = link_to 'logout', destroy_user_session_path, method: :delete
