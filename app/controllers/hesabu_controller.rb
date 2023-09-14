@@ -100,6 +100,6 @@ class HesabuController < ApplicationController
             players << { name: player_name, age: player_age, }
         end
     end
-
+end
 
 
