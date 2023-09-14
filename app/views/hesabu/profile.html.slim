@@ -2,24 +2,22 @@ section.settings
     .hesabu-title.text-center Hesabu Game Profile
     .card.hesabu-form-panel
         .card-header.text-center.bg-info.text-white
-                h3 Parent Information
+            h3 Parent Information
         .card-body
             .row
                 label(for="name") Name:
                 input(type="text" name="name" placeholder="Enter your Name" size="10")
-            hr
             .row
                 label(for="email") Email:
                 input(type="email" name="email" placeholder="Enter your Email" size="20")
-            hr
-    .card
+        
+    .card.hesabu-form-panel
         .card-header.text-center.bg-info.text-white
             h3 Player Information
         .card-body
             .row
                 label(for="name") Name:
                 input(type="text" name="name" placeholder="Enter your Name" size="20")
-            hr
             .row
                 label(for="age") Age:
                 input(type="number" name="age" placeholder="Enter your Age" min="0" max="120")
@@ -27,7 +25,7 @@ section.settings
                 label(for="grade") Grade:
                 input(type="text" name="grade" placeholder="Enter your Grade" size="20") 
 
-    .card
+    .card.hesabu-form-panel
         .card-header.text-center.bg-info.text-white
             h3 Game Progress
         .card-body
