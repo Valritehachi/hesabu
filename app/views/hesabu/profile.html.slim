@@ -7,14 +7,14 @@ section.settings
             .card-body
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
-                        = form.label :name, "Name"
-                    .col-lg-10.col-md-10.col-sm-10.col-12
-                        = form.text_field "user[name]", value: current_user.name, required: true, class: 'form-control'
-                .row
-                    .col-lg-2.col-md-2.col-sm-2.col-12
                         = form.label :email, "Email"
                     .col-lg-10.col-md-10.col-sm-10.col-12
                         = form.text_field "user[email]", value: current_user.email, required: true, class: 'form-control'
+                .row
+                    .col-lg-2.col-md-2.col-sm-2.col-12
+                        = form.label :password, "Password"
+                    .col-lg-10.col-md-10.col-sm-10.col-12
+                        = form.text_field "user[password]", class: 'form-control'
         
         .card.hesabu-form-panel
             .card-header.text-center.bg-info.text-white
@@ -22,12 +22,12 @@ section.settings
             .card-body
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
-                        label(for="playerName") Name:
+                        label(for="playerName") Name
                     .col-lg-10.col-md-10.col-sm-10.col-12  
                         input(type="text" name="playerName" placeholder="Enter Player's Name")
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
-                        label(for="playerAge") Age:
+                        label(for="playerAge") Age
                     .col-lg-10.col-md-10.col-sm-10.col-12
                         input(type="number" name="playerAge" placeholder="Enter Player's Age" min="0" max="120")
             
