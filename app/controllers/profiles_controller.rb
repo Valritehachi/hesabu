@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
                 player_name = player_fields['name']
                 player_age  = player_fields['age']
                 Rails.logger.debug("PLAYER: #{player_fields}")
-                if player_id
+                if player_id.present?
                     player = @user.players.where(id: player_id).first
                     if player_name&.length > 0 
                         player.update(
@@ -67,7 +67,7 @@ class ProfilesController < ApplicationController
                         )
                     end
                 else 
-                    player = user.players.create(
+                    player = @user.players.create(
                         name: player_name,
                         age: player_age.to_i
                     )
