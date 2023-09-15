@@ -9,7 +9,7 @@ section.settings
                     .col-lg-2.col-md-2.col-sm-2.col-12
                         = form.label :email, "Email"
                     .col-lg-10.col-md-10.col-sm-10.col-12
-                        = form.text_field "user[email]", value: current_user.email, required: true, class: 'form-control'
+                        = form.text_field "user[email]", value: current_user&.email, required: true, class: 'form-control'
                 .row
                     .col-lg-2.col-md-2.col-sm-2.col-12
                         = form.label :password, "Password"
