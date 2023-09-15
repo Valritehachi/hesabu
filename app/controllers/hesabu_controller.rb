@@ -66,6 +66,12 @@ class HesabuController < ApplicationController
 
     def profile
         @current_page = 'profile'
+        @player_data = []
+        if current_user
+            @player_data = current_user.players.pluck(
+                :id, :name, :age
+            )
+        end
     end
     
     def login_user

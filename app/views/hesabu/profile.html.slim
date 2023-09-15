@@ -20,16 +20,28 @@ section.settings
             .card-header.text-center.bg-info.text-white
                 h3 Player Information
             .card-body
-                .row
-                    .col-lg-2.col-md-2.col-sm-2.col-12
-                        label(for="playerName") Name
-                    .col-lg-10.col-md-10.col-sm-10.col-12  
-                        input(type="text" name="playerName" placeholder="Enter Player's Name")
-                .row
-                    .col-lg-2.col-md-2.col-sm-2.col-12
-                        label(for="playerAge") Age
-                    .col-lg-10.col-md-10.col-sm-10.col-12
-                        input(type="number" name="playerAge" placeholder="Enter Player's Age" min="0" max="120")
+                .row 
+                    .col-lg-1.col-md-1.col-sm.1.col-1 #
+                    .col-lg-4.col-md-4.col-sm.4.col-7 Name 
+                    .col-lg-2.col-md-2.col-sm.2.col-4 Age   
+                        -  (1..5).each do |index|
+                            - player = @player_data.shift || []
+                            - player_id, player_name, player_age = player
+                            .row.mb-3 
+                                .col-lg-1.col-md-1.col-sm.1.col-1 = index 
+                                .col-lg-4.col-md-4.col-sm.4.col-7
+                                    = form.hidden_field "players[][id]", value: player_id
+                                    - if index == 1
+                                        = form.text_field "players[][name]", value: player_name, id: "name_#{index}", required: true, class: 'form-control'
+                                    - else
+                                        = form.text_field "players[][name]", value: player_name, id: "name_#{index}", class: 'form-control'
+                                .col-lg-2.col-md-2.col-sm.2.col-4 
+                                    - if index == 1
+                                        = form.number_field "players[][age]", value: player_age, id: "age_#{index}", required: true, class: 'form-control'
+                                    - else 
+                                        = form.number_field "players[][age]", value: player_age, id: "age_#{index}",  class: 'form-control'
+
+                          
             
         .card.hesabu-form-panel
             .card-header.text-center.bg-info.text-white
