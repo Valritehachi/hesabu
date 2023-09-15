@@ -24,7 +24,7 @@ section.settings
                     .col-lg-1.col-md-1.col-sm.1.col-1 #
                     .col-lg-4.col-md-4.col-sm.4.col-7 Name 
                     .col-lg-2.col-md-2.col-sm.2.col-4 Age   
-                        -  (1..5).each do |index|
+                        - (1..5).each do |index|
                             - player = @player_data.shift || []
                             - player_id, player_name, player_age = player
                             .row.mb-3 
