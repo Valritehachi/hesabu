@@ -30,7 +30,7 @@ section.settings
                     .row.mb-3 
                         .col-lg-1.col-md-1.col-sm.1.col-1 = counter 
                         .col-lg-4.col-md-4.col-sm.4.col-7
-                            = form.hidden_field "players[][id]", value: player_id
+                            = form.hidden_field "players[][id]", value: player_id, id: "id_#{counter}"
                             - if counter == 1
                                 = form.text_field "players[][name]", value: player_name, id: "name_#{counter}", required: true, class: 'form-control'
                             - else
@@ -40,25 +40,9 @@ section.settings
                                 = form.number_field "players[][age]", value: player_age, id: "age_#{counter}", required: true, class: 'form-control'
                             - else 
                                 = form.number_field "players[][age]", value: player_age, id: "age_#{counter}",  class: 'form-control'
-
+                = form.submit "Update Profile"
                           
-            
-        .card.hesabu-form-panel
-            .card-header.text-center.bg-info.text-white
-                h3 Game Progress
-            .card-body
-                
-                p Current Level: 
-                p Total Points: 
-                p Time Played: 
-
-    .dropdown
-        h2 Add Player
-        label for="playerName" Name:
-        input type="text" id="playerName"
-        label for="playerAge" Age:
-        input type="text" id="playerAge"
-        button id="addPlayer" Add Player
+        
 
 
 
