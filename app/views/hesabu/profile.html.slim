@@ -24,22 +24,22 @@ section.settings
                     .col-lg-1.col-md-1.col-sm.1.col-1 #
                     .col-lg-4.col-md-4.col-sm.4.col-7 Name 
                     .col-lg-2.col-md-2.col-sm.2.col-4 Age   
-                        - (1..5).each do |counter|
-                            - player = @player_data.shift || []
-                            - player_id, player_name, player_age = player
-                            .row.mb-3 
-                                .col-lg-1.col-md-1.col-sm.1.col-1 = counter 
-                                .col-lg-4.col-md-4.col-sm.4.col-7
-                                    = form.hidden_field "players[][id]", value: player_id
-                                    - if counter == 1
-                                        = form.text_field "players[][name]", value: player_name, id: "name_#{counter}", required: true, class: 'form-control'
-                                    - else
-                                        = form.text_field "players[][name]", value: player_name, id: "name_#{counter}", class: 'form-control'
-                                .col-lg-2.col-md-2.col-sm.2.col-4 
-                                    - if counter == 1
-                                        = form.number_field "players[][age]", value: player_age, id: "age_#{counter}", required: true, class: 'form-control'
-                                    - else 
-                                        = form.number_field "players[][age]", value: player_age, id: "age_#{counter}",  class: 'form-control'
+                - (1..5).each do |counter|
+                    - player = @player_data.shift || []
+                    - player_id, player_name, player_age = player
+                    .row.mb-3 
+                        .col-lg-1.col-md-1.col-sm.1.col-1 = counter 
+                        .col-lg-4.col-md-4.col-sm.4.col-7
+                            = form.hidden_field "players[][id]", value: player_id
+                            - if counter == 1
+                                = form.text_field "players[][name]", value: player_name, id: "name_#{counter}", required: true, class: 'form-control'
+                            - else
+                                = form.text_field "players[][name]", value: player_name, id: "name_#{counter}", class: 'form-control'
+                        .col-lg-2.col-md-2.col-sm.2.col-4 
+                            - if counter == 1
+                                = form.number_field "players[][age]", value: player_age, id: "age_#{counter}", required: true, class: 'form-control'
+                            - else 
+                                = form.number_field "players[][age]", value: player_age, id: "age_#{counter}",  class: 'form-control'
 
                           
             
