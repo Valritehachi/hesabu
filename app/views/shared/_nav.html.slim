@@ -20,17 +20,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 class = "#{active}"
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
           - if current_user 
-            li.nav-item.logged-in-user
-              .dropdown
-                button.btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-                  = "Hi #{current_user.email.split('@').first}! "
-                .dropdown-menu aria-labelledby="dropdownMenuButton"
-                  a.dropdown-item href="#"
-                    i.fa.fa-user.color-white.me-2 aria-hidden="true"
-                    | profile 
-                  a.dropdown-item href="#" 
-                    i.fa.fa-sign-out.color-white.me-2 aria-hidden="true"
-                    | logout
+            .dropdown.logged-in-user
+              button.btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+                = "Hi #{current_user.email.split('@').first}! "
+              .dropdown-menu aria-labelledby="dropdownMenuButton"
+                a.dropdown-item href="#"
+                  i.fa.fa-user.color-white.me-2 aria-hidden="true"
+                  | profile 
+                a.dropdown-item href="#" 
+                  i.fa.fa-sign-out.color-white.me-2 aria-hidden="true"
+                  | logout
                    
 
 
