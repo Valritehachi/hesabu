@@ -21,7 +21,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
           - if current_user 
             .dropdown.logged-in-user
-              button.btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+              button.btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false") 
                 = "Hi #{current_user.email.split('@').first}! "
               .dropdown-menu aria-labelledby="dropdownMenuButton"
                 a.dropdown-item href="#"
