@@ -24,10 +24,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             button.btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false") 
               = "Hi #{current_user.email.split('@').first}! "
             .dropdown-menu aria-labelledby="dropdownMenuButton"
-              a.dropdown-item href="#"
+              a.dropdown-item href="/profiles"
                 i.fa.fa-user.color-white.me-2 aria-hidden="true"
                 | profile 
-              a.dropdown-item href="#" 
+              a.dropdown-item.logout-link href="javascript:void(0);" 
                 i.fa.fa-sign-out.color-white.me-2 aria-hidden="true"
                 | logout
                    
