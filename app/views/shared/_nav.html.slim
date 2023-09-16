@@ -21,6 +21,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 aria-current = "#{'page' if active == true}" )  = navitem['title']
           - if current_user 
             li.nav-item.logged-in-user
-              = "Hi #{current_user.email.split('@').first}! "
-              a.logout-link href='#'
+              a.nav-link href="javascript:void();"
+                = "Hi #{current_user.email.split('@').first}! "
+              a.logout-link href='#' title="logout"
                 i.fa.fa-sign-out aria-hidden="true"
