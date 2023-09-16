@@ -41,31 +41,31 @@
   };
 
   Hesabu.prototype.ForceLogout = function()
-    {
-      var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-      console.log("Logging out....see ya!");
+  {
+    var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+    console.log("Logging out....see ya!");
 
-      $.ajax({
-         url: '/users/sign_out',
-         data: {
-              authenticity_token: AUTH_TOKEN
-         },
-         context: $(document),
-         cache: false,
-         type: 'DELETE',
-         dataType: 'json',
-         error: function (jqXHR,str)
-         {
-           console.log("ERROR: ", str);
-         },
-         success: function(data,textStatus,jqXHR)
-         {
-            window.location.href = window.location.href;
-         }
-       });
-    };
-
+    $.ajax({
+        url: '/users/sign_out',
+        data: {
+            authenticity_token: AUTH_TOKEN
+        },
+        context: $(document),
+        cache: false,
+        type: 'DELETE',
+        dataType: 'json',
+        error: function (jqXHR,str)
+        {
+          console.log("ERROR: ", str);
+        },
+        success: function(data,textStatus,jqXHR)
+        {
+          window.location.href = window.location.href;
+        }
+      });
   };
+
+
 
   window.Hesabu = new Hesabu();
 
