@@ -22,4 +22,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           - if current_user 
             li.nav-item.logged-in-user
               = "Hi #{current_user.email.split('@').first}! "
-              = link_to 'logout', destroy_user_session_path, method: :delete
+              a.logout-link href='#'
+                i.fa.fa-sign-out aria-hidden="true"
