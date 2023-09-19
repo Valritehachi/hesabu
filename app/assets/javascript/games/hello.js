@@ -35,7 +35,7 @@
     HelloGame = function() {
           this.config = {
             type: Phaser.CANVAS,
-            width: 800,
+            width: 1500,
             height: 600,
             canvas: null,
             transparent: true,
