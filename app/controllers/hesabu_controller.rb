@@ -22,10 +22,6 @@ class HesabuController < ApplicationController
             "signup" => {
                 "title" => "Sign Up",
                 "path" => "/signup"
-            },
-            "profile" => {
-                "title" => "Profile",
-                "path" => "/profile"
             }
         }
     end
