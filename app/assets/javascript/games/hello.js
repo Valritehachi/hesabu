@@ -38,6 +38,7 @@
             width: 800,
             height: 600,
             canvas: null,
+            transparent: true,
             physics: {
                 default: 'arcade',
                 arcade: {
