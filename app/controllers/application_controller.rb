@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     def initialize
+        super 
+        
         @current_page = 'home'
         @left_nav = {
             "home" => {
