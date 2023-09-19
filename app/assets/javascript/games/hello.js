@@ -24,7 +24,7 @@
     {
         // this gets called when the entire page is loaded
     
-        var canvas = document.getElementById('hello_canvas');
+        var canvas = document.getElementById('hello_game');
         window.HelloGame.config.canvas = canvas;
         var game = new Phaser.Game(window.HelloGame.config);
     };
