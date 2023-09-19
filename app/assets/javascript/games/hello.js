@@ -12,7 +12,7 @@
 
         create ()
         {
-            this.add.image(400, 300, 'sky');
+            //this.add.image(400, 300, 'sky');
 
             var particles = this.add.particles('red');
 
