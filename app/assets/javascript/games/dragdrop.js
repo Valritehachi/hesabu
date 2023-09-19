@@ -7,7 +7,7 @@ class Example extends Phaser.Scene
 
     preload ()
     {
-        //this.load.image('bg', 'assets/skies/gradient29.png');
+        this.load.image('bg', 'assets/skies/gradient29.png');
         this.load.image('char', 'assets/images/hesabu/number4.png');
     }
 
