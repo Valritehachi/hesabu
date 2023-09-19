@@ -64,7 +64,7 @@
         this.load.setBaseURL('http://labs.phaser.io');
 
         this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('number4', 'assets/hesabu/no4.JPG');
+        this.load.image('number4', 'assets/images/hesabu/number4.PNG');
         this.load.image('red', 'assets/particles/red.png');
     }
 
