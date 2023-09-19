@@ -2,7 +2,7 @@
 
     HelloGame = function() {
           this.config = {
-            type: Phaser.AUTO,
+            type: Phaser.CANVAS,
             width: 800,
             height: 600,
             canvas: null,
