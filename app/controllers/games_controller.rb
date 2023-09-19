@@ -7,4 +7,8 @@ class GamesController < ApplicationController
 
     def index
     end
+
+    def dragdrop
+    end
+    
 end

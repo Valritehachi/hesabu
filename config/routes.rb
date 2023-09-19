@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/reportbug', to: 'hesabu#reportbug'
   get '/profile', to: 'hesabu#profile'
   get '/games', to: 'games#index'
+  get '/games', to: 'games#dragdrop'
   resources :profiles
 end
