@@ -1,36 +1,36 @@
-class Example extends Phaser.Scene
-{
-    constructor()
-    {
-        super();
-    }
+// Commenting out the AudioContext creation
+//const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-    preload ()
-    {
-        this.load.image('bg', 'assets/skies/gradient29.png');
-        this.load.image('char', 'assets/images/hesabu/number4.png');
-    }
 
-    create ()
-    {
-        this.add.image(400, 300, 'bg');
+class Example extends Phaser.Scene {
+  constructor() {
+    super();
+  }
 
-        this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
+  preload() {
+    this.load.image('bg', 'assets/skies/gradient29.png');
+    this.load.image('char', 'assets/images/hesabu/number4.png');
+  }
 
-        const sprite = this.add.sprite(400, 300, 'char');
+  create() {
+    this.add.image(400, 300, 'bg');
 
-        sprite.setInteractive({ draggable: true });
+    this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
-        sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
-    }
+    const sprite = this.add.sprite(400, 300, 'char');
+
+    sprite.setInteractive({ draggable: true });
+
+    sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
+  }
 }
 
 const config = {
-    type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    parent: 'phaser-example',
-    scene: Example
+  type: Phaser.AUTO,
+  width: 800,
+  height: 600,
+  parent: 'phaser-example',
+  scene: Example
 };
 
 const game = new Phaser.Game(config);
