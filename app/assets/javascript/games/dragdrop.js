@@ -52,9 +52,11 @@ class Example extends Phaser.Scene {
                   gravity: { y: 200 }
               }
           },
-          scene: Example
-          
-          
+            scene: Example,
+            scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH // Center the canvas both horizontally and vertically
+            }
       };
   };
   
