@@ -30,10 +30,8 @@ class Example extends Phaser.Scene {
       sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
 
       this.time.addEvent({
-        delay: 10, // Adjust the delay as needed for the desired falling speed
-        callback: () => {
-            sprite.setPosition(sprite.x, sprite.y + 1); // Adjust the Y coordinate to control the falling speed
-        },
+        delay: 5, // Adjust the delay as needed
+        callback: createFallingNumber,
         loop: true
     });
     }
