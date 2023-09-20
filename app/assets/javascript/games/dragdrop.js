@@ -20,7 +20,7 @@ class Example extends Phaser.Scene {
   
     create() {
      // this.add.image(400, 300, 'bg');
-  
+        
       this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
   
       const sprite = this.add.sprite(180, 240, 'digit_0' ,);
@@ -30,11 +30,11 @@ class Example extends Phaser.Scene {
       sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
 
       this.time.addEvent({
-        delay: 2000, // Adjust the delay as needed
+        delay: 10, // Adjust the delay as needed
         callback: createFallingNumber,
         loop: true
         });
-        createFallingNumber();
+        
     }
   }
   
