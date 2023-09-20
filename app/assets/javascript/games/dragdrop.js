@@ -30,7 +30,7 @@ class Example extends Phaser.Scene {
       sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
     }
   }
-
+  
 DragDropGame = function() {
       this.config = {
         type: Phaser.CANVAS,
@@ -45,10 +45,8 @@ DragDropGame = function() {
             }
         },
         scene: Example
-        scale: {
-            mode: Phaser.Scale.FIT,
-            autoCenter: Phaser.Scale.CENTER_BOTH // Center the canvas
-        }
+        
+        
     };
 };
 
