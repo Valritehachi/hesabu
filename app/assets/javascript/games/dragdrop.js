@@ -19,28 +19,48 @@ class Example extends Phaser.Scene {
       }
     
       create() {
-       // this.add.image(400, 300, 'bg');
-    
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
     
-        const sprite = this.add.sprite(180, 240, 'digit_0' ,);
-    
+        const sprite = this.add.sprite(180, 240, 'digit_0');
         sprite.setInteractive({ draggable: true });
     
-        sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
-
+        // Create a flag to track if the sprite is in the target zone
+        let isSpriteInTargetZone = false;
+    
+        sprite.on('drag', (pointer, dragX, dragY) => {
+            sprite.setPosition(dragX, dragY);
+    
+            // Check if the sprite is in the target zone
+            if (Phaser.Geom.Intersects.RectangleToRectangle(sprite.getBounds(), targetZone.getBounds())) {
+                isSpriteInTargetZone = true;
+            } else {
+                isSpriteInTargetZone = false;
+            }
+        });
+    
+        // Create a target zone for dropping numbers
+        const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
+    
+        // Define what happens when a draggable sprite is dropped on the target zone
+        this.input.on('drop', function (pointer, gameObject, dropZone) {
+            if (dropZone === targetZone && isSpriteInTargetZone) {
+                // Handle correct drop, e.g., play a sound, increase score, etc.
+            } else {
+                // Handle incorrect drop, e.g., play a different sound, provide feedback, etc.
+            }
+        });
+    
         this.time.addEvent({
             delay: 10, // Adjust the delay as needed for the desired falling speed
             callback: () => {
-                sprite.setPosition(sprite.x, sprite.y + 1); // Adjust the Y coordinate to control the falling speed
+                // Only move the sprite downward if it's not in the target zone
+                if (!isSpriteInTargetZone) {
+                    sprite.setPosition(sprite.x, sprite.y + 1);
+                }
             },
             loop: true
         });
-
-        const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
-    
-        
-        };
+    }
     }
   
   DragDropGame = function() {
