@@ -16,6 +16,10 @@ class Example extends Phaser.Scene {
       this.load.image('digit_7', 'assets/images/bubble_digit_7.png');
       this.load.image('digit_8', 'assets/images/bubble_digit_8.png');
       this.load.image('digit_9', 'assets/images/bubble_digit_9.png');
+
+      for (let i = 0; i <= 9; i++) {
+        this.load.image(`digit_${i}`, `assets/images/bubble_digit_${i}.png`);
+        }
     }
   
     create() {
