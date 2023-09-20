@@ -31,7 +31,7 @@
       
           this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
       
-          const sprite = this.add.sprite(180, 240, 'digit_0');
+          const sprite = this.add.sprite(180, 240, 'digit_0' ,'digit_1');
       
           sprite.setInteractive({ draggable: true });
       
