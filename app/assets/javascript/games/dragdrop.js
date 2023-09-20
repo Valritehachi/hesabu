@@ -45,6 +45,10 @@ DragDropGame = function() {
             }
         },
         scene: Example
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH // Center the canvas
+        }
     };
 };
 
