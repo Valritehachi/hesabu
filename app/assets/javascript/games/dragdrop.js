@@ -16,9 +16,9 @@ class Example extends Phaser.Scene {
         this.load.image('digit_7', 'assets/images/bubble_digit_7.png');
         this.load.image('digit_8', 'assets/images/bubble_digit_8.png');
         this.load.image('digit_9', 'assets/images/bubble_digit_9.png');
-      }
+    }
     
-      create() {
+    create() {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
     
         const sprite = this.add.sprite(180, 240, 'digit_0');
@@ -38,8 +38,8 @@ class Example extends Phaser.Scene {
             }
         });
     
-        // Create a target zone for dropping numbers
-        const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
+        // Create a target zone for dropping numbers with a black fill color
+        const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200).setFill(0x000000);
     
         // Define what happens when a draggable sprite is dropped on the target zone
         this.input.on('drop', function (pointer, gameObject, dropZone) {
