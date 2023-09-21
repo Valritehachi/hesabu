@@ -29,26 +29,27 @@ class Example extends Phaser.Scene {
      
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
-         const sprite = this.add.sprite(180, 240, 'digit_0' ,);
+         this.sprite = this.add.sprite(180, 240, 'digit_0' ,);
      
-         sprite.setInteractive({ draggable: true });
+         this.sprite.setInteractive({ draggable: true });
      
-         sprite.on('drag', (pointer, dragX, dragY) => sprite.setPosition(dragX, dragY));
+         this.sprite.on('drag', (pointer, dragX, dragY) => this.sprite.setPosition(dragX, dragY));
  
          this.time.addEvent({
              delay: 10, // Adjust the delay as needed for the desired falling speed
              callback: () => {
-                 sprite.setPosition(sprite.x, sprite.y + 1); // Adjust the Y coordinate to control the falling speed
+                 this.sprite.setPosition(this.sprite.x, this.sprite.y + 1); // Adjust the Y coordinate to control the falling speed
              },
              loop: true
-            });
+        });
  
-            const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
+        //const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
          
-         };
-     
+        
+         this.physics.add.collider(this.sprite, this.ground); 
     }
-  
+};
+
   DragDropGame = function() {
         this.config = {
           type: Phaser.CANVAS,
