@@ -69,7 +69,7 @@ class Example extends Phaser.Scene {
          const digitSprites = [];
 
         // Load and create digit sprites
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 3; i++) {
             const digitSprite = this.physics.add.sprite(-100, 240, 'digit_' + i);
             digitSprite.setBounce(0.2);
             digitSprite.setCollideWorldBounds(true);
