@@ -35,7 +35,6 @@ class Example extends Phaser.Scene {
             this.sprite.setCollideWorldBounds(true);
          this.sprite.setInteractive({ draggable: true });
      
-         
 
         //  this.time.addEvent({
         //      delay: 10, // Adjust the delay as needed for the desired falling speed
@@ -71,10 +70,10 @@ class Example extends Phaser.Scene {
             if (index < digitSprites.length) {
                 const digitSprite = digitSprites[index];
                 this.time.delayedCall(1000, () => {
-                    digitSprite.x = Phaser.Math.Between(100, 900); // Random X position
+                    digitSprite.x = Phaser.Math.Between(100, 900); 
                     digitSprite.setActive(true).setVisible(true);
-                    digitSprite.setVelocityY(100); // Make the digit fall by applying velocity
-                    addDigitWithDelay(index + 1); // Call the function for the next digit
+                    digitSprite.setVelocityY(100); 
+                    addDigitWithDelay(index + 1); 
                 });
             }
         };
