@@ -46,6 +46,11 @@ class Example extends Phaser.Scene {
             this.sprite2.setCollideWorldBounds(true);
             this.sprite2.setInteractive({ draggable: true });
 
+            this.sprite3 = this.physics.add.sprite(780, 240, 'digit_3');
+            this.sprite3.setBounce(0.2);
+            this.sprite3.setCollideWorldBounds(true);
+            this.sprite3.setInteractive({ draggable: true });
+
         //  this.time.addEvent({
         //      delay: 10, // Adjust the delay as needed for the desired falling speed
         //      callback: () => {
@@ -61,21 +66,41 @@ class Example extends Phaser.Scene {
             console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
          }); 
 
-         // Shuffle the array to randomize the order of the digits
-            Phaser.Math.RND.shuffle(digitSprites);
+         const digitSprites = [];
+
+        // Load and create digit sprites
+        for (let i = 0; i <= 9; i++) {
+            const digitSprite = this.physics.add.sprite(-100, 240, 'digit_' + i);
+            digitSprite.setBounce(0.2);
+            digitSprite.setCollideWorldBounds(true);
+            digitSprite.setInteractive({ draggable: true });
+            digitSprites.push(digitSprite);
+        }
+
+        // Shuffle the array to randomize the order of the digits
+        Phaser.Math.RND.shuffle(digitSprites);
 
         // Create a function to add digits one by one with a delay
-            const addDigitWithDelay = (index) => {
-                if (index < digitSprites.length) {
-                    const digitSprite = digitSprites[index];
-                    this.time.delayedCall(1000, () => {
-                        digitSprite.x = Phaser.Math.Between(100, 900); // Random X position
-                        digitSprite.setActive(true).setVisible(true);
-                    });
-                }
-            };
+        const addDigitWithDelay = (index) => {
+            if (index < digitSprites.length) {
+                const digitSprite = digitSprites[index];
+                this.time.delayedCall(1000, () => {
+                    digitSprite.x = Phaser.Math.Between(100, 900); // Random X position
+                    digitSprite.setActive(true).setVisible(true);
+                    digitSprite.setVelocityY(100); // Make the digit fall by applying velocity
+                    addDigitWithDelay(index + 1); // Call the function for the next digit
+                });
             }
+        };
 
+        // Start adding digits with a delay
+        addDigitWithDelay(0);
+
+        // Handle collisions between digits and ground
+        this.physics.add.collider(digitSprites, this.ground, (digitSprite) => {
+            // Handle collisions here if needed
+        });
+    }
     update(){
         
     }
