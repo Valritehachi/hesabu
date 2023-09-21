@@ -32,7 +32,7 @@ class Example extends Phaser.Scene {
          
          //this.sprite.body.setGravity(300);
          //this.sprite.setBounce(0.2);
-           // this.sprite.setCollideWorldBounds(true);
+          //  this.sprite.setCollideWorldBounds(true);
          //this.sprite.setInteractive({ draggable: true });
      
 
@@ -47,9 +47,10 @@ class Example extends Phaser.Scene {
         //const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
          
         
-         this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
-            console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
-         }); 
+         //this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
+           // console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
+         //}); 
+
 
          const digitSprites = [];
 
@@ -61,6 +62,9 @@ class Example extends Phaser.Scene {
             digitSprite.setInteractive({ draggable: true });
             digitSprites.push(digitSprite);
         }
+            this.physics.add.collider(digit.sprite, this.ground,(sprite, ground) => {
+            console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
+         }); 
 
         // Shuffle the array to randomize the order of the digits
         Phaser.Math.RND.shuffle(digitSprites);
