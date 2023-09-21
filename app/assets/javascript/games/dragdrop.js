@@ -60,7 +60,21 @@ class Example extends Phaser.Scene {
          this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
             console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
          }); 
-    }
+
+         // Shuffle the array to randomize the order of the digits
+        Phaser.Math.RND.shuffle(digitSprites);
+
+        // Create a function to add digits one by one with a delay
+        const addDigitWithDelay = (index) => {
+            if (index < digitSprites.length) {
+                const digitSprite = digitSprites[index];
+                this.time.delayedCall(1000, () => {
+                    digitSprite.x = Phaser.Math.Between(100, 900); // Random X position
+                    digitSprite.setActive(true).setVisible(true);
+                });
+            }
+        };
+        }
 
     update(){
         
