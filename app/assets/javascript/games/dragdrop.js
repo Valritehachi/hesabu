@@ -34,6 +34,13 @@ class Example extends Phaser.Scene {
          this.sprite.setBounce(0.2);
             this.sprite.setCollideWorldBounds(true);
          this.sprite.setInteractive({ draggable: true });
+
+         this.sprite = this.physics.add.sprite(180, 340, 'digit_1',);
+         
+         this.sprite.body.setGravity(300);
+         this.sprite.setBounce(0.2);
+            this.sprite.setCollideWorldBounds(true);
+         this.sprite.setInteractive({ draggable: true });
      
 
         //  this.time.addEvent({
