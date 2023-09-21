@@ -23,88 +23,50 @@ class Example extends Phaser.Scene {
     }
     
     create() {
-       // this.ground = this.physics.add.staticGroup();
-        //this.ground.create(500, (600-45/2), 'ground').refreshBody();
-        //this.ground.body.immovable = true;
-         //this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
-     
-         //this.sprite = this.physics.add.sprite(180, 240, 'digit_0',);
-         
-         //this.sprite.body.setGravity(300);
-         //this.sprite.setBounce(0.2);
-          //  this.sprite.setCollideWorldBounds(true);
-         //this.sprite.setInteractive({ draggable: true });
+        this.ground = this.physics.add.staticGroup();
+        this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
+        this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
-         //this.sprite = this.physics.add.sprite(280, 440, 'digit_1',);
-         
-         //this.sprite.body.setGravity(300);
-         //this.sprite.setBounce(0.2);
-           // this.sprite.setCollideWorldBounds(true);
-         //this.sprite.setInteractive({ draggable: true });
-     
+        // Create the bucket
+        this.bucket = this.physics.add.image(900, 400, 'bucket');
+        this.bucket.setCollideWorldBounds(true);
+        this.bucket.setBounce(0.2);
 
-        //  this.time.addEvent({
-        //      delay: 10, // Adjust the delay as needed for the desired falling speed
-        //      callback: () => {
-        //          this.sprite.setPosition(this.sprite.x, this.sprite.y + 1); // Adjust the Y coordinate to control the falling speed
-        //      },
-        //      loop: true
-        // });
- 
-        //const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
-         
-        
-         //this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
-           //console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
-         //}); 
+        const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
+        // Shuffle the array to randomize the order of digit indices
+        Phaser.Utils.Array.Shuffle(digitIndices);
 
+        const digitSprites = [];
+
+        // Define a function to add a digit
+        const addDigit = (x, digitIndex) => {
+            const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+            digitSprite.setBounce(0.4);
+            digitSprite.setCollideWorldBounds(true);
+            digitSprite.setInteractive({ draggable: true });
+
+            // Add drag functionality to the digit sprite
+            this.input.setDraggable(digitSprite);
+
+            // Handle collisions between the digit and the ground
+            this.physics.add.collider(digitSprite, this.ground);
+
+            digitSprites.push(digitSprite);
+
+            // Check if there are more digits to add
+            if (digitIndex < 9) {
+                // Emit an event to add the next digit after a delay
+                this.time.delayedCall(2000, () => {
+                    addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
+                });
+            }
+        };
+
+        // Start adding digits with the first digit
+        addDigit(Phaser.Math.Between(100, 900), 0);
+    }
     
-         this.ground = this.physics.add.staticGroup();
-         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
-         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
- 
-            // Create the bucket
-            this.bucket = this.physics.add.image(100, 400, 'bucket');
-            this.bucket.setCollideWorldBounds(true);
-            this.bucket.setBounce(0.2);
-
-         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
- 
-         // Shuffle the array to randomize the order of digit indices
-         Phaser.Utils.Array.Shuffle(digitIndices);
- 
-         // Create an array to hold the digit sprites
-         const digitSprites = [];
- 
-         // Define a function to add a digit
-         const addDigit = (x, digitIndex) => {
-             const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-             digitSprite.setBounce(0.4);
-             digitSprite.setCollideWorldBounds(true);
-             digitSprite.setInteractive({ draggable: true });
-             
- 
-             // Add drag functionality to the digit sprite
-             this.input.setDraggable(digitSprite);
- 
-             // Handle collisions between the digit and the ground
-             this.physics.add.collider(digitSprite, this.ground);
- 
-             digitSprites.push(digitSprite);
- 
-             // Check if there are more digits to add
-             if (digitIndex < 9) {
-                 // Emit an event to add the next digit after a delay
-                 this.time.delayedCall(2000, () => {
-                     addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
-                 });
-             }
-         };
-         
-         // Start adding digits with the first digit
-         addDigit(Phaser.Math.Between(100, 900), 0);
-     }
     update(){
         
     }
@@ -130,8 +92,7 @@ class Example extends Phaser.Scene {
   
   DragDropGame.prototype.InitInterface = function()
   {
-      // this gets called when the entire page is loaded
-  
+
       var canvas = document.getElementById('hello_game');
       window.DragDropGame.config.canvas = canvas;
       var game = new Phaser.Game(window.DragDropGame.config);
