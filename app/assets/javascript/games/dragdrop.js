@@ -64,6 +64,11 @@ class Example extends Phaser.Scene {
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
+        const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
+
+        // Shuffle the array to randomize the order of digit indices
+        Phaser.Utils.Array.Shuffle(digitIndices);
+
         // Create an array to hold the digit sprites
         const digitSprites = [];
 
@@ -74,6 +79,11 @@ class Example extends Phaser.Scene {
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive({ draggable: true });
 
+            // Make the digit sprite draggable
+            digitSprite.setInteractive({ draggable: true });
+
+            // Add drag functionality to the digit sprite
+            this.input.setDraggable(digitSprite);
             // Handle collisions between the digit and the ground
             this.physics.add.collider(digitSprite, this.ground);
 
@@ -91,15 +101,6 @@ class Example extends Phaser.Scene {
             // Start adding digits with the first digit
             addDigit(Phaser.Math.Between(100, 900), 0);
         }
-
-        // Start adding digits with a delay
-        //addDigitWithDelay(0);
-
-        // Handle collisions between digits and ground
-        //this.physics.add.collider(digitSprites, this.ground, (digitSprite) => {
-            // Handle collisions here if needed
-       // });
-    //}
     update(){
         
     }
