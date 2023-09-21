@@ -26,7 +26,7 @@ class Example extends Phaser.Scene {
     create() {
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600-45/2), 'ground').refreshBody();
-     
+        this.ground.body.immovable = true;
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
          this.sprite = this.add.sprite(180, 240, 'digit_0' ,);
@@ -35,18 +35,24 @@ class Example extends Phaser.Scene {
      
          this.sprite.on('drag', (pointer, dragX, dragY) => this.sprite.setPosition(dragX, dragY));
  
-         this.time.addEvent({
-             delay: 10, // Adjust the delay as needed for the desired falling speed
-             callback: () => {
-                 this.sprite.setPosition(this.sprite.x, this.sprite.y + 1); // Adjust the Y coordinate to control the falling speed
-             },
-             loop: true
-        });
+        //  this.time.addEvent({
+        //      delay: 10, // Adjust the delay as needed for the desired falling speed
+        //      callback: () => {
+        //          this.sprite.setPosition(this.sprite.x, this.sprite.y + 1); // Adjust the Y coordinate to control the falling speed
+        //      },
+        //      loop: true
+        // });
  
         //const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
          
         
-         this.physics.add.collider(this.sprite, this.ground); 
+         this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
+            console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
+         }); 
+    }
+
+    update(){
+        
     }
 };
 
@@ -60,7 +66,8 @@ class Example extends Phaser.Scene {
           physics: {
               default: 'arcade',
               arcade: {
-                  gravity: { y: 200 }
+                  gravity: { y: 200 },
+                  debug: true
               }
           },
           scene: Example
