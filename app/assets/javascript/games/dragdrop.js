@@ -16,10 +16,16 @@ class Example extends Phaser.Scene {
         this.load.image('digit_7', 'assets/images/bubble_digit_7.png');
         this.load.image('digit_8', 'assets/images/bubble_digit_8.png');
         this.load.image('digit_9', 'assets/images/bubble_digit_9.png');
+
+        this.load.image('ground', 'assets/images/ground_1920x45.png');
+        this.load.image('bucket', 'assets/images/purple_bucket.png');
+
+
     }
     
     create() {
-        // this.add.image(400, 300, 'bg');
+        this.ground = this.physics.add.staticGroup();
+        this.ground.create(500, (600-45/2), 'ground').refreshBody();
      
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
