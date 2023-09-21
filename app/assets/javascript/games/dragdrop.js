@@ -30,7 +30,9 @@ class Example extends Phaser.Scene {
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
          this.sprite = this.physics.add.sprite(180, 240, 'digit_0' ,);
-         this.sprite.body.setGravity(300);
+         //this.sprite.body.setGravity(300);
+         this.sprite.setBounce(0.2);
+            this.sprite.setCollideWorldBounds(true);
          this.sprite.setInteractive({ draggable: true });
      
          this.sprite.on('drag', (pointer, dragX, dragY) => this.sprite.setPosition(dragX, dragY));
