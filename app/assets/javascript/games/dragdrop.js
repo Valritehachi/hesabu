@@ -35,21 +35,7 @@ class Example extends Phaser.Scene {
             this.sprite.setCollideWorldBounds(true);
          this.sprite.setInteractive({ draggable: true });
      
-         this.sprite.on('drag', (pointer, dragX, dragY) => this.sprite.setPosition(dragX, dragY));
-            this.sprite1 = this.physics.add.sprite(580, 240, 'digit_1');
-            this.sprite1.setBounce(0.2);
-            this.sprite1.setCollideWorldBounds(true);
-            this.sprite1.setInteractive({ draggable: true });
-
-            this.sprite2 = this.physics.add.sprite(380, 240, 'digit_2');
-            this.sprite2.setBounce(0.2);
-            this.sprite2.setCollideWorldBounds(true);
-            this.sprite2.setInteractive({ draggable: true });
-
-            this.sprite3 = this.physics.add.sprite(780, 240, 'digit_3');
-            this.sprite3.setBounce(0.2);
-            this.sprite3.setCollideWorldBounds(true);
-            this.sprite3.setInteractive({ draggable: true });
+         
 
         //  this.time.addEvent({
         //      delay: 10, // Adjust the delay as needed for the desired falling speed
