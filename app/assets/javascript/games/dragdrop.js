@@ -70,7 +70,7 @@ class Example extends Phaser.Scene {
         // Define a function to add a digit
         const addDigit = (x, digitIndex) => {
             const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndex);
-            digitSprite.setBounce(0.2);
+            digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive({ draggable: true });
 
@@ -82,7 +82,7 @@ class Example extends Phaser.Scene {
             // Check if there are more digits to add
             if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
-                this.time.delayedCall(1000, () => {
+                this.time.delayedCall(2000, () => {
                     addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
                 });
             }
