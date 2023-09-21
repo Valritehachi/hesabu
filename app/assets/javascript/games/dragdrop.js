@@ -36,7 +36,11 @@ class Example extends Phaser.Scene {
          this.sprite.setInteractive({ draggable: true });
      
          this.sprite.on('drag', (pointer, dragX, dragY) => this.sprite.setPosition(dragX, dragY));
- 
+        
+            this.sprite2 = this.physics.add.sprite(280, 240, 'digit_2');
+            this.sprite2.setBounce(0.2);
+            this.sprite2.setCollideWorldBounds(true);
+            
         //  this.time.addEvent({
         //      delay: 10, // Adjust the delay as needed for the desired falling speed
         //      callback: () => {
