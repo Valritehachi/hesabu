@@ -27,7 +27,7 @@ class Example extends Phaser.Scene {
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
-        // Create the bucket
+        //Create the bucket
         this.bucket = this.physics.add.image(900, 400, 'bucket');
         this.bucket.setCollideWorldBounds(true);
         this.bucket.setBounce(0.2);
@@ -66,7 +66,7 @@ class Example extends Phaser.Scene {
         // Start adding digits with the first digit
         addDigit(Phaser.Math.Between(100, 900), 0);
     }
-    
+
     update(){
         
     }
