@@ -20,7 +20,6 @@ class Example extends Phaser.Scene {
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
 
-
     }
     
     create() {
@@ -30,7 +29,7 @@ class Example extends Phaser.Scene {
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
          this.sprite = this.physics.add.sprite(180, 240, 'digit_0',);
-         this.sprite = this.physics.add.sprite(180, 240, 'digit_1',);
+         
          //this.sprite.body.setGravity(300);
          this.sprite.setBounce(0.2);
             this.sprite.setCollideWorldBounds(true);
