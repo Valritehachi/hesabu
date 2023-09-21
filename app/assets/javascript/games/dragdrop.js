@@ -64,6 +64,11 @@ class Example extends Phaser.Scene {
          this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
  
+            // Create the bucket
+            this.bucket = this.physics.add.image(100, 400, 'bucket');
+            this.bucket.setCollideWorldBounds(true);
+            this.bucket.setBounce(0.2);
+
          const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
  
          // Shuffle the array to randomize the order of digit indices
@@ -96,7 +101,7 @@ class Example extends Phaser.Scene {
                  });
              }
          };
- 
+         
          // Start adding digits with the first digit
          addDigit(Phaser.Math.Between(100, 900), 0);
      }
@@ -119,12 +124,9 @@ class Example extends Phaser.Scene {
                   debug: true
               }
           },
-          scene: Example
-          
-          
+          scene: Example 
       };
   };
-  
   
   DragDropGame.prototype.InitInterface = function()
   {
