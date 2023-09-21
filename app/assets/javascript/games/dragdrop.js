@@ -60,47 +60,47 @@ class Example extends Phaser.Scene {
 
 
     
-        this.ground = this.physics.add.staticGroup();
-        this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
-        this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
-
-        const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
-
-        // Shuffle the array to randomize the order of digit indices
-        Phaser.Utils.Array.Shuffle(digitIndices);
-
-        // Create an array to hold the digit sprites
-        const digitSprites = [];
-
-        // Define a function to add a digit
-        const addDigit = (x, digitIndex) => {
-            const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndex);
-            digitSprite.setBounce(0.4);
-            digitSprite.setCollideWorldBounds(true);
-            digitSprite.setInteractive({ draggable: true });
-
-            // Make the digit sprite draggable
-            digitSprite.setInteractive({ draggable: true });
-
-            // Add drag functionality to the digit sprite
-            this.input.setDraggable(digitSprite);
-            // Handle collisions between the digit and the ground
-            this.physics.add.collider(digitSprite, this.ground);
-
-            digitSprites.push(digitSprite);
-
-            // Check if there are more digits to add
-            if (digitIndex < 9) {
-                // Emit an event to add the next digit after a delay
-                this.time.delayedCall(2000, () => {
-                    addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
-                });
-            }
-        };
-    
-            // Start adding digits with the first digit
-            addDigit(Phaser.Math.Between(100, 900), 0);
-        }
+         this.ground = this.physics.add.staticGroup();
+         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
+         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
+ 
+         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
+ 
+         // Shuffle the array to randomize the order of digit indices
+         Phaser.Utils.Array.Shuffle(digitIndices);
+ 
+         // Create an array to hold the digit sprites
+         const digitSprites = [];
+ 
+         // Define a function to add a digit
+         const addDigit = (x, digitIndex) => {
+             const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+             digitSprite.setBounce(0.4);
+             digitSprite.setCollideWorldBounds(true);
+ 
+             // Make the digit sprite draggable
+             digitSprite.setInteractive({ draggable: true });
+ 
+             // Add drag functionality to the digit sprite
+             this.input.setDraggable(digitSprite);
+ 
+             // Handle collisions between the digit and the ground
+             this.physics.add.collider(digitSprite, this.ground);
+ 
+             digitSprites.push(digitSprite);
+ 
+             // Check if there are more digits to add
+             if (digitIndex < 9) {
+                 // Emit an event to add the next digit after a delay
+                 this.time.delayedCall(2000, () => {
+                     addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
+                 });
+             }
+         };
+ 
+         // Start adding digits with the first digit
+         addDigit(Phaser.Math.Between(100, 900), 0);
+     }
     update(){
         
     }
