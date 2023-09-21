@@ -23,24 +23,24 @@ class Example extends Phaser.Scene {
     }
     
     create() {
-        this.ground = this.physics.add.staticGroup();
-        this.ground.create(500, (600-45/2), 'ground').refreshBody();
+       // this.ground = this.physics.add.staticGroup();
+        //this.ground.create(500, (600-45/2), 'ground').refreshBody();
         //this.ground.body.immovable = true;
-         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
+         //this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
-         this.sprite = this.physics.add.sprite(180, 240, 'digit_0',);
+         //this.sprite = this.physics.add.sprite(180, 240, 'digit_0',);
          
-         this.sprite.body.setGravity(300);
-         this.sprite.setBounce(0.2);
-            this.sprite.setCollideWorldBounds(true);
-         this.sprite.setInteractive({ draggable: true });
+         //this.sprite.body.setGravity(300);
+         //this.sprite.setBounce(0.2);
+          //  this.sprite.setCollideWorldBounds(true);
+         //this.sprite.setInteractive({ draggable: true });
 
-         this.sprite = this.physics.add.sprite(280, 440, 'digit_1',);
+         //this.sprite = this.physics.add.sprite(280, 440, 'digit_1',);
          
-         this.sprite.body.setGravity(300);
-         this.sprite.setBounce(0.2);
-            this.sprite.setCollideWorldBounds(true);
-         this.sprite.setInteractive({ draggable: true });
+         //this.sprite.body.setGravity(300);
+         //this.sprite.setBounce(0.2);
+           // this.sprite.setCollideWorldBounds(true);
+         //this.sprite.setInteractive({ draggable: true });
      
 
         //  this.time.addEvent({
@@ -54,53 +54,56 @@ class Example extends Phaser.Scene {
         //const targetZone = this.add.zone(500, 300, 200, 200).setRectangleDropZone(200, 200);
          
         
-         this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
-           console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
-         }); 
+         //this.physics.add.collider(this.sprite, this.ground,(sprite, ground) => {
+           //console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
+         //}); 
 
 
-         const digitSprites = [];
+    
+        this.ground = this.physics.add.staticGroup();
+        this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
+        this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
-        // Load and create digit sprites
-        for (let i = 0; i <= 2; i++) {
-            const digitSprite = this.physics.add.sprite(-100, 240, 'digit_' + i);
+        // Create an array to hold the digit sprites
+        const digitSprites = [];
+
+        // Define a function to add a digit
+        const addDigit = (x, digitIndex) => {
+            const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndex);
             digitSprite.setBounce(0.2);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive({ draggable: true });
+
+            // Handle collisions between the digit and the ground
+            this.physics.add.collider(digitSprite, this.ground);
+
             digitSprites.push(digitSprite);
-        }
-            this.physics.add.collider(digit.sprite, this.ground,(sprite, ground) => {
-            console.log('colliding','sprite',sprite.body.velocity,'ground',ground.body.velocity);
-         }); 
 
-        // Shuffle the array to randomize the order of the digits
-        Phaser.Math.RND.shuffle(digitSprites);
-
-        // Create a function to add digits one by one with a delay
-        const addDigitWithDelay = (index) => {
-            if (index < digitSprites.length) {
-                const digitSprite = digitSprites[index];
+            // Check if there are more digits to add
+            if (digitIndex < 9) {
+                // Emit an event to add the next digit after a delay
                 this.time.delayedCall(1000, () => {
-                    digitSprite.x = Phaser.Math.Between(100, 900); 
-                    digitSprite.setActive(true).setVisible(true);
-                    digitSprite.setVelocityY(100); 
-                    addDigitWithDelay(index + 1); 
+                    addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
                 });
             }
         };
+    
+            // Start adding digits with the first digit
+            addDigit(Phaser.Math.Between(100, 900), 0);
+        }
 
         // Start adding digits with a delay
-        addDigitWithDelay(0);
+        //addDigitWithDelay(0);
 
         // Handle collisions between digits and ground
-        this.physics.add.collider(digitSprites, this.ground, (digitSprite) => {
+        //this.physics.add.collider(digitSprites, this.ground, (digitSprite) => {
             // Handle collisions here if needed
-        });
-    }
+       // });
+    //}
     update(){
         
     }
-};
+}
 
   DragDropGame = function() {
         this.config = {
