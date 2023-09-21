@@ -28,9 +28,9 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
 
         //Create the bucket
-        this.bucket = this.physics.add.image(900, 400, 'bucket');
-        this.bucket.setCollideWorldBounds(true);
-        this.bucket.setBounce(0.2);
+        //this.bucket = this.physics.add.image(900, 400, 'bucket');
+        //this.bucket.setCollideWorldBounds(true);
+        //this.bucket.setBounce(0.2);
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
