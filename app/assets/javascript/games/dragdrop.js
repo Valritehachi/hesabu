@@ -26,7 +26,7 @@ class Example extends Phaser.Scene {
     create() {
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600-45/2), 'ground').refreshBody();
-        this.ground.body.immovable = true;
+        //this.ground.body.immovable = true;
          this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
      
          this.sprite = this.add.sprite(180, 240, 'digit_0' ,);
