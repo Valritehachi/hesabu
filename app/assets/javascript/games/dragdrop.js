@@ -38,11 +38,16 @@ class Example extends Phaser.Scene {
         Phaser.Utils.Array.Shuffle(digitIndices);
 
         const digitSprites = [];
-
+        const spriteX = [];
+        const slotWidth = 1000/10;
+        for(const i=0;i<9;i++){
+            spriteX[i] = i * slotWidth;
+        }
         // Define a function to add a digit
         const game = this;
         const addDigit = (x, digitIndex) => {
-            const digitSprite = game.physics.add.sprite(x, 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+            
+            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
@@ -56,7 +61,7 @@ class Example extends Phaser.Scene {
             digitSprites.push(digitSprite);
 
             // Check if there are more digits to add
-            if (digitIndex < 2) {
+            if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
                 game.time.delayedCall(2000, () => {
                     addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
@@ -65,7 +70,8 @@ class Example extends Phaser.Scene {
         };
 
         // Start adding digits with the first digit
-        addDigit(Phaser.Math.Between(100, 900), 0);
+        // Phaser.Math.Between(100, 900)
+        addDigit(0, 0);
     }
 
     update(){
