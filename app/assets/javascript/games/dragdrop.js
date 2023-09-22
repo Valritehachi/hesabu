@@ -43,6 +43,7 @@ class Example extends Phaser.Scene {
         for(let i=0;i<10;i++){
             spriteX[i] = i * slotWidth;
         }
+
         // Define a function to add a digit
         const game = this;
         const addDigit = (x, digitIndex) => {
@@ -51,7 +52,7 @@ class Example extends Phaser.Scene {
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
-            digitSprite.setScale(.25);
+            digitSprite.setScale(.25).refreshBody();
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
             game.input.setDraggable(digitSprite);
