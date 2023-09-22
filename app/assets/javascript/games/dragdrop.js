@@ -38,16 +38,16 @@ class Example extends Phaser.Scene {
         Phaser.Utils.Array.Shuffle(digitIndices);
 
         const digitSprites = [];
-        const digitSprite = this.physics.add.sprite( 200, 240, 'digit_0'); // Use shuffled index
-        digitSprite.setBounce(0.4);
-        digitSprite.setCollideWorldBounds(true);
-        digitSprite.setInteractive();
+        this.digitSprite = this.physics.add.sprite( 200, 240, 'digit_0'); // Use shuffled index
+        this.digitSprite.setBounce(0.4);
+        this.digitSprite.setCollideWorldBounds(true);
+        this.digitSprite.setInteractive();
 
         // Add drag functionality to the digit sprite
-        this.input.setDraggable(digitSprite);
+        this.input.setDraggable(this.digitSprite);
 
         // Handle collisions between the digit and the ground
-        this.physics.add.collider(digitSprite, this.ground);
+        this.physics.add.collider(this.digitSprite, this.ground);
         return;
 
         // Define a function to add a digit
