@@ -42,6 +42,7 @@ class Example extends Phaser.Scene {
         this.digitSprite.setBounce(0.4);
         this.digitSprite.setCollideWorldBounds(true);
         this.digitSprite.setInteractive();
+        this.digitSprite.on('drag', (pointer, dragX, dragY) => this.digitSprite.setPosition(dragX, dragY));
 
         // Add drag functionality to the digit sprite
         this.input.setDraggable(this.digitSprite);
