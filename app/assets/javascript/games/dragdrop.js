@@ -40,7 +40,7 @@ class Example extends Phaser.Scene {
         const digitSprites = [];
         const spriteX = [];
         const slotWidth = 1000/10;
-        for(let i=0;i<9;i++){
+        for(let i=0;i<10;i++){
             spriteX[i] = i * slotWidth;
         }
         // Define a function to add a digit
