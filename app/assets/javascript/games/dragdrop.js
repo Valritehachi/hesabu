@@ -44,7 +44,7 @@ class Example extends Phaser.Scene {
             const digitSprite = this.physics.add.sprite(x, 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
-            digitSprite.setInteractive({ draggable: true });
+            digitSprite.setInteractive();
 
             // Add drag functionality to the digit sprite
             this.input.setDraggable(digitSprite);
