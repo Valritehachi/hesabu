@@ -56,7 +56,7 @@ class Example extends Phaser.Scene {
             digitSprites.push(digitSprite);
 
             // Check if there are more digits to add
-            if (digitIndex < 2) {
+            if (digitIndex < 0) {
                 // Emit an event to add the next digit after a delay
                 game.time.delayedCall(2000, () => {
                     addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
