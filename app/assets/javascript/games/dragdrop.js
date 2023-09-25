@@ -40,7 +40,15 @@ class Example extends Phaser.Scene {
             -10,-10,
             -10,-60,
              10,-60,
-             10,-10
+             10,-10,
+             60,-10,
+             60, 10,
+             10,10,
+             10,60,
+             -10,60,
+             -10,10,
+             -60,10,
+             -60,-10
         ];
         const r1 = this.add.polygon(300, 310, data, 0x6666ff);
         r1.setStrokeStyle(4, 0xefc53f);
