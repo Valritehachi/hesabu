@@ -28,7 +28,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(100, 310, 200, 20, 0xff66ff);
+        const rect = this.add.rectangle(100, 310, 150, 20, 0xff66ff);
         this.platforms.add(rect);
         //x       =====  
         //       =   =
@@ -52,10 +52,14 @@ class Example extends Phaser.Scene {
         ];
     
         //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(300, 310, data, 0x6666ff);
+        const r1 = this.add.polygon(250, 310, data, 0x6666ff);
 
         r1.setStrokeStyle(4, 0xefc53f);
         this.platforms.add(r1);
+
+        this.platforms = this.physics.add.staticGroup();
+        const rect1 = this.add.rectangle(100, 310, 150, 20, 0xff66ff);
+        this.platforms.add(rect1);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
