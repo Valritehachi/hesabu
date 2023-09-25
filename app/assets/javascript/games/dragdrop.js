@@ -57,12 +57,12 @@ class Example extends Phaser.Scene {
         r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
         
-        const rect2 = this.add.rectangle(400, 310, 150, 20, 0xff66ff);
-        this.platforms.add(rect2);
+        const rect1 = this.add.rectangle(400, 310, 150, 20, 0xff66ff);
+        this.platforms.add(rect1);
 
         // the equal sign 
-        const rect1 = this.add.rectangle(500, 290, 40, 20, 0x6666ff);
-        rect1.setStrokeStyle(4, 0xefc53f); 
+        const rect2 = this.add.rectangle(500, 290, 40, 20, 0x6666ff);
+        rect2.setStrokeStyle(4, 0xefc53f); 
         const rect3 = this.add.rectangle(500, 330, 40, 20, 0x6666ff);
         rect3.setStrokeStyle(4, 0xefc53f); 
             
