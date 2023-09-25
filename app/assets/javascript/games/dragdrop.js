@@ -83,9 +83,15 @@ class Example extends Phaser.Scene {
             spriteX[i] = i * slotWidth;
         }
         console.log('spriteX', spriteX);
-
+        
+        const boundingBoxColor = 0x008000;
         // Define a function to add a digit
         const game = this;
+
+        // Create the digit sprite
+        const digitSprite = game.physics.add.sprite(spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]);
+        // Change the color of the bounding box for the digit sprite with transparency
+        digitSprite.setStrokeStyle(2, boundingBoxColor);
         const addDigit = (x, digitIndex) => {
             
             const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
