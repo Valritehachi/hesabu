@@ -39,7 +39,7 @@ class Example extends Phaser.Scene {
 
         const digitSprites = [];
         const spriteX = [];
-        const slotWidth = 900/10;
+        const slotWidth = 1000/10;
         for(let i=0;i<10;i++){
             spriteX[i] = i * slotWidth;
         }
@@ -53,8 +53,8 @@ class Example extends Phaser.Scene {
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
-            digitSprite.setScale(slotWidth/digitSprite.width);
-            digitSprite.x += digitSprite.width/2;
+            digitSprite.setScale(90.0/digitSprite.width);
+            digitSprite.x += slotWidth/2;
             console.log(digitSprite);
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
