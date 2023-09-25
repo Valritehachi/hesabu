@@ -60,7 +60,8 @@ class Example extends Phaser.Scene {
         const rect2 = this.add.rectangle(400, 310, 150, 20, 0xff66ff);
         this.platforms.add(rect2);
 
-        const equalSign = this.add.text(550, 310, '=', { fontSize: '24px', color: '#000' });
+        const equalSign = this.add.polygon(550, 310, equalSignData, 0x6666ff);
+        equalSign.setStrokeStyle(4, 0xefc53f);
         
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
