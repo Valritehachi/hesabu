@@ -62,9 +62,9 @@ class Example extends Phaser.Scene {
 
         // the equal sign 
         const rect2 = this.add.rectangle(520, 295, 40, 20, 0x6666ff);
-        rect2.setStrokeStyle(4, 0xefc53f); 
+        rect2.setStrokeStyle(2, 0xefc53f); 
         const rect3 = this.add.rectangle(520, 325, 40, 20, 0x6666ff);
-        rect3.setStrokeStyle(4,  0x008000); 
+        rect3.setStrokeStyle(2,  0xefc53f); 
             
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
@@ -86,11 +86,8 @@ class Example extends Phaser.Scene {
 
         // Define a function to add a digit
         const game = this;
-
-        // Create the digit sprite
-        const digitSprite = game.physics.add.sprite(spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]);
+        
         const addDigit = (x, digitIndex) => {
-            
             const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
