@@ -28,7 +28,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(50, 320, 100, 40, 0xff66ff);
+        const rect = this.add.rectangle(100, 310, 200, 20, 0xff66ff);
         this.platforms.add(rect);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
