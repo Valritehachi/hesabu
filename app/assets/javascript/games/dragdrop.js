@@ -54,7 +54,7 @@ class Example extends Phaser.Scene {
         //const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(250, 310, data, 0x6666ff);
         
-        r1.setStrokeStyle(0, 0xbcffff);
+        r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
         
         const rect2 = this.add.rectangle(400, 310, 150, 20, 0xff66ff);
@@ -83,6 +83,7 @@ class Example extends Phaser.Scene {
         const addDigit = (x, digitIndex) => {
             
             const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+            digitSprite.setStrokeStyle(0, 0xbcffff);
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
