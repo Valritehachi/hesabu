@@ -61,9 +61,9 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect2);
 
         // the equal sign 
-        const rect1 = this.add.rectangle(525, 290, 20, 20, 0x6666ff);
+        const rect1 = this.add.rectangle(500, 290, 40, 20, 0x6666ff);
         rect1.setStrokeStyle(4, 0xefc53f); 
-        const rect3 = this.add.rectangle(525, 330, 20, 20, 0x6666ff);
+        const rect3 = this.add.rectangle(500, 330, 40, 20, 0x6666ff);
         rect3.setStrokeStyle(4, 0xefc53f); 
             
         //Create the bucket
