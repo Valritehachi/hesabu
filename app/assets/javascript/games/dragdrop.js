@@ -26,7 +26,10 @@ class Example extends Phaser.Scene {
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
-
+       
+        this.platforms = this.physics.add.staticGroup();
+        const rect = this.add.rectangle(600, 400, 148, 148, 0xff66ff);
+        this.platforms.add(rect);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
