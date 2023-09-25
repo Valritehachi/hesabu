@@ -56,10 +56,10 @@ class Example extends Phaser.Scene {
 
         r1.setStrokeStyle(4, 0xefc53f);
         this.platforms.add(r1);
-
-        this.platforms = this.physics.add.staticGroup();
-        const rect1 = this.add.rectangle(100, 310, 150, 20, 0xff66ff);
-        this.platforms.add(rect1);
+        
+        const rect2 = this.add.rectangle(350, 310, 150, 20, 0xff66ff);
+        this.platforms.add(rect2);
+        
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
