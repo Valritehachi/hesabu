@@ -30,6 +30,21 @@ class Example extends Phaser.Scene {
         this.platforms = this.physics.add.staticGroup();
         const rect = this.add.rectangle(100, 310, 200, 20, 0xff66ff);
         this.platforms.add(rect);
+        //       =====  
+        //       =   =
+        //       =   =
+        //========   ========
+        //=        x        =
+        //========   ========
+        const data = [ 
+            -10,-10,
+            -10,-60,
+             10,-60,
+             10,-10
+        ];
+        const r1 = this.add.polygon(300, 310, data, 0x6666ff);
+        r1.setStrokeStyle(4, 0xefc53f);
+        this.platforms.add(r1);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
