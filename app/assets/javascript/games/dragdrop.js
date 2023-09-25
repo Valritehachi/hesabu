@@ -35,7 +35,8 @@ class Example extends Phaser.Scene {
         //       =   =
         //========   ========
         //=        x        =
-        //========   ========
+        //========   ========/
+        /*
         const data = [ 
             -10,-10,
             -10,-60,
@@ -50,7 +51,10 @@ class Example extends Phaser.Scene {
              -60,10,
              -60,-10
         ];
+        */
+        const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(300, 310, data, 0x6666ff);
+
         r1.setStrokeStyle(4, 0xefc53f);
         this.platforms.add(r1);
         //Create the bucket
