@@ -54,7 +54,7 @@ class Example extends Phaser.Scene {
     
         //const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(250, 310, data, 0x6666ff);
-        r1.setScale(.50);
+        r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
         
@@ -62,9 +62,9 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect1);
 
         // the equal sign 
-        const rect2 = this.add.rectangle(510, 298, 100, 20, 0x6666ff);
+        const rect2 = this.add.rectangle(510, 298, 70, 20, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(510, 325, 40, 20, 0x6666ff);
+        const rect3 = this.add.rectangle(510, 325, 70, 20, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
             
         //Create the bucket
