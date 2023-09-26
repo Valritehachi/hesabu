@@ -86,10 +86,13 @@ class Example extends Phaser.Scene {
             spriteX[i] = i * slotWidth;
         }
         console.log('spriteX', spriteX);
-
+        /*this.platformGroup.children.each(function(platform) {
+            platform.setSize();
+            }, this);
+        */    
         // Define a function to add a digit
         const game = this;
-        
+        const gameObjectGroup = this.physics.add.group();
         const addDigit = (x, digitIndex) => {
             const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setBounce(0.4);
@@ -98,7 +101,9 @@ class Example extends Phaser.Scene {
             digitSprite.setScale(90.0/digitSprite.width);
             digitSprite.x += slotWidth/2;
             digitSprite.setGravityY(-250);
-            console.log(digitSprite);
+            gameObjectGroup.add(digitSprite);
+
+           // console.log(digitSprite);
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
             game.input.setDraggable(digitSprite);
@@ -111,13 +116,12 @@ class Example extends Phaser.Scene {
             // Check if there are more digits to add
             if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
-                game.time.delayedCall(500, () => {
-                    addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
-                });
+                addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
             }
         };
         // Start adding digits with the first digit
         addDigit(0, 0);
+        console.log(gameObjectGroup);
     }
 
     update(){
