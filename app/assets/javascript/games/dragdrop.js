@@ -95,12 +95,10 @@ class Example extends Phaser.Scene {
         const gameObjectGroup = this.physics.add.group();
         const addDigit = (x, digitIndex) => {
             const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-            digitSprite.setBounce(0.4);
-            digitSprite.setCollideWorldBounds(true);
-            digitSprite.setInteractive();
+
             digitSprite.setScale(90.0/digitSprite.width);
             digitSprite.x += slotWidth/2;
-            digitSprite.setGravityY(-250);
+            
             gameObjectGroup.add(digitSprite);
 
            // console.log(digitSprite);
@@ -122,6 +120,10 @@ class Example extends Phaser.Scene {
         // Start adding digits with the first digit
         addDigit(0, 0);
         console.log("GameObjectGroup:", gameObjectGroup);
+        gameObjectGroup.setBounce(0.4);
+        gameObjectGroup.setCollideWorldBounds(true);
+        gameObjectGroup.setInteractive();
+        gameObjectGroup.setGravityY(-250);
     }
 
     update(){
