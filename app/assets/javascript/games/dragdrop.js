@@ -30,7 +30,8 @@ class Example extends Phaser.Scene {
         this.platforms = this.physics.add.staticGroup();
         const rect = this.add.rectangle(100, 310, 130, 20, 0xff66ff);
         this.platforms.add(rect);
-        //x       =====  
+
+        //x      =====  
         //       =   =
         //       =   =
         //========   ========
@@ -53,7 +54,7 @@ class Example extends Phaser.Scene {
     
         //const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(250, 310, data, 0x6666ff);
-        
+        r1.setScale(.50);
         r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
         
@@ -61,10 +62,10 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect1);
 
         // the equal sign 
-        const rect2 = this.add.rectangle(520, 298, 40, 20, 0x6666ff);
+        const rect2 = this.add.rectangle(510, 298, 100, 20, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(520, 325, 40, 20, 0x6666ff);
-        rect3.setStrokeStyle(2,  0xefc53f); 
+        const rect3 = this.add.rectangle(510, 325, 40, 20, 0x6666ff);
+        rect3.setStrokeStyle(2, 0xefc53f); 
             
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
@@ -112,9 +113,7 @@ class Example extends Phaser.Scene {
                 });
             }
         };
-
         // Start adding digits with the first digit
-        // Phaser.Math.Between(100, 900)
         addDigit(0, 0);
     }
 
@@ -122,7 +121,6 @@ class Example extends Phaser.Scene {
         
     }
 }
-
   DragDropGame = function() {
         this.config = {
           type: Phaser.CANVAS,
@@ -143,7 +141,6 @@ class Example extends Phaser.Scene {
   
   DragDropGame.prototype.InitInterface = function()
   {
-
       var canvas = document.getElementById('hello_game');
       window.DragDropGame.config.canvas = canvas;
       var game = new Phaser.Game(window.DragDropGame.config);
