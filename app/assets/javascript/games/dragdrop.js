@@ -53,7 +53,7 @@ class Example extends Phaser.Scene {
         ];
     
         //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(250, 310, data, 0x6666ff);
+        const r1 = this.add.polygon(250, 500, data, 0x6666ff);
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
