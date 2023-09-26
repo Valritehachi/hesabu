@@ -28,7 +28,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(100, 310, 130, 20, 0xff66ff);
+        const rect = this.add.rectangle(100, 500, 130, 20, 0xff66ff);
         this.platforms.add(rect);
 
         //x      =====  
@@ -58,7 +58,7 @@ class Example extends Phaser.Scene {
         r1.setStrokeStyle(4, 0xbcffff);
         this.platforms.add(r1);
         
-        const rect1 = this.add.rectangle(400, 310, 130, 20, 0xff66ff);
+        const rect1 = this.add.rectangle(400, 500, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
 
         // the equal sign 
@@ -67,7 +67,7 @@ class Example extends Phaser.Scene {
         const rect3 = this.add.rectangle(550, 325, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
-        const rect4 = this.add.rectangle(725, 310, 180, 20, 0xff66ff);
+        const rect4 = this.add.rectangle(725, 500, 180, 20, 0xff66ff);
         this.platforms.add(rect4);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
