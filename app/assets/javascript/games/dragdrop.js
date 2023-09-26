@@ -91,7 +91,7 @@ class Example extends Phaser.Scene {
         const game = this;
         
         const addDigit = (x, digitIndex) => {
-            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 240, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 500, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
