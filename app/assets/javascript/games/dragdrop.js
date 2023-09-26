@@ -26,110 +26,82 @@ class Example extends Phaser.Scene {
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
-       
-        this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(100, 310, 130, 20, 0xff66ff);
-        this.platforms.add(rect);
-
-        //x      =====  
-        //       =   =
-        //       =   =
-        //========   ========
-        //=        x        =
-        //========   ========/
-        const data = [ 
-            0,50,
-            50,50,
-            50,0,
-            70,0,
-            70,50,
-            120,50,
-            120,70,
-            70, 70,
-            70, 120,
-            50, 120,
-            50, 70,
-            0,70
-        ];
     
-        //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(250, 310, data, 0x6666ff);
-        r1.setScale(.75);
-        r1.setStrokeStyle(4, 0xbcffff);
-        this.platforms.add(r1);
-        
-        const rect1 = this.add.rectangle(400, 310, 130, 20, 0xff66ff);
-        this.platforms.add(rect1);
-
-        // the equal sign 
-        const rect2 = this.add.rectangle(550, 300, 75, 15, 0x6666ff);
-        rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(550, 325, 75, 15, 0x6666ff);
-        rect3.setStrokeStyle(2, 0xefc53f); 
-        
-        const rect4 = this.add.rectangle(725, 310, 180, 20, 0xff66ff);
-        this.platforms.add(rect4);
-        //Create the bucket
-        //this.bucket = this.physics.add.image(900, 400, 'bucket');
-        //this.bucket.setCollideWorldBounds(true);
-        //this.bucket.setBounce(0.2);
-
-        const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
-
-        // Shuffle the array to randomize the order of digit indices
-        Phaser.Utils.Array.Shuffle(digitIndices);
-
-        const digitSprites = [];
-        const spriteX = [];
-        const slotWidth = 1000/10;
-        for(let i=0;i<10;i++){
-            spriteX[i] = i * slotWidth;
-        }
-        console.log('spriteX', spriteX);
-        /*this.platformGroup.children.each(function(platform) {
-            platform.setSize();
-            }, this);
-        */    
+        this.platforms = this.physics.add.staticGroup();
+        // ... Other platform-related code ...
+    
+        // Create a group to manage the digits
         const digitsGroup = this.physics.add.group();
-        // Define a function to add a digit
-        const game = this;
-        const gameObjectGroup = this.physics.add.group();
-
-        const addDigit = (x, digitIndex) => {
-           const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-
-            
-            //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-            digitSprite.setScale(90.0/digitSprite.width);
-            digitSprite.x += slotWidth/2;
-            digitSprite.setBounce(0.4);
+    
+        // Function to add a digit with wavy movement
+        const addDigitWithWavyMovement = (x, digitIndex) => {
+            const digitSprite = this.physics.add.sprite(x, 0, 'digit_' + digitIndices[digitIndex]);
+            digitSprite.setScale(0.1); // Adjust the scale as needed
             digitSprite.setCollideWorldBounds(true);
+            digitSprite.setBounce(Phaser.Math.FloatBetween(0.2, 0.5));
+            digitSprite.setGravityY(-Phaser.Math.Between(100, 300)); // Adjust the gravity as needed
+    
+            // Enable dragging for the digit
             digitSprite.setInteractive();
-            digitSprite.setGravityY(-250);
-
-           // console.log(digitSprite);
-            digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
-            // Add drag functionality to the digit sprite
-            game.input.setDraggable(digitSprite);
-
+            this.input.setDraggable(digitSprite);
+    
+            // Custom logic to add wavy movement
+            const amplitude = 20; // Adjust the amplitude of the wave
+            const frequency = 0.02; // Adjust the frequency of the wave
+            this.time.addEvent({
+                loop: true,
+                callback: () => {
+                    const yOffset = amplitude * Math.sin(frequency * this.time.now);
+                    digitSprite.y += yOffset;
+                },
+            });
+    
             // Handle collisions between the digit and the ground
-            
-
-            digitSprites.push(digitSprite);
-
+            this.physics.add.collider(digitSprite, this.ground);
+    
+            // Add the digit to the group
+            digitsGroup.add(digitSprite);
+    
             // Check if there are more digits to add
             if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
-                addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
+                this.time.delayedCall(Phaser.Math.Between(1000, 2000), () => {
+                    addDigitWithWavyMovement(Phaser.Math.Between(100, 900), digitIndex + 1);
+                });
             }
         };
-        // Start adding digits with the first digit
-        addDigit(0, 0);
-        console.log("GameObjectGroup:", gameObjectGroup);
-        
-        //game.physics.add.collider(gameObjectGroup, game.ground);
+    
         // Start adding digits with wavy movement
         addDigitWithWavyMovement(Phaser.Math.Between(100, 900), 0);
+    
+        // Function to add a draggable digit
+        const addDigit = (x, digitIndex) => {
+            const digitSprite = this.physics.add.sprite(x, 0, 'digit_' + digitIndices[digitIndex]);
+            digitSprite.setScale(0.1); // Adjust the scale as needed
+            digitSprite.setCollideWorldBounds(true);
+            digitSprite.setBounce(Phaser.Math.FloatBetween(0.2, 0.5));
+    
+            // Enable dragging for the digit
+            digitSprite.setInteractive();
+            this.input.setDraggable(digitSprite);
+    
+            // Handle collisions between the digit and the ground
+            this.physics.add.collider(digitSprite, this.ground);
+    
+            // Add the digit to the group
+            digitsGroup.add(digitSprite);
+    
+            // Check if there are more digits to add
+            if (digitIndex < 9) {
+                // Emit an event to add the next digit after a delay
+                this.time.delayedCall(Phaser.Math.Between(1000, 2000), () => {
+                    addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
+                });
+            }
+        };
+    
+        // Start adding digits with the first digit
+        addDigit(0, 0);
     }
 
     update(){
