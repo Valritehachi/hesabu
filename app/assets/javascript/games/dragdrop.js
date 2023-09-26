@@ -97,7 +97,7 @@ class Example extends Phaser.Scene {
             digitSprite.setInteractive();
             digitSprite.setScale(90.0/digitSprite.width);
             digitSprite.x += slotWidth/2;
-            digitSprite.setGravityY(70);
+            digitSprite.setGravityY(-250);
             console.log(digitSprite);
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
