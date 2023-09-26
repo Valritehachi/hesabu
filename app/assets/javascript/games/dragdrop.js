@@ -127,6 +127,8 @@ class Example extends Phaser.Scene {
         console.log("GameObjectGroup:", gameObjectGroup);
         
         //game.physics.add.collider(gameObjectGroup, game.ground);
+        // Start adding digits with wavy movement
+        addDigitWithWavyMovement(Phaser.Math.Between(100, 900), 0);
     }
 
     update(){
