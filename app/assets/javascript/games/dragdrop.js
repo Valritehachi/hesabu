@@ -121,7 +121,7 @@ class Example extends Phaser.Scene {
         };
         // Start adding digits with the first digit
         addDigit(0, 0);
-        console.log(gameObjectGroup);
+        console.log("GameObjectGroup:", gameObjectGroup);
     }
 
     update(){
