@@ -90,6 +90,7 @@ class Example extends Phaser.Scene {
             platform.setSize();
             }, this);
         */    
+        const digitsGroup = this.physics.add.group();
         // Define a function to add a digit
         const game = this;
         const gameObjectGroup = this.physics.add.group();
