@@ -66,7 +66,9 @@ class Example extends Phaser.Scene {
         rect2.setStrokeStyle(2, 0xefc53f); 
         const rect3 = this.add.rectangle(550, 325, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
-            
+        
+        const rect4 = this.add.rectangle(700, 310, 180, 20, 0xff66ff);
+        this.platforms.add(rect4);
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
