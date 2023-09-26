@@ -94,7 +94,8 @@ class Example extends Phaser.Scene {
         // Define a function to add a digit
         const game = this;
         const gameObjectGroup = this.physics.add.group();
-        const addDigit = (x, digitIndex) => {
+
+        const addDigitWithWavyMovement = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
 
             
