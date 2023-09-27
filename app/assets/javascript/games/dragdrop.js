@@ -28,7 +28,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(100, 500, 130, 20, 0xff66ff);
+        const rect = this.add.rectangle(100, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect);
 
         //x      =====  
@@ -62,9 +62,9 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect1);
 
         // the equal sign 
-        const rect2 = this.add.rectangle(550, 485, 75, 15, 0x6666ff);
+        const rect2 = this.add.rectangle(550, 420, 75, 15, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(550, 510, 75, 15, 0x6666ff);
+        const rect3 = this.add.rectangle(550, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
         const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
