@@ -123,7 +123,41 @@ class Example extends Phaser.Scene {
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
             digit.setGravityY(0); // Remove gravity from the digit
             digit.setPosition(platform.x, platform.y - platform.height / 2); // Position the digit on top of the platform
-    });
+        });
+
+            // Add drag functionality to the digits
+        digitSprites.forEach((digit) => {
+            digit.setInteractive({ draggable: true });
+
+            digit.on('dragstart', () => {
+                digit.
+                digit
+        isDragging = true;
+                digit.setGravityY(0); // Remove gravity while dragging
+            });
+
+            digit.on('drag', (pointer, dragX, dragY) => {
+                if (digit.isDragging) {
+                    digit.setPosition(dragX, dragY);
+                }
+            });
+
+            digit.on('dragend', () => {
+                digit.isDragging = false;
+                digit.setGravityY(-250); // Restore gravity when dragging ends
+            });
+
+            digit.on('pointerup', () => {
+                if (digit.isDragging) {
+                    
+                
+    // Release the digit back to its original position
+                    digit.isDragging = false;
+                    digit.setPosition(digit.originalX, digit.originalY);
+                    digit.setGravityY(-250); // Restore gravity
+                }
+            });
+        });
 
             // Check if there are more digits to add
             if (digitIndex < 9) {
