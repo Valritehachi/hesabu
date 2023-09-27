@@ -113,6 +113,18 @@ class Example extends Phaser.Scene {
 
             digitSprites.push(digitSprite);
 
+            // Enable physics for platforms
+        this.physics.world.enable(this.platforms);
+
+        // Add a collider between the digits and the platforms
+        this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
+            // Attach the digit to the platform when they collide
+            digit.body.stop(); // Stop the digit from moving
+            digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
+            digit.setGravityY(0); // Remove gravity from the digit
+            digit.setPosition(platform.x, platform.y - platform.height / 2); // Position the digit on top of the platform
+    });
+
             // Check if there are more digits to add
             if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
