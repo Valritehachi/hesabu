@@ -104,7 +104,7 @@ class Example extends Phaser.Scene {
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
             digitSprite.setGravityY(-250);
-
+            digitSprite.setData('value',digitIndex);
            // console.log(digitSprite);
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
@@ -131,12 +131,12 @@ class Example extends Phaser.Scene {
            // Add a collider between the digits and the platforms
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
-
+            const value = digit.getData('value'); 
             // Attach the digit to the platform when they collide
             digit.body.stop(); // Stop the digit from moving
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
             digit.setGravityY(-200); // Remove gravity from the digit
-            console.log('collision', platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
+            console.log('collision', value,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
             //digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
         });
         //game.physics.add.collider(gameObjectGroup, game.ground);
