@@ -130,13 +130,14 @@ class Example extends Phaser.Scene {
         
            // Add a collider between the digits and the platforms
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
-            console.log("collide", digit, platform);
+            //console.log("collide", digit, platform);
 
             // Attach the digit to the platform when they collide
             digit.body.stop(); // Stop the digit from moving
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
             digit.setGravityY(-200); // Remove gravity from the digit
-            digit.setPosition(platform.x, platform.y - platform.height - digit.height/2); // Position the digit on top of the platform
+            console.log('collision', platform.x, platform.y - platform.height/2 - digit.height/2);
+            digit.setPosition(platform.x, platform.y - platform.height/2 - digit.height/2); // Position the digit on top of the platform
         });
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
