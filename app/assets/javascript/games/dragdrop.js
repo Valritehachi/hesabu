@@ -137,7 +137,7 @@ class Example extends Phaser.Scene {
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
             digit.setGravityY(-200); // Remove gravity from the digit
             console.log('collision', platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
-            digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
+            //digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
         });
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
