@@ -135,7 +135,7 @@ class Example extends Phaser.Scene {
             // Attach the digit to the platform when they collide
             digit.body.stop(); // Stop the digit from moving
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
-            digit.setGravityY(-150); // Remove gravity from the digit
+            digit.setGravityY(-200); // Remove gravity from the digit
             digit.setPosition(platform.x, platform.y - platform.height - digit.height/2); // Position the digit on top of the platform
         });
         //game.physics.add.collider(gameObjectGroup, game.ground);
