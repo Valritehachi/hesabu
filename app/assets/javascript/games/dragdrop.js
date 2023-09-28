@@ -139,6 +139,19 @@ class Example extends Phaser.Scene {
             console.log('collision', value,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
             //digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
         });
+
+         // Check if the sum of the digits on the platform matches the target value (e.g., 8)
+    
+   
+            const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
+            const sumOnPlatform = digitsOnPlatform.reduce((acc, currDigit) => acc + currDigit.getData('value'), 0);
+
+            console.log('collision', value, platform.x, platform.y, digit.height, platform.y - platform.height/2 - digit.body.height/2);
+
+
+            if (sumOnPlatform === 8) { // Replace 8 with your target value
+                console.log('Good job!'); // Display "Good job" message or perform game completion actions
+            }
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
 
