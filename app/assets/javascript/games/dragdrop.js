@@ -104,7 +104,7 @@ class Example extends Phaser.Scene {
             digitSprite.setCollideWorldBounds(true);
             digitSprite.setInteractive();
             digitSprite.setGravityY(-250);
-            digitSprite.setData('value',digitIndex);
+            digitSprite.setData('value', digitIndices[digitIndex]);
            // console.log(digitSprite);
             digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
             // Add drag functionality to the digit sprite
