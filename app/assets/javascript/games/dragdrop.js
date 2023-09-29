@@ -23,6 +23,12 @@ class Example extends Phaser.Scene {
     }
     
     create() {
+        this.math_problem = {
+                'addend1': null,
+                'addend2': null,
+                'sum':null,
+
+        };
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
@@ -143,9 +149,9 @@ class Example extends Phaser.Scene {
             digit.setGravityY(-200); // Remove gravity from the digit
             const name = platform.getData('name' );
             console.log('collision', value, name,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
-            //digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
-            
-
+            //dthis.igit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
+            this.math_problem[name] = digit;
+            console.log('math problem', this.math_problem);
                 // Check if the sum of the digits on the platform matches the target value 
             //const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
            /* const sumOnPlatform = digitsOnPlatform.reduce((acc, currDigit) => acc + currDigit.getData('value'), 0);
