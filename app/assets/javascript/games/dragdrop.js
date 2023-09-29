@@ -30,6 +30,7 @@ class Example extends Phaser.Scene {
         this.platforms = this.physics.add.staticGroup();
         const rect = this.add.rectangle(100, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect);
+        rect.setData('name', 'addend1');
 
         //x      =====  
         //       =   =
@@ -56,10 +57,13 @@ class Example extends Phaser.Scene {
         const r1 = this.add.polygon(250, 430, data, 0x6666ff);
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
+       
         this.platforms.add(r1);
+
         
         const rect1 = this.add.rectangle(400, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
+        rect1.setData('name', 'addend2');
 
         // the equal sign 
         const rect2 = this.add.rectangle(550, 420, 75, 15, 0x6666ff);
@@ -69,6 +73,7 @@ class Example extends Phaser.Scene {
         
         const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
         this.platforms.add(rect4);
+
         //Create the bucket
         //this.bucket = this.physics.add.image(900, 400, 'bucket');
         //this.bucket.setCollideWorldBounds(true);
@@ -136,23 +141,22 @@ class Example extends Phaser.Scene {
             digit.body.stop(); // Stop the digit from moving
             digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
             digit.setGravityY(-200); // Remove gravity from the digit
-            console.log('collision', value,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
+            const name = platform.getData('name' );
+            console.log('collision', value, name,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
             //digit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
+            
 
-                // Check if the sum of the digits on the platform matches the target value (e.g., 8)
-            const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
-            const sumOnPlatform = digitsOnPlatform.reduce((acc, currDigit) => acc + currDigit.getData('value'), 0);
+                // Check if the sum of the digits on the platform matches the target value 
+            //const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
+           /* const sumOnPlatform = digitsOnPlatform.reduce((acc, currDigit) => acc + currDigit.getData('value'), 0);
 
             console.log('sumOnPlatform', sumOnPlatform);
 
-            if (sumOnPlatform === 8) { // Replace 8 with your target value
-                console.log('Good job!'); // Display "Good job" message or perform game completion actions
+            if (sumOnPlatform === 8) { 
+                console.log('Good job!');
             }
-    
-        });
-        
-
-         
+    */
+        });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
 
