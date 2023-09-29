@@ -150,7 +150,7 @@ class Example extends Phaser.Scene {
             const name = platform.getData('name' );
             console.log('collision', value, name,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
             //dthis.igit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
-            this.math_problem[name] = digit;
+            this.math_problem[name] = value;
             console.log('math problem', this.math_problem);
                 // Check if the sum of the digits on the platform matches the target value 
             //const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
