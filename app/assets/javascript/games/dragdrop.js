@@ -27,7 +27,6 @@ class Example extends Phaser.Scene {
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
-
         };
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
@@ -80,11 +79,6 @@ class Example extends Phaser.Scene {
         const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
         this.platforms.add(rect4);
 
-        //Create the bucket
-        //this.bucket = this.physics.add.image(900, 400, 'bucket');
-        //this.bucket.setCollideWorldBounds(true);
-        //this.bucket.setBounce(0.2);
-
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
         // Shuffle the array to randomize the order of digit indices
@@ -106,9 +100,7 @@ class Example extends Phaser.Scene {
         const gameObjectGroup = this.physics.add.group();
         const addDigit = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-
-            
-            //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
+     //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
             digitSprite.setScale(90.0/digitSprite.width);
             digitSprite.x += slotWidth/2;
             digitSprite.setBounce(0.4);
@@ -144,11 +136,11 @@ class Example extends Phaser.Scene {
             //console.log("collide", digit, platform);
             const value = digit.getData('value'); 
             // Attach the digit to the platform when they collide
-            digit.body.stop(); // Stop the digit from moving
-            digit.body.setVelocity(0); // Set velocity to 0 to prevent it from bouncing
-            digit.setGravityY(-200); // Remove gravity from the digit
+            digit.body.stop();
+            digit.body.setVelocity(0); 
+            digit.setGravityY(-200); 
             const name = platform.getData('name' );
-            console.log('collision', value, name,  platform.x,platform.y,digit.height, platform.y - platform.height/2 - digit.body.height/2);
+            console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
             //dthis.igit.setPosition(platform.x, platform.y/* - platform.height/2 - digit.height/2*/); // Position the digit on top of the platform
             this.math_problem[name] = value;
             console.log('math problem', this.math_problem);
