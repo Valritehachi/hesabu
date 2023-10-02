@@ -88,7 +88,7 @@ class Example extends Phaser.Scene {
         const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
         this.platforms.add(rect4);
 
-        const randomSum = getRandomSum();
+        const randomSum = this.getRandomSum();
         const tens = Math.floor(randomSum / 10);
         const ones = randomSum % 10;
         const tensDigit = "digit_" + tens;
