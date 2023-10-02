@@ -96,7 +96,7 @@ class Example extends Phaser.Scene {
         this.sum = this.physics.add.staticGroup();
         this.sum.create(675, 430, tensDigit );
         this.sum.create(775, 430, onesDigit );
-       
+        this.math_problem['sum'] = randomSum;
 
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
@@ -138,19 +138,17 @@ class Example extends Phaser.Scene {
 
             // Enable physics for platforms
         //this.physics.world.enable(this.platforms);
-
-     
-
             // Check if there are more digits to add
             if (digitIndex < 9) {
                 // Emit an event to add the next digit after a delay
                 addDigit(Phaser.Math.Between(100, 900), digitIndex + 1);
             }
         };
-        // Start adding digits with the first digit
+        // Start adtding digits with the first digit
         addDigit(0, 0);
         console.log("GameObjectGroup:", gameObjectGroup);
-        
+       
+
            // Add a collider between the digits and the platforms
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
@@ -163,6 +161,7 @@ class Example extends Phaser.Scene {
             const name = platform.getData('name' );
             console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
             digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
+            this.math_problem[name] = value;
             console.log('math problem', this.math_problem);
                 // Check if the sum of the digits on the platform matches the target value 
             //const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
