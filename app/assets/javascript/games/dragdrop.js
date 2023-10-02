@@ -95,7 +95,7 @@ class Example extends Phaser.Scene {
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
-        const tensSprite = this.sum.create(675, 370, tensDigit);
+        const tensSprite = this.sum.create(675, 360, tensDigit);
         tensSprite.setScale(scaleFactor);
         const onesSprite = this.sum.create(775, 360, onesDigit );
         onesSprite.setScale(scaleFactor);
