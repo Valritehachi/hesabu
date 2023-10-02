@@ -95,10 +95,10 @@ class Example extends Phaser.Scene {
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
-        this.sum.create(675, 430, tensDigit );
-        this.sum.create.setScale(scaleFactor);
-        this.sum.create(775, 430, onesDigit );
-        this.sum.create.setScale(scaleFactor);
+        const tensSprite = this.sum.create(675, 430, tensDigit);
+        tensSprite.setScale(scaleFactor);
+        const onesSprite = this.sum.create(775, 430, onesDigit );
+        onesSprite.setScale(scaleFactor);
         this.math_problem['sum'] = randomSum;
         
 
