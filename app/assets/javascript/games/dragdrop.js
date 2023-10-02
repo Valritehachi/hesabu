@@ -97,6 +97,7 @@ class Example extends Phaser.Scene {
         this.sum.create(675, 430, tensDigit );
         this.sum.create(775, 430, onesDigit );
         this.math_problem['sum'] = randomSum;
+        const scaleFactor = 0.5;
 
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
