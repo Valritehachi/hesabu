@@ -85,7 +85,7 @@ class Example extends Phaser.Scene {
         const rect3 = this.add.rectangle(550, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
-        const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
+        const rect4 = this.add.rectangle(725, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
 
         const randomSum = this.getRandomSum();
@@ -101,9 +101,6 @@ class Example extends Phaser.Scene {
         onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
-        
-        
-
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
