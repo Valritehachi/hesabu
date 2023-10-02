@@ -94,10 +94,11 @@ class Example extends Phaser.Scene {
         const tensDigit = "digit_" + tens;
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
+        const scaleFactor = 0.5;
         this.sum.create(675, 430, tensDigit );
         this.sum.create(775, 430, onesDigit );
         this.math_problem['sum'] = randomSum;
-        const scaleFactor = 0.5;
+        
 
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
