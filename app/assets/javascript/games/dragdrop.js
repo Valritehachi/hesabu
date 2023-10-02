@@ -99,7 +99,7 @@ class Example extends Phaser.Scene {
         tensSprite.setScale(scaleFactor);
         const onesSprite = this.sum.create(775, 430, onesDigit );
         onesSprite.setScale(scaleFactor);
-        onesSprite.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
+        onesSprite.setPosition(725, 430,);
         this.math_problem['sum'] = randomSum;
         
         
