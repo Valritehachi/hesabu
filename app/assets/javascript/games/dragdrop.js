@@ -21,7 +21,16 @@ class Example extends Phaser.Scene {
         this.load.image('bucket', 'assets/images/purple_bucket.png');
 
     }
-    
+    getRandomSum() {
+        // Generate a random number between 0 and 18 (inclusive)
+        const min = 0;
+        const max = 18;
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        console.log(randomNum); 
+        return (randomNum);
+    }
+
     create() {
         this.math_problem = {
                 'addend1': null,
@@ -78,6 +87,17 @@ class Example extends Phaser.Scene {
         
         const rect4 = this.add.rectangle(725, 430, 180, 20, 0xff66ff);
         this.platforms.add(rect4);
+
+        const randomSum = getRandomSum();
+        const tens = Math.floor(randomSum / 10);
+        const ones = randomSum % 10;
+        const tensDigit = "digit_" + tens;
+        const onesDigit = "digit_" + ones;
+        this.sum = this.physics.add.staticGroup();
+        this.sum.create(675, 430, tensDigit );
+        this.sum.create(775, 430, onesDigit );
+       
+
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
