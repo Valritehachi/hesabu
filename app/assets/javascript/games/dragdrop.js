@@ -135,6 +135,7 @@ class Example extends Phaser.Scene {
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
             const value = digit.getData('value'); 
+            if (value == undefined) return;
             // Attach the digit to the platform when they collide
             digit.body.stop();
             digit.body.setVelocity(0); 
