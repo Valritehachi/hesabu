@@ -109,8 +109,8 @@ class Example extends Phaser.Scene {
         this.math_problem['sum'] = randomSum;
 
         // Create a static text object
-        const staticText = this.add.text(0, 500, 
-            'pick any two numbers that add upto the number after the equal sign', {
+        const staticText = this.add.text(20, 500, 
+            'pick any two numbers that add up to ' + randomSum, {
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000'
