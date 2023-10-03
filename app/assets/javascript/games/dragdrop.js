@@ -87,6 +87,7 @@ class Example extends Phaser.Scene {
         
         const rect4 = this.add.rectangle(725, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
+
         // Create a static text object
         const staticText = this.add.text(100, 100, 'pick any two numbers that add upto the number after the equal sign', {
             fontFamily: 'Arial',
@@ -190,10 +191,6 @@ class Example extends Phaser.Scene {
     */
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
-    }
-    
-    create() {
-       
     }
     update(){
         
