@@ -88,14 +88,6 @@ class Example extends Phaser.Scene {
         const rect4 = this.add.rectangle(725, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
 
-        // Create a static text object
-        const staticText = this.add.text(100, 500, 
-            'pick any two numbers that add upto the number after the equal sign', {
-            fontFamily: 'Arial Black',
-            fontSize: '30px',
-            color: '#000000'
-        });
-
      // Enable Arcade Physics for the text object
         //this.physics.world.enable(staticText);
 
@@ -115,6 +107,14 @@ class Example extends Phaser.Scene {
         onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
+
+        // Create a static text object
+        const staticText = this.add.text(100, 500, 
+            'pick any two numbers that add upto the number after the equal sign', {
+            fontFamily: 'Arial Black',
+            fontSize: '30px',
+            color: '#000000'
+        });
 
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
