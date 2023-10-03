@@ -122,22 +122,12 @@ class Example extends Phaser.Scene {
     
 
         const checkSumOnPlatform = () => {
-            const sumOnPlatform = Object.values(this.math_problem).reduce((acc, value) => acc + value, 0);
+            const sumOnPlatform = this.math_problem['addend1'] + this.math_problem['addend2'];
     
             if (sumOnPlatform === randomSum) {
-                const staticText = this.add.text(170, 500, 'Good Job!', {
-                    fontFamily: 'Arial Black',
-                    fontSize: '30px',
-                    color: '#000000',
-                    align: 'center'
-                });
+                console.log('Good Job!');
             } else {
-                const staticText = this.add.text(170, 500, 'Try again!', {
-                    fontFamily: 'Arial Black',
-                    fontSize: '30px',
-                    color: '#FF0000', // Red color for an incorrect answer
-                    align: 'center'
-                });
+                console.log('Try again!');
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
