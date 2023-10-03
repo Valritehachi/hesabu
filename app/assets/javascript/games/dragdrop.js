@@ -122,9 +122,9 @@ class Example extends Phaser.Scene {
     
 
         const checkSumOnPlatform = () => {
-            const sumOnPlatform = this.math_problem['addend1'] + this.math_problem['addend2'];
+            sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
-            if (sumOnPlatform === randomSum) {
+            if (sum === randomSum) {
                 console.log('Good Job!');
             } else {
                 console.log('Try again!');
