@@ -89,17 +89,18 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect4);
 
         // Create a static text object
-        const staticText = this.add.text(100, 100, 'pick any two numbers that add upto the number after the equal sign', {
+        const staticText = this.add.text(100, 100, 
+            'pick any two numbers that add upto the number after the equal sign', {
             fontFamily: 'Arial',
             fontSize: '24px',
             color: '#000000'
         });
 
      // Enable Arcade Physics for the text object
-        this.physics.world.enable(staticText);
+        //this.physics.world.enable(staticText);
 
         // Make the text static (immovable)
-        staticText.body.moves = false;
+        //staticText.body.moves = false;
 
         const randomSum = this.getRandomSum();
         const tens = Math.floor(randomSum / 10);
