@@ -110,11 +110,12 @@ class Example extends Phaser.Scene {
 
         // Create a static text object
         const staticText = this.add.text(100, 500, 
-            'pick any two numbers that add up to ' + randomSum, {
+            'pick any two numbers that adds up to ' + randomSum, {
             fontFamily: 'Arial Black',
             fontSize: '30px',
-            color: '#000000'
-       
+            color: '#000000',
+            align: 'center'
+
         });
         staticText.setOrigin(0.5, 0.5);
         
