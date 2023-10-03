@@ -89,10 +89,10 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect4);
 
         // Create a static text object
-        const staticText = this.add.text(100, 100, 
+        const staticText = this.add.text(800, 100, 
             'pick any two numbers that add upto the number after the equal sign', {
-            fontFamily: 'Arial',
-            fontSize: '24px',
+            fontFamily: 'Arial Black',
+            fontSize: '30px',
             color: '#000000'
         });
 
