@@ -118,8 +118,28 @@ class Example extends Phaser.Scene {
 
         });
         //staticText.setOrigin(0.5, 0.5);
-        
+        // Initial setup with a random sum
+    
 
+        const checkSumOnPlatform = () => {
+            const sumOnPlatform = Object.values(this.math_problem).reduce((acc, value) => acc + value, 0);
+    
+            if (sumOnPlatform === randomSum) {
+                const staticText = this.add.text(170, 500, 'Good Job!', {
+                    fontFamily: 'Arial Black',
+                    fontSize: '30px',
+                    color: '#000000',
+                    align: 'center'
+                });
+            } else {
+                const staticText = this.add.text(170, 500, 'Try again!', {
+                    fontFamily: 'Arial Black',
+                    fontSize: '30px',
+                    color: '#FF0000', // Red color for an incorrect answer
+                    align: 'center'
+                });
+            }
+        };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
         // Shuffle the array to randomize the order of digit indices
@@ -154,7 +174,6 @@ class Example extends Phaser.Scene {
             // Add drag functionality to the digit sprite
             game.input.setDraggable(digitSprite);
             
-
             digitSprites.push(digitSprite);
 
             // Enable physics for platforms
@@ -225,8 +244,7 @@ class Example extends Phaser.Scene {
       window.DragDropGame.config.canvas = canvas;
       var game = new Phaser.Game(window.DragDropGame.config);
   };
-  
-  
+
   window.DragDropGame = new DragDropGame();
   
   window.addEventListener("load", function load(event){
