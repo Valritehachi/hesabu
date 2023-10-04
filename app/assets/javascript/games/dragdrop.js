@@ -42,7 +42,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(100, 430, 130, 20, 0xff66ff);
+        const rect = this.add.rectangle(200, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect);
         rect.setData('name', 'addend1');
 
@@ -68,14 +68,14 @@ class Example extends Phaser.Scene {
         ];
     
         //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(250, 430, data, 0x6666ff);
+        const r1 = this.add.polygon(400, 430, data, 0x6666ff);
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
        
         this.platforms.add(r1);
 
         
-        const rect1 = this.add.rectangle(650, 430, 130, 20, 0xff66ff);
+        const rect1 = this.add.rectangle(630, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
         rect1.setData('name', 'addend2');
 
@@ -101,7 +101,7 @@ class Example extends Phaser.Scene {
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
-        const tensSprite = this.sum.create(780, 360, tensDigit);
+        const tensSprite = this.sum.create(800, 360, tensDigit);
         tensSprite.setScale(scaleFactor);
         const onesSprite = this.sum.create(850, 360, onesDigit );
         onesSprite.setScale(scaleFactor);
