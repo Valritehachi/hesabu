@@ -119,6 +119,37 @@ class Example extends Phaser.Scene {
         //staticText.setOrigin(0.5, 0.5);
         // Initial setup with a random sum
     
+        // Generate a new addition problem function
+        this.generateNewProblem = () => {
+            const randomSum = this.getRandomSum();
+            const tens = Math.floor(randomSum / 10);
+            const ones = randomSum % 10;
+            const tensDigit = "digit_" + tens;
+            const onesDigit = "digit_" + ones;
+            const scaleFactor = 0.5;
+
+            // Update the math_problem object with the new problem
+            this.math_problem = {
+                'addend1': null,
+                'addend2': null,
+                'sum': randomSum,
+            };
+
+            // Remove and recreate the sprites with the new digits
+            this.sum.clear(true, true);
+
+            const tensSprite = this.sum.create(760, 360, tensDigit);
+            tensSprite.setScale(scaleFactor);
+            const onesSprite = this.sum.create(860, 360, onesDigit);
+            onesSprite.setScale(scaleFactor);
+
+            // Display the new problem text
+            const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
+            staticText.setText(newProblemText);
+        };
+
+
+
 
         const sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
@@ -130,6 +161,8 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                 console.log('Good Job!');
+                // Generate a new addition problem
+                this.generateNewProblem();
             } else {
                 console.log('Try again!');
             }
