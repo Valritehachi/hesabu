@@ -128,7 +128,7 @@ class Example extends Phaser.Scene {
             const scaleFactor = 0.5;
 
             // Update the math_problem object with the new problem
-            this.math_problem = {
+           /* this.math_problem = {
                 'addend1': null,
                 'addend2': null,
                 'sum': randomSum,
@@ -140,7 +140,7 @@ class Example extends Phaser.Scene {
             const tensSprite = this.sum.create(760, 360, tensDigit);
             tensSprite.setScale(scaleFactor);
             const onesSprite = this.sum.create(860, 360, onesDigit);
-            onesSprite.setScale(scaleFactor);
+            onesSprite.setScale(scaleFactor); */
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
