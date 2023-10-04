@@ -68,14 +68,14 @@ class Example extends Phaser.Scene {
         ];
     
         //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(300, 430, data, 0x6666ff);
+        const r1 = this.add.polygon(400, 430, data, 0x6666ff);
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
        
         this.platforms.add(r1);
 
         
-        const rect1 = this.add.rectangle(400, 430, 130, 20, 0xff66ff);
+        const rect1 = this.add.rectangle(600, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
         rect1.setData('name', 'addend2');
 
@@ -103,7 +103,7 @@ class Example extends Phaser.Scene {
         const scaleFactor = 0.5;
         const tensSprite = this.sum.create(800, 360, tensDigit);
         tensSprite.setScale(scaleFactor);
-        const onesSprite = this.sum.create(850, 360, onesDigit );
+        const onesSprite = this.sum.create(890, 360, onesDigit );
         onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
