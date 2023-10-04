@@ -121,10 +121,15 @@ class Example extends Phaser.Scene {
         // Initial setup with a random sum
     
 
-        const checkSumOnPlatform = () => {
-            sum = this.math_problem['addend1'] + this.math_problem['addend2'];
+        const sumOnPlatform = () => {
+            const addend1 = this.math_problem['addend1'];
+            const addend2 = this.math_problem['addend2'];
+            if (addend1 === null || addend2 === null) {
+                return;
+            }
+            const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
-            if (sum === randomSum) {
+            if (sum === this.math_problem['sum']) {
                 console.log('Good Job!');
             } else {
                 console.log('Try again!');
@@ -193,16 +198,9 @@ class Example extends Phaser.Scene {
             digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
             this.math_problem[name] = value;
             console.log('math problem', this.math_problem);
-                // Check if the sum of the digits on the platform matches the target value 
-            //const digitsOnPlatform = digitSprites.filter(sprite => sprite.y === platform.y);
-           /* const sumOnPlatform = digitsOnPlatform.reduce((acc, currDigit) => acc + currDigit.getData('value'), 0);
-
-            console.log('sumOnPlatform', sumOnPlatform);
-
-            if (sumOnPlatform === 8) { 
-                console.log('Good job!');
-            }
-    */
+            
+            sumOnPlatform();
+    
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
