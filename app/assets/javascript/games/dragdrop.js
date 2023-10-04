@@ -42,7 +42,7 @@ class Example extends Phaser.Scene {
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(200, 430, 130, 20, 0xff66ff);
+        const rect = this.add.rectangle(180, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect);
         rect.setData('name', 'addend1');
 
@@ -68,23 +68,23 @@ class Example extends Phaser.Scene {
         ];
     
         //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(350, 430, data, 0x6666ff);
+        const r1 = this.add.polygon(330, 430, data, 0x6666ff);
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
        
         this.platforms.add(r1);
         
-        const rect1 = this.add.rectangle(500, 430, 130, 20, 0xff66ff);
+        const rect1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
         rect1.setData('name', 'addend2');
 
         // the equal sign 
-        const rect2 = this.add.rectangle(650, 420, 75, 15, 0x6666ff);
+        const rect2 = this.add.rectangle(630, 420, 75, 15, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(650, 440, 75, 15, 0x6666ff);
+        const rect3 = this.add.rectangle(630, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
-        const rect4 = this.add.rectangle(820, 430, 200, 20, 0xff66ff);
+        const rect4 = this.add.rectangle(800, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
 
      // Enable Arcade Physics for the text object
