@@ -79,12 +79,12 @@ class Example extends Phaser.Scene {
         rect1.setData('name', 'addend2');
 
         // the equal sign 
-        const rect2 = this.add.rectangle(700, 420, 75, 15, 0x6666ff);
+        const rect2 = this.add.rectangle(650, 420, 75, 15, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
-        const rect3 = this.add.rectangle(700, 440, 75, 15, 0x6666ff);
+        const rect3 = this.add.rectangle(650, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
-        const rect4 = this.add.rectangle(850, 430, 200, 20, 0xff66ff);
+        const rect4 = this.add.rectangle(820, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
 
      // Enable Arcade Physics for the text object
@@ -102,7 +102,7 @@ class Example extends Phaser.Scene {
         const scaleFactor = 0.5;
         const tensSprite = this.sum.create(800, 360, tensDigit);
         tensSprite.setScale(scaleFactor);
-        const onesSprite = this.sum.create(890, 360, onesDigit );
+        const onesSprite = this.sum.create(900, 360, onesDigit );
         onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
