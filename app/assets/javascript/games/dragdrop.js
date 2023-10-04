@@ -119,7 +119,6 @@ class Example extends Phaser.Scene {
         //staticText.setOrigin(0.5, 0.5);
         // Initial setup with a random sum
     
-        // Generate a new addition problem function
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
             const tens = Math.floor(randomSum / 10);
@@ -147,7 +146,6 @@ class Example extends Phaser.Scene {
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             staticText.setText(newProblemText);
         };
-
 
 
 
