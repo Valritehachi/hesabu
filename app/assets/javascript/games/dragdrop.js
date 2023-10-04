@@ -85,7 +85,7 @@ class Example extends Phaser.Scene {
         const rect3 = this.add.rectangle(550, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
         
-        const rect4 = this.add.rectangle(900, 430, 200, 20, 0xff66ff);
+        const rect4 = this.add.rectangle(850, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
 
      // Enable Arcade Physics for the text object
@@ -101,9 +101,9 @@ class Example extends Phaser.Scene {
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
-        const tensSprite = this.sum.create(675, 360, tensDigit);
+        const tensSprite = this.sum.create(790, 360, tensDigit);
         tensSprite.setScale(scaleFactor);
-        const onesSprite = this.sum.create(775, 360, onesDigit );
+        const onesSprite = this.sum.create(830, 360, onesDigit );
         onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
