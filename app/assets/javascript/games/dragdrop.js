@@ -131,6 +131,8 @@ class Example extends Phaser.Scene {
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             staticText.setText(newProblemText);
+
+            this.math_problem['sum'] = randomSum;
         };
 
 
