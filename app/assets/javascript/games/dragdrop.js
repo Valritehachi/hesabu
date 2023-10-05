@@ -149,6 +149,9 @@ class Example extends Phaser.Scene {
                 this.generateNewProblem();
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
+                setTimeout(() => {
+                    this.generateNewProblem();
+                }, 1000); // Delay for 1 second
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
