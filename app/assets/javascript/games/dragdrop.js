@@ -147,6 +147,8 @@ class Example extends Phaser.Scene {
                 console.log('Good Job!');
                 // Generate a new addition problem
                 this.generateNewProblem();
+                this.math_problem['addend1'] = null; 
+                this.math_problem['addend2'] = null;
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
