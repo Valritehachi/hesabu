@@ -19,6 +19,7 @@ class Example extends Phaser.Scene {
 
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
+        this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
 
     }
     getRandomSum() {
@@ -133,7 +134,7 @@ class Example extends Phaser.Scene {
         };
 
 
-
+        const wrong_answer_music = this.sound.add('wrong_answer');
         const sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
@@ -148,6 +149,7 @@ class Example extends Phaser.Scene {
                 this.generateNewProblem();
             } else {
                 console.log('Try again!');
+                wrong_answer_music.play();
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
