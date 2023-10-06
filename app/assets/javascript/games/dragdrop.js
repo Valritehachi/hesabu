@@ -155,15 +155,16 @@ class Example extends Phaser.Scene {
             if (sum === this.math_problem['sum']) {
                 console.log('Good Job!');
                 // Reset the numbers
-                const tensDigit = this.math_problem['addend1_digit'];
-                tensDigit.setGravityY(-250);
-                const onesDigit = this.math_problem['addend2_digit'];
-                onesDigit.setGravityY(-250);
-                this.math_problem['addend1'] = null; 
-                this.math_problem['addend2'] = null;
+                setTimeout(() => {
+                    const tensDigit = this.math_problem['addend1_digit'];
+                    tensDigit.setGravityY(-350);
+                    const onesDigit = this.math_problem['addend2_digit'];
+                    onesDigit.setGravityY(-350);
+                    this.math_problem['addend1'] = null; 
+                    this.math_problem['addend2'] = null;
         
                 // Generate a new addition problem after a brief delay
-                setTimeout(() => {
+                
                     this.generateNewProblem();
                 }, 1000); // Delay for 1 second
             } else {
