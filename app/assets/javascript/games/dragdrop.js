@@ -155,6 +155,10 @@ class Example extends Phaser.Scene {
             if (sum === this.math_problem['sum']) {
                 console.log('Good Job!');
                 // Reset the numbers
+                const tensDigit = this.math_problem['addend1_digit'];
+                tensDigit.setGravityY(-250);
+                const onesDigit = this.math_problem['addend2_digit'];
+                onesDigit.setGravityY(-250);
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
         
@@ -229,6 +233,7 @@ class Example extends Phaser.Scene {
             console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
             digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
             this.math_problem[name] = value;
+            this.math_problem[name + '_digit'] = digit;
             console.log('math problem', this.math_problem);
             
             sumOnPlatform();
