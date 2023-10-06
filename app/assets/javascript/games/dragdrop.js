@@ -101,10 +101,10 @@ class Example extends Phaser.Scene {
         const onesDigit = "digit_" + ones;
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
-        const tensSprite = this.sum.create(760, 360, tensDigit);
-        tensSprite.setScale(scaleFactor);
-        const onesSprite = this.sum.create(860, 360, onesDigit );
-        onesSprite.setScale(scaleFactor);
+        this.tensSprite = this.sum.create(760, 360, tensDigit);
+        this.tensSprite.setScale(scaleFactor);
+        this.onesSprite = this.sum.create(860, 360, onesDigit );
+        this.onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
         console.log('generating math problem', this.math_problem);
@@ -127,6 +127,13 @@ class Example extends Phaser.Scene {
             const tensDigit = "digit_" + tens;
             const onesDigit = "digit_" + ones;
             const scaleFactor = 0.5;
+            this.sum.remove(this.tensSprite, true, true);
+            this.sum.remove(this.onesSprite, true, true);
+            this.tensSprite = this.sum.create(760, 360, tensDigit);
+            this.tensSprite.setScale(scaleFactor);
+            this.onesSprite = this.sum.create(860, 360, onesDigit );
+            this.onesSprite.setScale(scaleFactor);
+       
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
