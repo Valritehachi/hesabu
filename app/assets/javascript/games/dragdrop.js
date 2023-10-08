@@ -188,8 +188,10 @@ class Example extends Phaser.Scene {
         
                 // Generate a new addition problem after a brief delay
                 
-                    this.generateNewProblem();
+                this.generateNewProblem();
+                setTimeout(() => {
                     reshuffleDigits();
+                    }, 1500);
                 }, 1000); // Delay for 1 second
             
             } else {
