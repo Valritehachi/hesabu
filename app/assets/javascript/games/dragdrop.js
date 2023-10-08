@@ -20,6 +20,7 @@ class Example extends Phaser.Scene {
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
+        this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav')
 
     }
     getRandomSum() {
@@ -156,18 +157,15 @@ class Example extends Phaser.Scene {
             digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
             });
         };
+
         
-            // Calculate the new x-position for the digitSprite based on index
-            const newX = index * slotWidth;
-            
-            // Set the new x-position for the digitSprite
-            digitSprite.x = newX;
         setTimeout(() => {
             reshuffleDigits();
           }, 1500);
 
 
         const wrong_answer_music = this.sound.add('wrong_answer');
+        const right_answer_music = this.sound.add('right_answer');
         const sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
@@ -178,6 +176,7 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                 console.log('Good Job!');
+                right_answer_music.play();
                 // Reset the numbers
                 setTimeout(() => {
                     const tensDigit = this.math_problem['addend1_digit'];
