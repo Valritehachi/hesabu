@@ -152,21 +152,15 @@ class Example extends Phaser.Scene {
         
             digitSprites.forEach((digitSprite, index) => {
                 const newIndex = digitIndices[index];
-                digitSprite.setData('value', newIndex); // Update the data value
-                digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
+    
             
                 // Calculate the new x-position for the digitSprite based on index
-                const newX = index * slotWidth;
+                const newX = index * slotWidth + slotWidth/2;
             
                 // Set the new x-position for the digitSprite
                 digitSprite.x = newX;
             });
         };
-
-        
-        setTimeout(() => {
-            reshuffleDigits();
-          }, 1500);
 
 
         const wrong_answer_music = this.sound.add('wrong_answer');
@@ -183,21 +177,21 @@ class Example extends Phaser.Scene {
                 console.log('Good Job!');
                 right_answer_music.play();
                 // Reset the numbers
-                setTimeout(() => {
-                    const tensDigit = this.math_problem['addend1_digit'];
-                    tensDigit.setGravityY(-350);
-                    const onesDigit = this.math_problem['addend2_digit'];
-                    onesDigit.setGravityY(-350);
-                    this.math_problem['addend1'] = null; 
-                    this.math_problem['addend2'] = null;
+               
+                const tensDigit = this.math_problem['addend1_digit'];
+                tensDigit.setGravityY(-350);
+                const onesDigit = this.math_problem['addend2_digit'];
+                onesDigit.setGravityY(-350);
+                this.math_problem['addend1'] = null; 
+                this.math_problem['addend2'] = null;
         
                 // Generate a new addition problem after a brief delay
                 
                 this.generateNewProblem();
                 setTimeout(() => {
                     reshuffleDigits();
-                    }, 5000);
-                }, 1000); // Delay for 1 second
+                }, 5000);
+                
             
             } else {
                 console.log('Try again!');
