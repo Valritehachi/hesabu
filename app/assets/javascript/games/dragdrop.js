@@ -143,6 +143,30 @@ class Example extends Phaser.Scene {
         };
 
 
+        let shuffledIndices = [];
+
+        // Function to shuffle the indices
+        const shuffleDigits = () => {
+        shuffledIndices = Phaser.Utils.Array.NumberArray(0, 9);
+        Phaser.Utils.Array.Shuffle(shuffledIndices);
+        };
+
+        // Call the shuffleDigits function to initialize the shuffledIndices array
+        shuffleDigits();
+
+        // Function to rearrange the digits on the platforms
+        const rearrangeDigits = () => {
+        // Iterate through the digitSprites and reposition them with shuffled indices
+        digitSprites.forEach((digitSprite, index) => {
+            const newIndex = shuffledIndices[index];
+            digitSprite.setData('value', newIndex); // Update the data value
+            digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
+        });
+        };
+
+
+
+
         const wrong_answer_music = this.sound.add('wrong_answer');
         const sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
@@ -167,6 +191,7 @@ class Example extends Phaser.Scene {
                 
                     this.generateNewProblem();
                 }, 1000); // Delay for 1 second
+                    rearrangeDigits();
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
