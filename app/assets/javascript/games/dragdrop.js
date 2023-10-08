@@ -156,6 +156,12 @@ class Example extends Phaser.Scene {
             digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
             });
         };
+        
+            // Calculate the new x-position for the digitSprite based on index
+            const newX = index * slotWidth;
+            
+            // Set the new x-position for the digitSprite
+            digitSprite.x = newX;
         setTimeout(() => {
             reshuffleDigits();
           }, 1500);
