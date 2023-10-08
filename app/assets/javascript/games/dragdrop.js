@@ -150,17 +150,17 @@ class Example extends Phaser.Scene {
             // Shuffle the indices
             Phaser.Utils.Array.Shuffle(digitIndices);
         
-            // Rearrange the digitSprites based on shuffled indices
             digitSprites.forEach((digitSprite, index) => {
-            const newIndex = digitIndices[index];
-            digitSprite.setData('value', newIndex); // Update the data value
-            digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
+                const newIndex = digitIndices[index];
+                digitSprite.setData('value', newIndex); // Update the data value
+                digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
+            
+                // Calculate the new x-position for the digitSprite based on index
+                const newX = index * slotWidth;
+            
+                // Set the new x-position for the digitSprite
+                digitSprite.x = newX;
             });
-
-
-            const newX = index * slotWidth;
-            // Set the new x-position for the digitSprite
-            digitSprite.x = newX;
         };
 
         
