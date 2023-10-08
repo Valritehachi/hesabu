@@ -191,7 +191,7 @@ class Example extends Phaser.Scene {
                 this.generateNewProblem();
                 setTimeout(() => {
                     reshuffleDigits();
-                    }, 1500);
+                    }, 2500);
                 }, 1000); // Delay for 1 second
             
             } else {
