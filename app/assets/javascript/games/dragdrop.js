@@ -159,6 +159,7 @@ class Example extends Phaser.Scene {
             
                 // Set the new x-position for the digitSprite
                 digitSprite.x = newX;
+                digitSprite.y = digitSprite.body.height/2;
             });
         };
 
