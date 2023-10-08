@@ -38,6 +38,7 @@ class Example extends Phaser.Scene {
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
+                'status': 'ready'
         };
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
@@ -134,13 +135,14 @@ class Example extends Phaser.Scene {
             this.tensSprite.setScale(scaleFactor);
             this.onesSprite = this.sum.create(860, 360, onesDigit );
             this.onesSprite.setScale(scaleFactor);
-       
+            this.math_problem['sum'] = randomSum;
+            this.math_problem['status'] = 'ready';
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             staticText.setText(newProblemText);
 
-            this.math_problem['sum'] = randomSum;
+            
         };
 
 
@@ -175,6 +177,8 @@ class Example extends Phaser.Scene {
             const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
             if (sum === this.math_problem['sum']) {
+                this.math_problem['status'] = 'completed';
+
                 console.log('Good Job!');
                 right_answer_music.play();
                 // Reset the numbers
@@ -188,9 +192,8 @@ class Example extends Phaser.Scene {
         
                 // Generate a new addition problem after a brief delay
                 setTimeout(() => {
+                    reshuffleDigits()
                     this.generateNewProblem();
-
-                    reshuffleDigits();
                 }, 3000);
                 
             
@@ -251,6 +254,8 @@ class Example extends Phaser.Scene {
            // Add a collider between the digits and the platforms
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
+            if (this.math_problem['status'] == 'completed') return;
+
             const value = digit.getData('value'); 
             if (value == undefined) return;
             // Attach the digit to the platform when they collide
