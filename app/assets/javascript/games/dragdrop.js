@@ -156,6 +156,11 @@ class Example extends Phaser.Scene {
             digitSprite.setData('value', newIndex); // Update the data value
             digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
             });
+
+
+            const newX = index * slotWidth;
+            // Set the new x-position for the digitSprite
+            digitSprite.x = newX;
         };
 
         
