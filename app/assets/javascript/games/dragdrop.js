@@ -156,7 +156,9 @@ class Example extends Phaser.Scene {
             digitSprite.setTexture('digit_' + newIndex); // Update the sprite texture
             });
         };
-
+        setTimeout(() => {
+            reshuffleDigits();
+          }, 1500);
 
 
         const wrong_answer_music = this.sound.add('wrong_answer');
