@@ -140,9 +140,7 @@ class Example extends Phaser.Scene {
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
-            staticText.setText(newProblemText);
-
-            
+            staticText.setText(newProblemText);  
         };
 
 
@@ -178,7 +176,7 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                // this.math_problem['status'] = 'completed';
-                goodJobCounter++;
+                //goodJobCounter++;
                 console.log('Good Job!');
                 right_answer_music.play();
                 
