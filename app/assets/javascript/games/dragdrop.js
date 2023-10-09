@@ -178,14 +178,14 @@ class Example extends Phaser.Scene {
                // this.math_problem['status'] = 'completed';
                 console.log('Good Job!');
                 right_answer_music.play();
-                goodJobCounter++;
+               // goodJobCounter++;
                 
-                if (goodJobCounter === 2) {
+               /* if (goodJobCounter === 2) {
                     // Display "Level Completed" message
                     console.log('Level Completed');
                 }else {
                     this.generateNewProblem();
-                }
+                }*/
                     
             
                 const tensDigit = this.math_problem['addend1_digit'];
