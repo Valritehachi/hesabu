@@ -165,7 +165,7 @@ class Example extends Phaser.Scene {
             });
         };
 
-
+        let goodJobCounter = 0;
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
         const sumOnPlatform = () => {
@@ -178,11 +178,15 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                // this.math_problem['status'] = 'completed';
-
+                goodJobCounter++;
                 console.log('Good Job!');
                 right_answer_music.play();
                 // Reset the numbers
-               
+                if (goodJobCounter === 10) {
+                    // Display "Level Completed" message
+                    console.log('Level Completed');
+                    
+                }
                 const tensDigit = this.math_problem['addend1_digit'];
                 tensDigit.setGravityY(-350);
                 const onesDigit = this.math_problem['addend2_digit'];
@@ -201,6 +205,7 @@ class Example extends Phaser.Scene {
                 console.log('Try again!');
                 wrong_answer_music.play();
             }
+
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
