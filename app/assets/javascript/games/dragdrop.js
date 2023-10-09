@@ -198,10 +198,10 @@ class Example extends Phaser.Scene {
                 this.math_problem['addend2'] = null;
         
                 // Generate a new addition problem after a brief delay
-               /* setTimeout(() => {
+                setTimeout(() => {
                     reshuffleDigits()
                     this.generateNewProblem();
-                }, 3000);  */
+                }, 3000); 
                 
             
             } else {
