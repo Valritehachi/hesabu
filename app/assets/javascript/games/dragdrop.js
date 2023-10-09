@@ -191,10 +191,10 @@ class Example extends Phaser.Scene {
                 this.math_problem['addend2'] = null;
         
                 // Generate a new addition problem after a brief delay
-                setTimeout(() => {
+               /* setTimeout(() => {
                     reshuffleDigits()
                     this.generateNewProblem();
-                }, 3000);
+                }, 3000);  */
                 
             
             } else {
@@ -269,7 +269,7 @@ class Example extends Phaser.Scene {
             this.math_problem[name + '_digit'] = digit;
             console.log('math problem', this.math_problem);
             
-           // sumOnPlatform();
+           sumOnPlatform();
     
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
