@@ -163,7 +163,7 @@ class Example extends Phaser.Scene {
             });
         };
 
-        //let goodJobCounter = 0;
+        let goodJobCounter = 0;
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
         const sumOnPlatform = () => {
@@ -176,16 +176,16 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                // this.math_problem['status'] = 'completed';
-                //goodJobCounter++;
+                goodJobCounter++;
                 console.log('Good Job!');
                 right_answer_music.play();
                 
-               /* if (goodJobCounter === 2) {
+                if (goodJobCounter === 2) {
                     // Display "Level Completed" message
                     console.log('Level Completed');
                 }else {
-                    generateNewProblem();
-                }*/
+                    this.generateNewProblem();
+                }
                     
             
                 const tensDigit = this.math_problem['addend1_digit'];
