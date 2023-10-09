@@ -176,9 +176,9 @@ class Example extends Phaser.Scene {
     
             if (sum === this.math_problem['sum']) {
                // this.math_problem['status'] = 'completed';
-                goodJobCounter++;
                 console.log('Good Job!');
                 right_answer_music.play();
+                goodJobCounter++;
                 
                 if (goodJobCounter === 2) {
                     // Display "Level Completed" message
