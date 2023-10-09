@@ -177,7 +177,7 @@ class Example extends Phaser.Scene {
             const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
             if (sum === this.math_problem['sum']) {
-                this.math_problem['status'] = 'completed';
+               // this.math_problem['status'] = 'completed';
 
                 console.log('Good Job!');
                 right_answer_music.play();
