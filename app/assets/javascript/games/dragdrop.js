@@ -182,11 +182,14 @@ class Example extends Phaser.Scene {
                 console.log('Good Job!');
                 right_answer_music.play();
                 // Reset the numbers
-                if (goodJobCounter === 10) {
+                if (goodJobCounter === 2) {
                     // Display "Level Completed" message
                     console.log('Level Completed');
-                    
+                }else {
+                    generateNewProblem
                 }
+                    
+            
                 const tensDigit = this.math_problem['addend1_digit'];
                 tensDigit.setGravityY(-350);
                 const onesDigit = this.math_problem['addend2_digit'];
