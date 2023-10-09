@@ -186,7 +186,7 @@ class Example extends Phaser.Scene {
                     // Display "Level Completed" message
                     console.log('Level Completed');
                 }else {
-                    generateNewProblem
+                    generateNewProblem();
                 }
                     
             
