@@ -184,9 +184,11 @@ class Example extends Phaser.Scene {
                 
             
                 const tensDigit = this.math_problem['addend1_digit'];
-                tensDigit.setVelocityY(-350);
+                tensDigit.setGravityY(-350);
+                tensDigit.setVelocityY(-150);
                 const onesDigit = this.math_problem['addend2_digit'];
-                onesDigit.setVelocityY(-350);
+                onesDigit.setVelocityY(-150);
+                onesDigit.setGravityY(-350);
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
         
