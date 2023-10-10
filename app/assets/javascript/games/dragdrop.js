@@ -38,7 +38,9 @@ class Example extends Phaser.Scene {
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
-                'status': 'ready'
+                'status': 'ready',
+                'counter': 0
+
         };
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
@@ -163,7 +165,7 @@ class Example extends Phaser.Scene {
             });
         };
 
-        let goodJobCounter = 0;
+        
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
         const sumOnPlatform = () => {
@@ -178,15 +180,8 @@ class Example extends Phaser.Scene {
                // this.math_problem['status'] = 'completed';
                 console.log('Good Job!');
                 right_answer_music.play();
-               // goodJobCounter++;
+                this.math_problem['counter']++;
                 
-               /* if (goodJobCounter === 2) {
-                    // Display "Level Completed" message
-                    console.log('Level Completed');
-                }else {
-                    this.generateNewProblem();
-                }*/
-                    
             
                 const tensDigit = this.math_problem['addend1_digit'];
                 tensDigit.setGravityY(-350);
@@ -196,12 +191,15 @@ class Example extends Phaser.Scene {
                 this.math_problem['addend2'] = null;
         
                 // Generate a new addition problem after a brief delay
+                // if the counter is less than 2 generate a new problem else end the level 
                 setTimeout(() => {
-                    reshuffleDigits()
-                    this.generateNewProblem();
+                    if (this.math_problem['counter'] < 2) {
+                        this.generateNewProblem();
+                        reshuffleDigits();
+                    } else {
+                         console.log('Level Completed');
+                    }
                 }, 3000); 
-                
-            
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
