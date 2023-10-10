@@ -184,9 +184,9 @@ class Example extends Phaser.Scene {
                 
             
                 const tensDigit = this.math_problem['addend1_digit'];
-                tensDigit.setGravityY(-350);
+                tensDigit.setVelocityY(-350);
                 const onesDigit = this.math_problem['addend2_digit'];
-                onesDigit.setGravityY(-350);
+                onesDigit.setVelocityY(-350);
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
         
@@ -316,4 +316,5 @@ class Example extends Phaser.Scene {
   },false);
   
   (window.DragDropGame=window.DragDropGame||{},window);
+
 
