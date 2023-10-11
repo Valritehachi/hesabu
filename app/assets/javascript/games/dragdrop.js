@@ -113,7 +113,7 @@ class Example extends Phaser.Scene {
         this.math_problem['sum'] = randomSum;
         console.log('generating math problem', this.math_problem);
         // Create a static text object
-        const staticText = this.add.text(170, 500, 
+        this.staticText = this.add.text(170, 500, 
             'pick any two numbers that add up to ' + randomSum, {
             fontFamily: 'Arial Black',
             fontSize: '30px',
@@ -142,7 +142,7 @@ class Example extends Phaser.Scene {
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
-            staticText.setText(newProblemText);  
+            this.staticText.setText(newProblemText);  
         };
 
 
@@ -198,11 +198,15 @@ class Example extends Phaser.Scene {
                         reshuffleDigits();
                     } else {
                          console.log('Level Completed');
+                          // Display the new problem text
+                            const newProblemText = 'Level Completed';
+                            this.staticText.setText(newProblemText); 
                     }
                 }, 3000); 
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
+                
             }
 
         };
