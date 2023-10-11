@@ -185,9 +185,7 @@ class Example extends Phaser.Scene {
             
                 const tensDigit = this.math_problem['addend1_digit'];
                 tensDigit.setGravityY(-350);
-                tensDigit.setVelocityY(-150);
                 const onesDigit = this.math_problem['addend2_digit'];
-                onesDigit.setVelocityY(-150);
                 onesDigit.setGravityY(-350);
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
@@ -195,7 +193,7 @@ class Example extends Phaser.Scene {
                 // Generate a new addition problem after a brief delay
                 // if the counter is less than 2 generate a new problem else end the level 
                 setTimeout(() => {
-                    if (this.math_problem['counter'] < 2) {
+                    if (this.math_problem['counter'] < 3) {
                         this.generateNewProblem();
                         reshuffleDigits();
                     } else {
