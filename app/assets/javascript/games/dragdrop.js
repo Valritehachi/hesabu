@@ -149,7 +149,7 @@ class Example extends Phaser.Scene {
 
 
             // Define a reset function to shuffle the digitSprites
-        const resetDigits = () => {
+        this.resetDigits = () => {
             // Shuffle the indices
             //Phaser.Utils.Array.Shuffle(digitIndices);
         
@@ -169,7 +169,7 @@ class Example extends Phaser.Scene {
         
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
-        const sumOnPlatform = () => {
+        this.sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
             if (addend1 === null || addend2 === null) {
@@ -201,9 +201,9 @@ class Example extends Phaser.Scene {
                 setTimeout(() => {
                     if (this.math_problem['counter'] < 3) {
                         this.generateNewProblem();
-                        resetDigits();
+                        this.resetDigits();
                     } else {
-                        resetDigits();
+                        this.resetDigits();
                         console.log('Level Completed');
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
@@ -294,7 +294,7 @@ class Example extends Phaser.Scene {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
             if (addend1 !== null && addend2 !== null) {
-                sumOnPlatform();
+                this.sumOnPlatform();
             }
         }
 
