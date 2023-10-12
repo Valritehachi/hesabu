@@ -177,17 +177,17 @@ class Example extends Phaser.Scene {
             const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
             if (sum === this.math_problem['sum']) {
-               // this.math_problem['status'] = 'completed';
+               
                 console.log('Good Job!');
                 right_answer_music.play();
                 this.math_problem['counter']++;
                 
-            
+                this.math_problem['status'] = 'completed';
                 const tensDigit = this.math_problem['addend1_digit'];
-                tensDigit.body.y = tensDigit.body.y - 20; 
+                //tensDigit.body.y = tensDigit.body.y - 20; 
                 tensDigit.setGravityY(-350);
                 const onesDigit = this.math_problem['addend2_digit'];
-                onesDigit.body.y = onesDigit.body.y - 20;
+                //onesDigit.body.y = onesDigit.body.y - 20;
                 onesDigit.setGravityY(-350);
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
@@ -199,6 +199,7 @@ class Example extends Phaser.Scene {
                 // if the counter is less than 2 generate a new problem else end the level 
                 setTimeout(() => {
                     if (this.math_problem['counter'] < 3) {
+                        this.math_problem['status'] = 'ready';
                         this.generateNewProblem();
                         resetDigits();
                     } else {
