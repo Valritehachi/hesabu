@@ -147,10 +147,10 @@ class Example extends Phaser.Scene {
 
 
 
-            // Define a reshuffle function to shuffle the digitSprites
-        const reshuffleDigits = () => {
+            // Define a reset function to shuffle the digitSprites
+        const resetDigits = () => {
             // Shuffle the indices
-            Phaser.Utils.Array.Shuffle(digitIndices);
+            //Phaser.Utils.Array.Shuffle(digitIndices);
         
             digitSprites.forEach((digitSprite, index) => {
                 const newIndex = digitIndices[index];
@@ -198,12 +198,13 @@ class Example extends Phaser.Scene {
                 setTimeout(() => {
                     if (this.math_problem['counter'] < 3) {
                         this.generateNewProblem();
-                        reshuffleDigits();
+                        resetDigits();
                     } else {
-                         console.log('Level Completed');
-                          // Display the new problem text
-                            const newProblemText = 'Level Completed';
-                            this.staticText.setText(newProblemText); 
+                        resetDigits();
+                        console.log('Level Completed');
+                        // Display the new problem text
+                        const newProblemText = 'Level Completed';
+                        this.staticText.setText(newProblemText); 
                     }
                 }, 3000); 
             } else {
