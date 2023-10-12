@@ -218,7 +218,7 @@ class Example extends Phaser.Scene {
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText); 
-                        isBlurEnabled
+                        isBlurEnabled = true;
 
                     }
                 }, 3000); 
@@ -314,7 +314,7 @@ class Example extends Phaser.Scene {
         if (isBlurEnabled) {
             // Apply the blur effect
             shaderPass.setRenderToTexture('blurOutput');
-            isBlurEnabled = false;
+            isBlurEnabled = true;
         } else {
             // Clear the blur effect
             shaderPass.setRenderToTexture(null);
