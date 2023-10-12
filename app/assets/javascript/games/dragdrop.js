@@ -124,16 +124,6 @@ class Example extends Phaser.Scene {
         });
         //staticText.setOrigin(0.5, 0.5);
         // Initial setup with a random sum
-
-
-            var blurShader = game.add.shader('BlurShader');
-            shaderPass = this.add.shader(blurShader);
-            shaderPass.setRenderToTexture('blurOutput');
-
-
-
-
-
     
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
