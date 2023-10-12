@@ -38,7 +38,7 @@ class Example extends Phaser.Scene {
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
-                'status': 'ready',
+                'status': null,
                 'counter': 0
 
         };
@@ -111,6 +111,7 @@ class Example extends Phaser.Scene {
         this.onesSprite.setScale(scaleFactor);
        
         this.math_problem['sum'] = randomSum;
+        this.math_problem['status'] = 'active';
         console.log('generating math problem', this.math_problem);
         // Create a static text object
         this.staticText = this.add.text(170, 500, 
@@ -138,7 +139,7 @@ class Example extends Phaser.Scene {
             this.onesSprite = this.sum.create(860, 360, onesDigit );
             this.onesSprite.setScale(scaleFactor);
             this.math_problem['sum'] = randomSum;
-            this.math_problem['status'] = 'ready';
+            this.math_problem['status'] = 'active';
 
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
@@ -199,7 +200,6 @@ class Example extends Phaser.Scene {
                 // if the counter is less than 2 generate a new problem else end the level 
                 setTimeout(() => {
                     if (this.math_problem['counter'] < 3) {
-                        this.math_problem['status'] = 'ready';
                         this.generateNewProblem();
                         resetDigits();
                     } else {
@@ -284,12 +284,20 @@ class Example extends Phaser.Scene {
             this.math_problem[name + '_digit'] = digit;
             console.log('math problem', this.math_problem);
             
-           //sumOnPlatform();
+            
     
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
     update(){
+        if (this.math_problem['status'] == 'active') {
+            const addend1 = this.math_problem['addend1'];
+            const addend2 = this.math_problem['addend2'];
+            if (addend1 !== null && addend2 !== null) {
+                sumOnPlatform();
+            }
+        }
+
         
     }
 }
