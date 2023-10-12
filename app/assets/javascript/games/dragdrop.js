@@ -284,7 +284,7 @@ class Example extends Phaser.Scene {
             this.math_problem[name + '_digit'] = digit;
             console.log('math problem', this.math_problem);
             
-           sumOnPlatform();
+           //sumOnPlatform();
     
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
