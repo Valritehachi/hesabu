@@ -25,8 +25,8 @@ class Example extends Phaser.Scene {
     }
     getRandomSum() {
         // Generate a random number between 0 and 18 (inclusive)
-        const min = 0;
-        const max = 18;
+        const min = 1;
+        const max = 17;
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
         console.log(randomNum); 
@@ -124,6 +124,16 @@ class Example extends Phaser.Scene {
         });
         //staticText.setOrigin(0.5, 0.5);
         // Initial setup with a random sum
+
+
+            var blurShader = game.add.shader('BlurShader');
+            shaderPass = this.add.shader(blurShader);
+            shaderPass.setRenderToTexture('blurOutput');
+
+
+
+
+
     
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
@@ -208,6 +218,8 @@ class Example extends Phaser.Scene {
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText); 
+                        isBlurEnabled
+
                     }
                 }, 3000); 
             } else {
@@ -287,6 +299,8 @@ class Example extends Phaser.Scene {
             
     
         });   
+        
+        
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
     update(){
@@ -297,7 +311,14 @@ class Example extends Phaser.Scene {
                 this.sumOnPlatform();
             }
         }
-
+        if (isBlurEnabled) {
+            // Apply the blur effect
+            shaderPass.setRenderToTexture('blurOutput');
+            isBlurEnabled = false;
+        } else {
+            // Clear the blur effect
+            shaderPass.setRenderToTexture(null);
+        }
         
     }
 }
