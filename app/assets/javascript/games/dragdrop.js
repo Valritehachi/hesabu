@@ -127,11 +127,16 @@ class Example extends Phaser.Scene {
         
 
         // Create a button sprite
-        const nextLevelButton = this.add.sprite(400, 300, 'nextLevel');
+        /*const nextLevelButton = this.add.sprite(400, 300, 'nextLevel');
         nextLevelButton.setInteractive();
 
-        nextLevelButton.setPosition(400, 300);
+        nextLevelButton.setPosition(200, 500);
         nextLevelButton.setVisible(false);
+        this.add.existing(nextLevelButton);*/
+
+        // Create a button
+        var button = this.add.image(400, 300, 'button');
+        button.setInteractive();
 
 
 
@@ -218,7 +223,7 @@ class Example extends Phaser.Scene {
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
-                        
+
                         nextLevelButton.setVisible(true);
 
                     }
