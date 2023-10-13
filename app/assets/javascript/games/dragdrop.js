@@ -124,7 +124,17 @@ class Example extends Phaser.Scene {
         });
         //staticText.setOrigin(0.5, 0.5);
         // Initial setup with a random sum
-    
+        
+
+        // Create a button sprite
+        const nextLevelButton = this.add.sprite(400, 300, 'nextLevel');
+        nextLevelButton.setInteractive();
+
+        nextLevelButton.setPosition(400, 300);
+        nextLevelButton.setVisible(false);
+
+
+
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
             const tens = Math.floor(randomSum / 10);
@@ -166,33 +176,6 @@ class Example extends Phaser.Scene {
             });
         };
 
-
-        const blurShader = this.add.shader({
-            // Define the fragment shader (responsible for the blur effect)
-            key: 'blurShader',
-            frag: [
-                "precision mediump float;",
-                "varying vec2 outTexCoord;",
-                "uniform sampler2D uMainSampler;",
-                "uniform float blur;",
-                "void main(void) {",
-                "   vec4 sum = vec4(0);",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x - 4.0 * blur, outTexCoord.y)) * 0.05;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x - 3.0 * blur, outTexCoord.y)) * 0.09;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x - 2.0 * blur, outTexCoord.y)) * 0.12;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x - blur, outTexCoord.y)) * 0.15;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x, outTexCoord.y)) * 0.16;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x + blur, outTexCoord.y)) * 0.15;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x + 2.0 * blur, outTexCoord.y)) * 0.12;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x + 3.0 * blur, outTexCoord.y)) * 0.09;",
-                "   sum += texture2D(uMainSampler, vec2(outTexCoord.x + 4.0 * blur, outTexCoord.y)) * 0.05;",
-                "   gl_FragColor = sum;",
-                "}"
-            ].join('\n')
-        });
-
-
-
         
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
@@ -232,10 +215,11 @@ class Example extends Phaser.Scene {
                     } else {
                         this.resetDigits();
                         console.log('Level Completed');
-                        blurShader.setRenderToTexture('blurOutput');
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
+                        
+                        nextLevelButton.setVisible(true);
 
                     }
                 }, 3000); 
@@ -328,15 +312,6 @@ class Example extends Phaser.Scene {
                 this.sumOnPlatform();
             }
         }
-       /* if (isBlurEnabled) {
-            // Apply the blur effect
-            shaderPass.setRenderToTexture('blurOutput');
-            isBlurEnabled = true;
-        } else {
-            // Clear the blur effect
-            shaderPass.setRenderToTexture(null);
-        } */
-        
     }
 }
   DragDropGame = function() {
