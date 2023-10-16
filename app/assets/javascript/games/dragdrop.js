@@ -235,7 +235,7 @@ class Example extends Phaser.Scene {
                         this.resetDigits();
                     } else {
                         this.resetDigits();
-                        console.log('Level Completed');
+                        console.log('Level Complete');
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
@@ -334,7 +334,7 @@ class Example extends Phaser.Scene {
             }
 
         }
-        if (this.math_problem['status'] == 'complete' &&
+        if (this.math_problem['status'] == 'completed' &&
             this.math_problem['level_complete'] == true) {
                 
             console.log('button', nextLevelButton);
