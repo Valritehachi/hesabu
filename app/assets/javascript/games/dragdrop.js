@@ -1,3 +1,19 @@
+class Button {
+    constructor(x, y, label, scene, callback) {
+        const button = scene.add.text(x, y, label)
+            .setOrigin(0.5)
+            .setPadding(10)
+            .setStyle({ backgroundColor: '#111' })
+            .setInteractive({ useHandCursor: true })
+            .on('pointerdown', () => callback())
+            .on('pointerover', () => button.setStyle({ fill: '#f39c12' }))
+            .on('pointerout', () => button.setStyle({ fill: '#FFF' }));
+    }
+}
+
+// Then later in one of your scenes, create a new button:
+
+
 class Example extends Phaser.Scene {
     constructor() {
       super();
@@ -135,9 +151,9 @@ class Example extends Phaser.Scene {
         this.add.existing(nextLevelButton);*/
 
         // Create a button
-        var button = this.add.image(400, 300, 'button');
-        button.setInteractive();
-
+        const nextLevelButton = new Button(0, 0, 'next level', this, () => {
+            console.log('clicked on level button');
+        });
 
 
         this.generateNewProblem = () => {
@@ -225,7 +241,8 @@ class Example extends Phaser.Scene {
                         this.staticText.setText(newProblemText);
 
                         nextLevelButton.setVisible(true);
-
+                        nextLevelButton.y = this.staticText.y
+                        nextLevelButton.x = this.staticText.x + this.staticText.width;
                     }
                 }, 3000); 
             } else {
