@@ -337,7 +337,7 @@ class Example extends Phaser.Scene {
         if (this.math_problem['status'] == 'completed' &&
             this.math_problem['level_complete'] == true) {
                 
-            console.log('button', nextLevelButton);
+            console.log('button', this.nextLevelButton);
             
             //nextLevelButton.setVisible(true);
             //nextLevelButton.y = this.staticText.y;
