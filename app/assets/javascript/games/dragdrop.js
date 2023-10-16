@@ -239,10 +239,8 @@ class Example extends Phaser.Scene {
                         // Display the new problem text
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
+                        this.math_problem['level_complete'] = true;
 
-                        nextLevelButton.setVisible(true);
-                        nextLevelButton.y = this.staticText.y
-                        nextLevelButton.x = this.staticText.x + this.staticText.width;
                     }
                 }, 3000); 
             } else {
@@ -332,8 +330,20 @@ class Example extends Phaser.Scene {
             const addend2 = this.math_problem['addend2'];
             if (addend1 !== null && addend2 !== null) {
                 this.sumOnPlatform();
+
             }
+
         }
+        if (this.math_problem['status'] == 'complete' &&
+            this.math_problem['level_complete'] == true) {
+                
+            console.log('button', nextLevelButton);
+            
+            //nextLevelButton.setVisible(true);
+            //nextLevelButton.y = this.staticText.y;
+            //nextLevelButton.x = this.staticText.x + this.staticText.width;
+        }
+
     }
 }
   DragDropGame = function() {
