@@ -146,8 +146,18 @@ class Example extends Phaser.Scene {
         this.nextLevelButton = new Button(630, 510, 'next level', this, () => {
             console.log('clicked on level button');
             backgroundColor = '#4CAF50';
-            
+
         });
+        // Add CSS styles to the button using JavaScript
+        this.nextLevelButton.style.backgroundColor = '#4CAF50';
+        this.nextLevelButton.style.color = 'white';
+        this.nextLevelButton.style.border = 'none';
+        this.nextLevelButton.style.padding = '10px 20px';
+        this.nextLevelButton.style.textAlign = 'center';
+        this.nextLevelButton.style.textDecoration = 'none';
+        this.nextLevelButton.style.display = 'inline-block';
+        this.nextLevelButton.style.fontFamily = 'Arial, sans-serif';
+        this.nextLevelButton.style.fontSize = '16px';
 
 
         this.generateNewProblem = () => {
