@@ -109,10 +109,6 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect4);
 
      // Enable Arcade Physics for the text object
-        //this.physics.world.enable(staticText);
-
-        // Make the text static (immovable)
-        //staticText.body.moves = false;
 
         const randomSum = this.getRandomSum();
         const tens = Math.floor(randomSum / 10);
@@ -216,16 +212,14 @@ class Example extends Phaser.Scene {
                 const onesDigit = this.math_problem['addend2_digit'];
                 //onesDigit.body.y = onesDigit.body.y - 20;
                 onesDigit.setGravityY(-350);
+                const delayTime = 1000;
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
-               /* const upwardVelocity = -350;
-                    tensDigit.setVelocityY(upwardVelocity);
-                    onesDigit.setVelocityY(upwardVelocity); */
-                
+               
                 // Generate a new addition problem after a brief delay
                 // if the counter is less than 2 generate a new problem else end the level 
                 setTimeout(() => {
-                    if (this.math_problem['counter'] < 3) {
+                    if (this.math_problem['counter'] < 2) {
                         this.generateNewProblem();
                         this.resetDigits();
                     } else {
