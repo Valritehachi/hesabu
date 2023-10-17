@@ -143,8 +143,10 @@ class Example extends Phaser.Scene {
         
 
         // Create a button
-        this.nextLevelButton = new Button(850, 550, 'next level', this, () => {
+        this.nextLevelButton = new Button(630, 510, 'next level', this, () => {
             console.log('clicked on level button');
+            backgroundColor = '#4CAF50';
+            
         });
 
 
