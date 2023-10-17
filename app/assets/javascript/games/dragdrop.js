@@ -341,7 +341,7 @@ class Example extends Phaser.Scene {
                 
             console.log('button', this.nextLevelButton);
             
-            this.nextLevelButton.setVisible(false);
+            this.nextLevelButton.setVisible(true);
             this.nextLevelButton.y = this.staticText.y;
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
