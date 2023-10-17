@@ -151,7 +151,7 @@ class Example extends Phaser.Scene {
         this.add.existing(nextLevelButton);*/
 
         // Create a button
-        this.nextLevelButton = new Button(0, 0, 'next level', this, () => {
+        this.nextLevelButton = new Button(170, 500, 'next level', this, () => {
             console.log('clicked on level button');
         });
 
