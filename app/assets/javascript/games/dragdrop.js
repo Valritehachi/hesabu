@@ -163,6 +163,8 @@ class Example extends Phaser.Scene {
             this.math_problem['sum'] = randomSum;
             this.math_problem['status'] = 'active';
 
+
+
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             this.staticText.setText(newProblemText);  
@@ -212,7 +214,7 @@ class Example extends Phaser.Scene {
                 const onesDigit = this.math_problem['addend2_digit'];
                 //onesDigit.body.y = onesDigit.body.y - 20;
                 onesDigit.setGravityY(-350);
-                const delayTime = 1000;
+                
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
                
@@ -298,6 +300,13 @@ class Example extends Phaser.Scene {
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
             if (this.math_problem['status'] == 'completed') return;
+            this.generateNewProblem();
+            this.resetDigits();
+        
+
+
+
+            
 
             const value = digit.getData('value'); 
             if (value == undefined) return;
