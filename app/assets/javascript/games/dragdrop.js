@@ -145,8 +145,7 @@ class Example extends Phaser.Scene {
         // Create a button
         this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
             console.log('clicked on level button');
-            this.nextLevelButton.visible = false 
-            backgroundColor = '#4CAF50';
+            visible = false;
            
 
         });
@@ -236,7 +235,7 @@ class Example extends Phaser.Scene {
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
                         this.math_problem['level_complete'] = true;
-                        this.nextLevelButton.setVisible(true);
+                        //this.nextLevelButton.setVisible(true);
 
                     }
                 }, 3000); 
