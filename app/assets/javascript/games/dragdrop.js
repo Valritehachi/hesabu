@@ -300,13 +300,7 @@ class Example extends Phaser.Scene {
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
             if (this.math_problem['status'] == 'completed') return;
-            this.generateNewProblem();
-            this.resetDigits();
         
-
-
-
-            
 
             const value = digit.getData('value'); 
             if (value == undefined) return;
