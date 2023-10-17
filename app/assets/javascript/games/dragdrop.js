@@ -150,7 +150,6 @@ class Example extends Phaser.Scene {
         });
         
         this.nextLevelButton.setStyle({
-            backgroundColor: '#4CAF50',
             display: 'none',
         });
 
@@ -342,7 +341,7 @@ class Example extends Phaser.Scene {
                 
             console.log('button', this.nextLevelButton);
             
-            this.nextLevelButton.setVisible(true);
+            this.nextLevelButton.setVisible(false);
             this.nextLevelButton.y = this.staticText.y;
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
