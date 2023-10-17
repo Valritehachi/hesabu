@@ -142,16 +142,8 @@ class Example extends Phaser.Scene {
         // Initial setup with a random sum
         
 
-        // Create a button sprite
-        /*const nextLevelButton = this.add.sprite(400, 300, 'nextLevel');
-        nextLevelButton.setInteractive();
-
-        nextLevelButton.setPosition(200, 500);
-        nextLevelButton.setVisible(false);
-        this.add.existing(nextLevelButton);*/
-
         // Create a button
-        this.nextLevelButton = new Button(170, 500, 'next level', this, () => {
+        this.nextLevelButton = new Button(850, 550, 'next level', this, () => {
             console.log('clicked on level button');
         });
 
