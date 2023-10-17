@@ -145,9 +145,17 @@ class Example extends Phaser.Scene {
         // Create a button
         this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
             console.log('clicked on level button');
+
            
         });
-        this.nextLevelButton.visible = false; 
+        
+        this.nextLevelButton.setStyle({
+            backgroundColor: '#4CAF50',
+            display: 'none',
+        });
+
+
+
 
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
