@@ -190,6 +190,28 @@ class Example extends Phaser.Scene {
             });
         };
 
+        this.showNextProblem = () => {
+            setTimeout(() => {
+                if (this.math_problem['counter'] < 2) {
+                    this.generateNewProblem();
+                    this.resetDigits();
+                } else {
+                    this.resetDigits();
+                    console.log('Level Complete');
+                    // Display the new problem text
+                    const newProblemText = 'Level Completed';
+                    this.staticText.setText(newProblemText);
+                    this.math_problem['level_complete'] = true;
+                    //this.nextLevelButton.setVisible(true);
+
+                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
+                        console.log('clicked on level button');
+                       
+                    });
+
+                }
+            }, 3000); 
+        };
         
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
@@ -211,40 +233,21 @@ class Example extends Phaser.Scene {
                 const tensDigit = this.math_problem['addend1_digit'];
                 //tensDigit.body.y = tensDigit.body.y - 20;
                 const onesDigit = this.math_problem['addend2_digit'];
+                right_answer_music.play();
+                   
                 //onesDigit.body.y = onesDigit.body.y - 20;
-                right_answer_music.on('complete', function(){
+                setTimeout(() => {
                     tensDigit.setGravityY(-350);
                     onesDigit.setGravityY(-350);
-                });
-                right_answer_music.play();
-
-                
-                
+                    this.showNextProblem();
+                }, 2000);
+               
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
                
                 // Generate a new addition problem after a brief delay
                 // if the counter is less than 2 generate a new problem else end the level 
-                setTimeout(() => {
-                    if (this.math_problem['counter'] < 2) {
-                        this.generateNewProblem();
-                        this.resetDigits();
-                    } else {
-                        this.resetDigits();
-                        console.log('Level Complete');
-                        // Display the new problem text
-                        const newProblemText = 'Level Completed';
-                        this.staticText.setText(newProblemText);
-                        this.math_problem['level_complete'] = true;
-                        //this.nextLevelButton.setVisible(true);
 
-                        this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
-                            console.log('clicked on level button');
-                           
-                        });
-
-                    }
-                }, 3000); 
             } else {
                 console.log('Try again!');
                 wrong_answer_music.play();
