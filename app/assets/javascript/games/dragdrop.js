@@ -241,8 +241,8 @@ class Example extends Phaser.Scene {
                 setTimeout(() => {
                     onesDigit.setInteractive({draggable: true});
                     tensDigit.setInteractive({draggable: true});
-                    //tensDigit.setGravityY(-350);
-                    //onesDigit.setGravityY(-350);
+                    tensDigit.setGravityY(-350);
+                    onesDigit.setGravityY(-350);
                     this.showNextProblem();
                 }, 2000);
                
