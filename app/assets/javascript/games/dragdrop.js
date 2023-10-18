@@ -327,7 +327,7 @@ class Example extends Phaser.Scene {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
             if (addend1 !== null && addend2 !== null) {
-                this.sumOnPlatform();
+               // this.sumOnPlatform();
 
             }
 
