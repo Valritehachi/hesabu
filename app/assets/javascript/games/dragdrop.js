@@ -235,7 +235,8 @@ class Example extends Phaser.Scene {
                 const onesDigit = this.math_problem['addend2_digit'];
                 right_answer_music.play();
                    
-                //onesDigit.body.y = onesDigit.body.y - 20;
+                onesDigit.body.y = rect1.y - onesDigit.body.height/2 - 20
+                tensDigit.body.y = rect1.y - tensDigit.body.height/2 - 20;
                 setTimeout(() => {
                     tensDigit.setGravityY(-350);
                     onesDigit.setGravityY(-350);
