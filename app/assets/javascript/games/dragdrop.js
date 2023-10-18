@@ -204,16 +204,21 @@ class Example extends Phaser.Scene {
             if (sum === this.math_problem['sum']) {
                
                 console.log('Good Job!');
-                right_answer_music.play();
-                this.math_problem['counter']++;
-                
                 this.math_problem['status'] = 'completed';
+                this.math_problem['counter']++;
+
+               
                 const tensDigit = this.math_problem['addend1_digit'];
-                //tensDigit.body.y = tensDigit.body.y - 20; 
-                tensDigit.setGravityY(-350);
+                //tensDigit.body.y = tensDigit.body.y - 20;
                 const onesDigit = this.math_problem['addend2_digit'];
                 //onesDigit.body.y = onesDigit.body.y - 20;
-                onesDigit.setGravityY(-350);
+                right_answer_music.on('complete', function(){
+                    tensDigit.setGravityY(-350);
+                    onesDigit.setGravityY(-350);
+                });
+                right_answer_music.play();
+
+                
                 
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
