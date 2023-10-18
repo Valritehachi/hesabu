@@ -239,8 +239,8 @@ class Example extends Phaser.Scene {
                 tensDigit.body.y = rect1.y - tensDigit.body.height/2 - 20;
 
                 setTimeout(() => {
-                    onesDigit.setInteractive(true);
-                    tensDigit.setInteractive(true);
+                    onesDigit.setInteractive({draggable: true});
+                    tensDigit.setInteractive({draggable: true});
                     //tensDigit.setGravityY(-350);
                     //onesDigit.setGravityY(-350);
                     this.showNextProblem();
@@ -320,7 +320,7 @@ class Example extends Phaser.Scene {
             digit.body.stop();
             digit.body.setVelocity(0); 
             digit.setGravityY(-200); 
-            digit.setInteractive(false);
+            digit.setInteractive({draggable: false});
             const name = platform.getData('name' );
             console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
             digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
