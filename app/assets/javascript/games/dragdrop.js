@@ -238,8 +238,8 @@ class Example extends Phaser.Scene {
                 onesDigit.body.y = rect1.y - onesDigit.body.height/2 - 20
                 tensDigit.body.y = rect1.y - tensDigit.body.height/2 - 20;
                 setTimeout(() => {
-                    tensDigit.setGravityY(-350);
-                    onesDigit.setGravityY(-350);
+                    //tensDigit.setGravityY(-350);
+                    //onesDigit.setGravityY(-350);
                     this.showNextProblem();
                 }, 2000);
                
