@@ -210,7 +210,7 @@ class Example extends Phaser.Scene {
                     });
 
                 }
-            }, 3000); 
+            }, 4000); 
         };
         
         const wrong_answer_music = this.sound.add('wrong_answer');
@@ -328,8 +328,7 @@ class Example extends Phaser.Scene {
             this.math_problem[name + '_digit'] = digit;
             console.log('math problem', this.math_problem);
             
-            
-    
+        
         });   
         
         
@@ -393,7 +392,8 @@ class Example extends Phaser.Scene {
   (window.DragDropGame=window.DragDropGame||{},window);
 
 
-  
+
+
 window.addEventListener('resize', function() {
     // Update the game's dimensions to match the new window size
     window.DragDropGame.config.width = window.innerWidth;
