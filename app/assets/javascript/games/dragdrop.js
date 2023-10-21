@@ -210,7 +210,7 @@ class Example extends Phaser.Scene {
                     });
 
                 }
-            }, 3000); 
+            }, 4000); 
         };
         
         const wrong_answer_music = this.sound.add('wrong_answer');
@@ -244,7 +244,7 @@ class Example extends Phaser.Scene {
                     tensDigit.setGravityY(-350);
                     onesDigit.setGravityY(-350);
                     this.showNextProblem();
-                }, 1500);
+                }, 2000);
                
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
