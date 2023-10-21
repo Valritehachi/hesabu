@@ -359,9 +359,9 @@ class Example extends Phaser.Scene {
 }
   DragDropGame = function() {
         this.config = {
-          type: Phaser.CANVAS,
-          width: 1000,
-          height: 600,
+          type: Phaser.AUTO,
+          width: window.innerWidth,
+          height: window.innerHeight,
           canvas: null,
           transparent: true,
           physics: {
@@ -393,3 +393,17 @@ class Example extends Phaser.Scene {
   (window.DragDropGame=window.DragDropGame||{},window);
 
 
+  
+window.addEventListener('resize', function() {
+    // Update the game's dimensions to match the new window size
+    window.DragDropGame.config.width = window.innerWidth;
+    window.DragDropGame.config.height = window.innerHeight;
+
+    // Get the canvas element and resize it as well
+    var canvas = document.getElementById('hello_game');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Restart the game with the new dimensions
+    var game = new Phaser.Game(window.DragDropGame.config);
+}, false);
