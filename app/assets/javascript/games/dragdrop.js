@@ -378,7 +378,7 @@ class Example extends Phaser.Scene {
   {
       var canvas = document.getElementById('hello_game');
       window.DragDropGame.config.canvas = canvas;
-      var game = new Phaser.Game(window.DragDropGame.config);
+      this.game = new Phaser.Game(window.DragDropGame.config);
   };
 
   window.DragDropGame = new DragDropGame();
@@ -405,5 +405,8 @@ window.addEventListener('resize', function() {
     canvas.height = window.innerHeight;
 
     // Restart the game with the new dimensions
-    var game = new Phaser.Game(window.DragDropGame.config);
+    window.DragDropGame.game.resize(
+        window.innerWidth, window.innerHeight
+    );
+   // var game = new Phaser.Game(window.DragDropGame.config);
 }, false);
