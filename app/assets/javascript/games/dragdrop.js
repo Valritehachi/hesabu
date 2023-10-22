@@ -266,7 +266,7 @@ class Example extends Phaser.Scene {
 
         const digitSprites = [];
         const spriteX = [];
-        const slotWidth = 1000/10;
+        const slotWidth = window.DragDropGame.config.width/10;
         for(let i=0;i<10;i++){
             spriteX[i] = i * slotWidth;
         }
@@ -281,7 +281,7 @@ class Example extends Phaser.Scene {
         const addDigit = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
      //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-            digitSprite.setScale(90.0/digitSprite.width);
+            digitSprite.setScale(slotWidth/digitSprite.width);
             digitSprite.x += slotWidth/2;
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
@@ -408,7 +408,7 @@ window.addEventListener('resize', function() {
     canvas.height = height;
 
     // Restart the game with the new dimensions
-    window.DragDropGame.game.physics.world.setBounds(
+    window.DragDropGame.game.physics.world.setBoundsgame.physics.world.setBounds(
         0, 0, width, height, true, true, true, true
     );
 
