@@ -396,15 +396,28 @@ class Example extends Phaser.Scene {
 
 window.addEventListener('resize', function() {
     // Update the game's dimensions to match the new window size
-    window.DragDropGame.config.width = window.innerWidth;
-    window.DragDropGame.config.height = window.innerHeight;
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    window.DragDropGame.config.width =width;
+    window.DragDropGame.config.height = height;
 
     // Get the canvas element and resize it as well
     var canvas = document.getElementById('hello_game');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
 
     // Restart the game with the new dimensions
+    window.DragDropGame.game.physics.world.setBounds(
+        0, 0, width, height, true, true, true, true
+    );
+
+    // setting the camera bound will set where the camera can scroll to
+    // I use the 'main' camera here fro simplicity, use whichever camera you use
+
+    window.DragDropGame.game.cameras.main.setBounds(
+        0, 0, width, height
+    );
     window.DragDropGame.game.resize(
         window.innerWidth, window.innerHeight
     );
