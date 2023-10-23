@@ -134,19 +134,7 @@ class Example extends Phaser.Scene {
             align: 'center'
 
         });
-        //staticText.setOrigin(0.5, 0.5);
-        // Initial setup with a random sum
-        
-
-        // Create a button
-       
-        
-       // this.nextLevelButton.setStyle({
-       //     display: 'none',
-       // });
-
-
-
+    
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
             const tens = Math.floor(randomSum / 10);
@@ -359,8 +347,8 @@ class Example extends Phaser.Scene {
   DragDropGame = function() {
         this.config = {
           type: Phaser.AUTO,
-          width: window.innerWidth,
-          height: window.innerHeight,
+          width: 1000, //window.innerWidth,
+          height: 800, //window.innerHeight,
           canvas: null,
           transparent: true,
           physics: {
@@ -394,7 +382,7 @@ class Example extends Phaser.Scene {
 
 
 
-window.addEventListener('resize', function() {
+/*window.addEventListener('resize', function() {
     // Update the game's dimensions to match the new window size
     var width = window.innerWidth;
     var height = window.innerHeight;
@@ -412,9 +400,6 @@ window.addEventListener('resize', function() {
         0, 0, width, height, true, true, true, true
     );
 
-    // setting the camera bound will set where the camera can scroll to
-    // I use the 'main' camera here fro simplicity, use whichever camera you use
-
     window.DragDropGame.game.cameras.main.setBounds(
         0, 0, width, height
     );
@@ -422,4 +407,4 @@ window.addEventListener('resize', function() {
         window.innerWidth, window.innerHeight
     );
    // var game = new Phaser.Game(window.DragDropGame.config);
-}, false);
+}, false); */
