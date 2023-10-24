@@ -50,6 +50,7 @@ class Example extends Phaser.Scene {
     }
 
     create() {
+        this.scaleRatio = window.devicePixelRatio / 3;
         this.math_problem = {
                 'addend1': null,
                 'addend2': null,
@@ -60,10 +61,12 @@ class Example extends Phaser.Scene {
         };
         this.ground = this.physics.add.staticGroup();
         this.ground.create(500, (600 - 45 / 2), 'ground').refreshBody();
+        this.ground.setScale(this.scaleRatio);
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
         const rect = this.add.rectangle(180, 430, 130, 20, 0xff66ff);
+        rect.setScale(this.scaleRatio);
         this.platforms.add(rect);
         rect.setData('name', 'addend1');
 
@@ -90,7 +93,7 @@ class Example extends Phaser.Scene {
     
         //const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(330, 430, data, 0x6666ff);
-        r1.setScale(.75);
+        r1.setScale(.75*this.scaleRatio);
         r1.setStrokeStyle(4, 0xbcffff);
        
         this.platforms.add(r1);
@@ -98,16 +101,18 @@ class Example extends Phaser.Scene {
         const rect1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
         rect1.setData('name', 'addend2');
-
+        rect1.setScale(this.scaleRatio);
         // the equal sign 
         const rect2 = this.add.rectangle(630, 420, 75, 15, 0x6666ff);
         rect2.setStrokeStyle(2, 0xefc53f); 
+        rect2.setScale(this.scaleRatio);
         const rect3 = this.add.rectangle(630, 440, 75, 15, 0x6666ff);
         rect3.setStrokeStyle(2, 0xefc53f); 
-        
+        rect3.setScale(this.scaleRatio);
+
         const rect4 = this.add.rectangle(800, 430, 200, 20, 0xff66ff);
         this.platforms.add(rect4);
-
+        rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
         const randomSum = this.getRandomSum();
@@ -118,9 +123,9 @@ class Example extends Phaser.Scene {
         this.sum = this.physics.add.staticGroup();
         const scaleFactor = 0.5;
         this.tensSprite = this.sum.create(760, 360, tensDigit);
-        this.tensSprite.setScale(scaleFactor);
+        this.tensSprite.setScale(scaleFactor*this.scaleRatio);
         this.onesSprite = this.sum.create(860, 360, onesDigit );
-        this.onesSprite.setScale(scaleFactor);
+        this.onesSprite.setScale(scaleFactor*this.scaleRatio);
        
         this.math_problem['sum'] = randomSum;
         this.math_problem['status'] = 'active';
@@ -134,7 +139,7 @@ class Example extends Phaser.Scene {
             align: 'center'
 
         });
-    
+        this.staticText.setScale(this.scaleRatio);
         this.generateNewProblem = () => {
             const randomSum = this.getRandomSum();
             const tens = Math.floor(randomSum / 10);
@@ -145,9 +150,9 @@ class Example extends Phaser.Scene {
             this.sum.remove(this.tensSprite, true, true);
             this.sum.remove(this.onesSprite, true, true);
             this.tensSprite = this.sum.create(760, 360, tensDigit);
-            this.tensSprite.setScale(scaleFactor);
+            this.tensSprite.setScale(scaleFactor*this.scaleRatio);
             this.onesSprite = this.sum.create(860, 360, onesDigit );
-            this.onesSprite.setScale(scaleFactor);
+            this.onesSprite.setScale(scaleFactor*this.scaleRatio);
             this.math_problem['sum'] = randomSum;
             this.math_problem['status'] = 'active';
 
@@ -269,7 +274,7 @@ class Example extends Phaser.Scene {
         const addDigit = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
      //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-            digitSprite.setScale(slotWidth/digitSprite.width);
+            digitSprite.setScale(slotWidth*this.scaleRatio/digitSprite.width);
             digitSprite.x += slotWidth/2;
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
@@ -347,8 +352,8 @@ class Example extends Phaser.Scene {
   DragDropGame = function() {
         this.config = {
           type: Phaser.AUTO,
-          width: 1000, //window.innerWidth,
-          height: 800, //window.innerHeight,
+          width: window.innerWidth* window.devicePixelRatio,
+          height: window.innerHeight* window.devicePixelRatio,
           canvas: null,
           transparent: true,
           physics: {
@@ -378,9 +383,6 @@ class Example extends Phaser.Scene {
   },false);
   
   (window.DragDropGame=window.DragDropGame||{},window);
-
-
-
 
 /*window.addEventListener('resize', function() {
     // Update the game's dimensions to match the new window size
