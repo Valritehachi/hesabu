@@ -274,7 +274,7 @@ class Example extends Phaser.Scene {
         const addDigit = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
      //const digitSprite = gameObjectGroup.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
-            digitSprite.setScale(slotWidth*this.scaleRatio/digitSprite.width);
+            digitSprite.setScale(slotWidth/digitSprite.width);
             digitSprite.x += slotWidth/2;
             digitSprite.setBounce(0.4);
             digitSprite.setCollideWorldBounds(true);
@@ -352,8 +352,8 @@ class Example extends Phaser.Scene {
   DragDropGame = function() {
         this.config = {
           type: Phaser.AUTO,
-          width: window.innerWidth* window.devicePixelRatio,
-          height: window.innerHeight* window.devicePixelRatio,
+          width: 1000 * window.devicePixelRatio,
+          height: 800 * window.devicePixelRatio,
           canvas: null,
           transparent: true,
           physics: {
