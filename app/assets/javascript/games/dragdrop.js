@@ -353,7 +353,7 @@ class Example extends Phaser.Scene {
         this.config = {
           type: Phaser.AUTO,
           width: 1100,
-          height: 650,
+          height: 620,
           canvas: null,
           transparent: true,
           physics: {
