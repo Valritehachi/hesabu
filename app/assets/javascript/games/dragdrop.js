@@ -60,7 +60,7 @@ class Example extends Phaser.Scene {
 
         };
         this.groundGroup = this.physics.add.staticGroup();
-        this.ground = this.groundGroup.create(700, (600 - 45 / 2), 'ground').refreshBody();
+        this.ground = this.groundGroup.create(500, (600 - 45 / 2), 'ground').refreshBody();
         //this.ground.setScale(this.scaleRatio);
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
@@ -353,7 +353,7 @@ class Example extends Phaser.Scene {
         this.config = {
           type: Phaser.AUTO,
           width: 1000,
-          height: 800,
+          height: 600,
           canvas: null,
           transparent: true,
           physics: {
@@ -384,29 +384,3 @@ class Example extends Phaser.Scene {
   
   (window.DragDropGame=window.DragDropGame||{},window);
 
-/*window.addEventListener('resize', function() {
-    // Update the game's dimensions to match the new window size
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-
-    window.DragDropGame.config.width =width;
-    window.DragDropGame.config.height = height;
-
-    // Get the canvas element and resize it as well
-    var canvas = document.getElementById('hello_game');
-    canvas.width = width;
-    canvas.height = height;
-
-    // Restart the game with the new dimensions
-    window.DragDropGame.game.physics.world.setBoundsgame.physics.world.setBounds(
-        0, 0, width, height, true, true, true, true
-    );
-
-    window.DragDropGame.game.cameras.main.setBounds(
-        0, 0, width, height
-    );
-    window.DragDropGame.game.resize(
-        window.innerWidth, window.innerHeight
-    );
-   // var game = new Phaser.Game(window.DragDropGame.config);
-}, false); */
