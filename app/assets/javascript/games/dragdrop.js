@@ -60,7 +60,7 @@ class Example extends Phaser.Scene {
 
         };
         this.groundGroup = this.physics.add.staticGroup();
-        this.ground = this.groundGroup.create(500, (600 - 45 / 2), 'ground').refreshBody();
+        this.ground = this.groundGroup.create(700, (600 - 45 / 2), 'ground').refreshBody();
         //this.ground.setScale(this.scaleRatio);
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
