@@ -209,7 +209,7 @@ class Example extends Phaser.Scene {
         
          this.wrong_answer_music = this.sound.add('wrong_answer');
 
-         this.wrong_answer_music.on('complete', () => {
+         this.wrong_answer_music.on('complete',function() {
             console.log('music completed');
             game.resetDigits();
             game.math_problem['addend1'] = null; 
@@ -332,7 +332,7 @@ class Example extends Phaser.Scene {
                 digit.setInteractive({draggable: false});
                 
                 console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
-                console.log('gravity', digit.gravity);
+                console.log('gravity', digit.body.gravity);
                 digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
                 this.math_problem[name] = value;
                 this.math_problem[name + '_digit'] = digit;
