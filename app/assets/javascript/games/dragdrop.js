@@ -220,7 +220,7 @@ class Example extends Phaser.Scene {
                     this.resetDigits();
                     console.log('Level Complete');
                     // Display the new problem text
-                    createStar();
+                   
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
