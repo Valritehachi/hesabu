@@ -208,12 +208,15 @@ class Example extends Phaser.Scene {
         
         const wrong_answer_music = this.sound.add('wrong_answer');
         const right_answer_music = this.sound.add('right_answer');
+        
         this.sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
             if (addend1 === null || addend2 === null) {
                 return;
             }
+            this.math_problem['status'] = 'summing';
+
             const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
     
             if (sum === this.math_problem['sum']) {
@@ -249,11 +252,13 @@ class Example extends Phaser.Scene {
                 console.log('Try again!');
                 wrong_answer_music.on('complete', () => {
                     console.log('music completed');
+                    this.resetDigits();
+                    this.math_problem['addend1'] = null; 
+                    this.math_problem['addend2'] = null;
+                    this.math_problem['status'] = 'active';
                 });
                 wrong_answer_music.play();
-                
             }
-
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
@@ -336,7 +341,6 @@ class Example extends Phaser.Scene {
             if (addend1 !== null && addend2 !== null) {
                 this.sumOnPlatform();
             }
-
         }
         if (this.math_problem['status'] == 'completed' &&
             this.math_problem['level_complete'] == true &&
