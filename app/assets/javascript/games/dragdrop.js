@@ -320,7 +320,7 @@ class Example extends Phaser.Scene {
             digit.setInteractive({draggable: false});
             const name = platform.getData('name' );
             console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
-            console.log('gravity', digit.gravity.y);
+            console.log('gravity', digit.gravity);
             digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
             this.math_problem[name] = value;
             this.math_problem[name + '_digit'] = digit;
