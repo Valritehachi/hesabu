@@ -50,6 +50,7 @@ class Example extends Phaser.Scene {
     }
 
     create() {
+        const game = this;
         this.scaleRatio = window.devicePixelRatio / 3;
         this.math_problem = {
                 'addend1': null,
@@ -206,8 +207,17 @@ class Example extends Phaser.Scene {
             }, 4000); 
         };
         
-        const wrong_answer_music = this.sound.add('wrong_answer');
-        const right_answer_music = this.sound.add('right_answer');
+         this.wrong_answer_music = this.sound.add('wrong_answer');
+
+         this.wrong_answer_music.on('complete', () => {
+            console.log('music completed');
+            game.resetDigits();
+            game.math_problem['addend1'] = null; 
+            game.math_problem['addend2'] = null;
+            game.math_problem['status'] = 'active';
+        });
+
+         this.right_answer_music = this.sound.add('right_answer');
         
         this.sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
@@ -250,14 +260,7 @@ class Example extends Phaser.Scene {
 
             } else {
                 console.log('Try again!');
-                wrong_answer_music.on('complete', () => {
-                    console.log('music completed');
-                    this.resetDigits();
-                    this.math_problem['addend1'] = null; 
-                    this.math_problem['addend2'] = null;
-                    this.math_problem['status'] = 'active';
-                });
-                wrong_answer_music.play();
+                this.wrong_answer_music.play();
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
@@ -277,7 +280,7 @@ class Example extends Phaser.Scene {
             }, this);
         */    
         // Define a function to add a digit
-        const game = this;
+       
         const gameObjectGroup = this.physics.add.group();
         const addDigit = (x, digitIndex) => {
            const digitSprite = game.physics.add.sprite( spriteX[digitIndex], 0, 'digit_' + digitIndices[digitIndex]); // Use shuffled index
@@ -320,7 +323,7 @@ class Example extends Phaser.Scene {
 
             const name = platform.getData('name' );
             if (name == undefined) return;
-            
+
             // Attach the digit to the platform when they collide
             if (digit.body.gravity.y != -200) {
                 digit.body.stop();
