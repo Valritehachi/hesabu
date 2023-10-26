@@ -343,3 +343,26 @@ canvas#hello_game {
   border: 5px solid #6495ED;
   padding: 5px;
 }
+
+
+.star {
+    position: absolute;
+    width: 20px; /* Adjust the star width */
+    height: 20px; /* Adjust the star height */
+    background-color: yellow; /* Adjust the star color */
+    clip-path: polygon(50% 0%, 61.8% 38.2%, 100% 50%, 61.8% 61.8%, 50% 100%, 38.2% 61.8%, 0% 50%, 38.2% 38.2%);
+    animation: star-fall 5s linear infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes star-fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(800px); /* Adjust the fall distance */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -116,6 +116,33 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
+
+
+
+
+            function createStar() {
+            // Function to create a star and add it to the container
+            const star = document.createElement("div");
+            star.className = "star";
+            star.style.left = Math.random() * 1000 + "px"; // Adjust the left position
+            document.getElementById("star-container").appendChild(star);
+
+            // Start the animation with setInterval
+            const animationInterval = setInterval(() => {
+                star.style.animation = "star-fall 5s linear infinite";
+            }, 100); // Delay the animation start to ensure it works as expected
+
+            // Remove the star and stop the animation after a set time (e.g., 10 seconds)
+            setTimeout(() => {
+                clearInterval(animationInterval);
+                star.remove();
+            }, 10000); // Adjust the time the star remains on the screen
+        }
+
+
+
+
+
         const randomSum = this.getRandomSum();
         const tens = Math.floor(randomSum / 10);
         const ones = randomSum % 10;
@@ -193,6 +220,7 @@ class Example extends Phaser.Scene {
                     this.resetDigits();
                     console.log('Level Complete');
                     // Display the new problem text
+                    createStar();
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
