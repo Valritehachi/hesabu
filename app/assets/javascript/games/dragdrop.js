@@ -239,7 +239,7 @@ class Example extends Phaser.Scene {
                 const tensDigit = this.math_problem['addend1_digit'];
                 //tensDigit.body.y = tensDigit.body.y - 20;
                 const onesDigit = this.math_problem['addend2_digit'];
-                right_answer_music.play();
+                this.right_answer_music.play();
                    
                 onesDigit.body.y = rect1.y - onesDigit.body.height/2 - 20
                 tensDigit.body.y = rect1.y - tensDigit.body.height/2 - 20;
