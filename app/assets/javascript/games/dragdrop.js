@@ -313,23 +313,20 @@ class Example extends Phaser.Scene {
             const value = digit.getData('value'); 
             if (value == undefined) return;
             // Attach the digit to the platform when they collide
-
-            digit.body.stop();
-            digit.body.setVelocity(0); 
-            digit.setGravityY(-200); 
-            digit.setInteractive({draggable: false});
-            const name = platform.getData('name' );
-            console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
-            console.log('gravity', digit.gravity);
-            digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
-            this.math_problem[name] = value;
-            this.math_problem[name + '_digit'] = digit;
-            console.log('math problem', this.math_problem);
-            
-        
+            if (digit.body.gravity.y != -200) {
+                digit.body.stop();
+                digit.body.setVelocity(0); 
+                digit.setGravityY(-200); 
+                digit.setInteractive({draggable: false});
+                const name = platform.getData('name' );
+                console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
+                console.log('gravity', digit.gravity);
+                digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
+                this.math_problem[name] = value;
+                this.math_problem[name + '_digit'] = digit;
+                console.log('math problem', this.math_problem);
+            }
         });   
-        
-        
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
     update(){
