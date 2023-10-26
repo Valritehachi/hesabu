@@ -209,13 +209,13 @@ class Example extends Phaser.Scene {
         
          this.wrong_answer_music = this.sound.add('wrong_answer');
 
-         this.wrong_answer_music.on('complete',function() {
+         this.wrong_answer_music_complete = function() {
             console.log('music completed');
             game.resetDigits();
             game.math_problem['addend1'] = null; 
             game.math_problem['addend2'] = null;
             game.math_problem['status'] = 'active';
-        });
+        };
 
          this.right_answer_music = this.sound.add('right_answer');
         
@@ -261,6 +261,7 @@ class Example extends Phaser.Scene {
             } else {
                 console.log('Try again!');
                 this.wrong_answer_music.play();
+                setTimeout(this.wrong_answer_music_complete, 2000);
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
