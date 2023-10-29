@@ -36,13 +36,13 @@ class Example extends Phaser.Scene {
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
-        this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav')
-
+        this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
     }
-    getRandomSum() {
+    
+    getRandomSum(level) {
         // Generate a random number between 0 and 18 (inclusive)
         const min = 1;
-        const max = 17;
+        const max = (level == 2) ? 17:10;
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
         console.log(randomNum); 
@@ -57,7 +57,8 @@ class Example extends Phaser.Scene {
                 'addend2': null,
                 'sum':null,
                 'status': null,
-                'counter': 0
+                'counter': 0,
+                'level': 1
 
         };
         this.groundGroup = this.physics.add.staticGroup();
@@ -116,7 +117,7 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
-        const randomSum = this.getRandomSum();
+        const randomSum = this.getRandomSum(this.math_problem['level']);
         const tens = Math.floor(randomSum / 10);
         const ones = randomSum % 10;
         const tensDigit = "digit_" + tens;
@@ -142,7 +143,7 @@ class Example extends Phaser.Scene {
         });
         //this.staticText.setScale(this.scaleRatio);
         this.generateNewProblem = () => {
-            const randomSum = this.getRandomSum();
+            const randomSum = this.getRandomSum(this.math_problem['level']);
             const tens = Math.floor(randomSum / 10);
             const ones = randomSum % 10;
             const tensDigit = "digit_" + tens;
@@ -204,7 +205,7 @@ class Example extends Phaser.Scene {
                     //this.nextLevelButton.setVisible(true);
 
 
-                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
+                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
                         console.log('clicked on level button');
                        
                     });
