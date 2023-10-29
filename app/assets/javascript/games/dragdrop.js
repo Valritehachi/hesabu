@@ -41,8 +41,8 @@ class Example extends Phaser.Scene {
     
     getRandomSum(level) {
         // Generate a random number between 0 and 18 (inclusive)
-        const min = 1;
-        const max = (level == 2) ? 17:10;
+        const min = (level == 2) ? 10:17;
+        const max = (level == 2) ? 17:9;
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
         console.log(randomNum); 
