@@ -184,6 +184,46 @@ class Example extends Phaser.Scene {
             });
         };
 
+
+       
+        
+        let stars = null; // Initialize the stars group as null
+        
+        function create() {
+            // Do not create stars here, just initialize the group
+            stars = this.add.group();
+        }
+        
+        function generateStars() {
+            if (stars) {
+                // Function to generate stars
+                for (let i = 0; i < 100; i++) { // Adjust the number of stars
+                    const x = Phaser.Math.Between(0, this.sys.game.config.width);
+                    const y = Phaser.Math.Between(0, this.sys.game.config.height);
+                    const size = Phaser.Math.Between(2, 5); // Adjust star size as needed
+                    const color = Phaser.Display.Color.RandomRGB(200); // Generate a random color
+        
+                    const star = this.add.graphics();
+                    star.fillStyle(color.color, 1);
+                    star.fillPoints([0, -size, -size, size, size, size]);
+                    star.x = x;
+                    star.y = y;
+                    stars.add(star);
+                }
+            } else {
+                console.error("Stars group is not initialized. Call create() first.");
+            }
+        }
+        
+        // To generate stars, call generateStars() when you want to create them
+        // generateStars();
+        
+
+
+
+
+
+
         this.showNextProblem = () => {
             setTimeout(() => {
                 if (this.math_problem['counter'] < 2) {
@@ -198,6 +238,9 @@ class Example extends Phaser.Scene {
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
                     //this.nextLevelButton.setVisible(true);
+
+
+                    generateStars();
 
                     this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
                         console.log('clicked on level button');
