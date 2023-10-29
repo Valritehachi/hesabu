@@ -181,48 +181,12 @@ class Example extends Phaser.Scene {
                 // Set the new x-position for the digitSprite
                 digitSprite.x = newX;
                 digitSprite.y = digitSprite.body.height/2;
+                digitSprite.setInteractive({draggable: true});
+                digitSprite.setGravityY(-350);
             });
         };
 
-
-       
-        
-        let stars = null; // Initialize the stars group as null
-        
-        function create() {
-            // Do not create stars here, just initialize the group
-            stars = this.add.group();
-        }
-        
-        function generateStars() {
-            if (stars) {
-                // Function to generate stars
-                for (let i = 0; i < 100; i++) { // Adjust the number of stars
-                    const x = Phaser.Math.Between(0, this.sys.game.config.width);
-                    const y = Phaser.Math.Between(0, this.sys.game.config.height);
-                    const size = Phaser.Math.Between(2, 5); // Adjust star size as needed
-                    const color = Phaser.Display.Color.RandomRGB(200); // Generate a random color
-        
-                    const star = this.add.graphics();
-                    star.fillStyle(color.color, 1);
-                    star.fillPoints([0, -size, -size, size, size, size]);
-                    star.x = x;
-                    star.y = y;
-                    stars.add(star);
-                }
-            } else {
-                console.error("Stars group is not initialized. Call create() first.");
-            }
-        }
-        
-        // To generate stars, call generateStars() when you want to create them
-        // generateStars();
-        
-
-
-
-
-
+    
 
         this.showNextProblem = () => {
             setTimeout(() => {
@@ -239,8 +203,6 @@ class Example extends Phaser.Scene {
                     this.math_problem['level_complete'] = true;
                     //this.nextLevelButton.setVisible(true);
 
-
-                    generateStars();
 
                     this.nextLevelButton = new Button(630, 515, 'Next Level', this, () => {
                         console.log('clicked on level button');
@@ -386,6 +348,11 @@ class Example extends Phaser.Scene {
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
+
+
+
+    
+   
     update(){
         if (this.math_problem['status'] == 'active') {
             const addend1 = this.math_problem['addend1'];
