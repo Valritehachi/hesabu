@@ -207,7 +207,9 @@ class Example extends Phaser.Scene {
 
                     this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
                         console.log('clicked on level button');
-                       
+                        this.math_problem['counter'] = 0; 
+                        this.math_problem['level']++;
+                        this.generateNewProblem(); 
                     });
 
                 }
