@@ -215,7 +215,7 @@ class Example extends Phaser.Scene {
                     this.math_problem['level_complete'] = true;
                     //this.nextLevelButton.setVisible(true);
 
-                    this.nextLevelButton.setVisible(true);
+                    this.nextLevelButton.setVisible(false);
 
                 }
             }, 4000); 
