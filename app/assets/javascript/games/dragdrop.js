@@ -188,6 +188,16 @@ class Example extends Phaser.Scene {
             });
         };
 
+
+        this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
+            console.log('clicked on level button');
+            game.math_problem['counter'] = 0;
+            game.math_problem['level']++;
+            game.generateNewProblem();
+            
+            // Hide the button by setting its visibility to false
+            this.nextLevelButton.setVisible(false);
+        });
     
 
         this.showNextProblem = () => {
@@ -205,16 +215,7 @@ class Example extends Phaser.Scene {
                     this.math_problem['level_complete'] = true;
                     //this.nextLevelButton.setVisible(true);
 
-
-                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
-                        console.log('clicked on level button');
-                        game.math_problem['counter'] = 0;
-                        game.math_problem['level']++;
-                        game.generateNewProblem();
-                        
-                        // Hide the button by setting its visibility to false
-                        this.nextLevelButton.setVisible(false);
-                    });
+                    this.nextLevelButton.setVisible(true);
 
                 }
             }, 4000); 
