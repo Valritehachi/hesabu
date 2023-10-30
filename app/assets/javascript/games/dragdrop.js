@@ -199,23 +199,23 @@ class Example extends Phaser.Scene {
                     this.resetDigits();
                     console.log('Level Complete');
                     // Display the new problem text
-                
+                   
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
-                
-                    if (!this.nextLevelButton) {
-                        this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
-                            console.log('clicked on level button');
-                            game.math_problem['counter'] = 0;
-                            game.math_problem['level']++;
-                            game.generateNewProblem();
-                            this.nextLevelButton.setVisible(false); // Hide the button after clicking it
-                        });
-                    } else {
-                        this.nextLevelButton.setVisible(true); // Show the button
-                        this.level_complete_music.play();
-                    }
+                    //this.nextLevelButton.setVisible(true);
+
+
+                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
+                        console.log('clicked on level button');
+                        game.math_problem['counter'] = 0;
+                        game.math_problem['level']++;
+                        game.generateNewProblem();
+                        
+                        // Hide the button by setting its visibility to false
+                        this.nextLevelButton.setVisible(false);
+                    });
+
                 }
             }, 4000); 
         };
@@ -233,7 +233,7 @@ class Example extends Phaser.Scene {
          this.right_answer_music = this.sound.add('right_answer');
          this.level_complete_music = this.sound.add('level_complete');
 
-
+         
         this.sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
