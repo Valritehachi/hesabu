@@ -37,6 +37,7 @@ class Example extends Phaser.Scene {
         this.load.image('bucket', 'assets/images/purple_bucket.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
+        this.load.audio('level_complete', 'assets/audio/level_complete.wav')
     }
     
     getRandomSum(level) {
@@ -198,20 +199,23 @@ class Example extends Phaser.Scene {
                     this.resetDigits();
                     console.log('Level Complete');
                     // Display the new problem text
-                   
+                
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
-                    //this.nextLevelButton.setVisible(true);
-
-
-                    this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
-                        console.log('clicked on level button');
-                        game.math_problem['counter'] = 0; 
-                        game.math_problem['level']++;
-                        game.generateNewProblem(); 
-                    });
-
+                
+                    if (!this.nextLevelButton) {
+                        this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
+                            console.log('clicked on level button');
+                            game.math_problem['counter'] = 0;
+                            game.math_problem['level']++;
+                            game.generateNewProblem();
+                            this.nextLevelButton.setVisible(false); // Hide the button after clicking it
+                        });
+                    } else {
+                        this.nextLevelButton.setVisible(true); // Show the button
+                        this.level_complete_music.play();
+                    }
                 }
             }, 4000); 
         };
@@ -227,7 +231,9 @@ class Example extends Phaser.Scene {
         };
 
          this.right_answer_music = this.sound.add('right_answer');
-        
+         this.level_complete_music = this.sound.add('level_complete');
+
+
         this.sumOnPlatform = () => {
             const addend1 = this.math_problem['addend1'];
             const addend2 = this.math_problem['addend2'];
