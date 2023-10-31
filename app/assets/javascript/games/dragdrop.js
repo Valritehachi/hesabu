@@ -159,9 +159,9 @@ class Example extends Phaser.Scene {
         //this.staticText.setScale(this.scaleRatio);
 
 
-        let generatedSums = 0;
-        const maxSumsToGenerate = 4;
         this.generateNewProblem = () => {
+            let generatedSums = 0;
+            const maxSumsToGenerate = 4;
            if (generatedSums < maxSumsToGenerate) {
                 const randomSum = this.getRandomSum(this.math_problem['level']);
                 const tens = Math.floor(randomSum / 10);
@@ -228,7 +228,7 @@ class Example extends Phaser.Scene {
 
         this.showNextProblem = () => {
             setTimeout(() => {
-                if (this.math_problem['counter'] < 3) {
+                if (this.math_problem['counter'] < 2) {
                     this.generateNewProblem();
                     this.resetDigits();
                 } else {
