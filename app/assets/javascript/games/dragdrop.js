@@ -160,34 +160,26 @@ class Example extends Phaser.Scene {
 
 
         this.generateNewProblem = () => {
-            let generatedSums = 0;
-            const maxSumsToGenerate = 4;
-           if (generatedSums < maxSumsToGenerate) {
-                const randomSum = this.getRandomSum(this.math_problem['level']);
-                const tens = Math.floor(randomSum / 10);
-                const ones = randomSum % 10;
-                const tensDigit = "digit_" + tens;
-                const onesDigit = "digit_" + ones;
-                const scaleFactor = 0.5;
-                this.sum.remove(this.tensSprite, true, true);
-                this.sum.remove(this.onesSprite, true, true);
-                this.tensSprite = this.sum.create(760, 360, tensDigit);
-                this.tensSprite.setScale(scaleFactor);
-                this.onesSprite = this.sum.create(860, 360, onesDigit );
-                this.onesSprite.setScale(scaleFactor);
-                this.math_problem['sum'] = randomSum;
-                this.math_problem['status'] = 'active';
+        
+            const randomSum = this.getRandomSum(this.math_problem['level']);
+            const tens = Math.floor(randomSum / 10);
+            const ones = randomSum % 10;
+            const tensDigit = "digit_" + tens;
+            const onesDigit = "digit_" + ones;
+            const scaleFactor = 0.5;
+            this.sum.remove(this.tensSprite, true, true);
+            this.sum.remove(this.onesSprite, true, true);
+            this.tensSprite = this.sum.create(760, 360, tensDigit);
+            this.tensSprite.setScale(scaleFactor);
+            this.onesSprite = this.sum.create(860, 360, onesDigit );
+            this.onesSprite.setScale(scaleFactor);
+            this.math_problem['sum'] = randomSum;
+            this.math_problem['status'] = 'active';
 
-                generatedSums++;
-
-                // Display the new problem text
-                const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
-                this.staticText.setText(newProblemText);  
-            } else {
-                console.log('Game over');
-                this.level_complete_music.play();
-                
-            }
+            // Display the new problem text
+            const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
+            this.staticText.setText(newProblemText);  
+           
         };
 
 
@@ -239,13 +231,11 @@ class Example extends Phaser.Scene {
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
-                    game.nextLevelButton.show();
-
-
+                    game.nextLevelButton.show()
                 }
             }, 4000); 
         };
-        
+
          this.wrong_answer_music = this.sound.add('wrong_answer');
 
          this.wrong_answer_music_complete = function() {
