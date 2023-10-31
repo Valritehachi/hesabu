@@ -206,8 +206,9 @@ class Example extends Phaser.Scene {
             console.log('clicked on level button');
             game.math_problem['counter'] = 0;
             game.math_problem['level']++;
-            game.generateNewProblem();
             game.nextLevelButton.hide();
+            game.generateNewProblem();
+            
             
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
@@ -227,9 +228,8 @@ class Example extends Phaser.Scene {
                     const newProblemText = 'Level Completed';
                     this.staticText.setText(newProblemText);
                     this.math_problem['level_complete'] = true;
-                    //this.nextLevelButton.setVisible(true);
+                    game.nextLevelButton.show();
 
-                    this.nextLevelButton.setVisible(false);
 
                 }
             }, 4000); 
