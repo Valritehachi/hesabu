@@ -224,7 +224,7 @@ class Example extends Phaser.Scene {
                     this.generateNewProblem();
                     this.resetDigits();
                  
-                } else if (this.math_problem['counter'] === 4) { 
+                } else if (this.math_problem['counter'] == 4) { 
                     console.log('Game Over');
                     this.level_complete_music.play();
                 } else {
