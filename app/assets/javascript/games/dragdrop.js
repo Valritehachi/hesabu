@@ -194,7 +194,7 @@ class Example extends Phaser.Scene {
             game.math_problem['counter'] = 0;
             game.math_problem['level']++;
             game.generateNewProblem();
-            this.nextLevelButton.body.x += 200
+            this.nextLevelButton.body.x += 200;
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
