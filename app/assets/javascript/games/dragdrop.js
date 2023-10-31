@@ -51,9 +51,9 @@ class Example extends Phaser.Scene {
         this.load.image('bucket', 'assets/images/purple_bucket.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
-        this.load.audio('level_complete', 'assets/audio/level_complete_sound.wav')
+        this.load.audio('level_complete', 'assets/audio/level_complete.wav')
     }
-    
+   
     getRandomSum(level) {
         // Generate a random number between 0 and 18 (inclusive)
         const min = (level == 2) ? 10:1;
@@ -204,6 +204,7 @@ class Example extends Phaser.Scene {
             });
         };
         
+        this.level_complete_music = this.sound.add('level_complete');
 
         this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
             console.log('clicked on level button');
@@ -211,9 +212,9 @@ class Example extends Phaser.Scene {
             game.math_problem['level']++;
             game.nextLevelButton.hide();
             game.generateNewProblem();
-            this.level_complete_music = this.sound.add('level_complete');
             
             
+            this.level_complete_music.play(); 
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
