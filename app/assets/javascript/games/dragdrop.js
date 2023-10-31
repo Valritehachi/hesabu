@@ -17,11 +17,11 @@ class Button {
     }
 
     hide() {
-        this.button.setVisibility(false);
+        this.button.setVisible(false);
     }
 
     show() {
-        this.button.setVisibility(true);
+        this.button.setVisible(true);
     }
 }
 // Then later in one of your scenes, create a new button:
