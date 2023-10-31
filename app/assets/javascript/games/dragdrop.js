@@ -228,7 +228,7 @@ class Example extends Phaser.Scene {
 
         this.showNextProblem = () => {
             setTimeout(() => {
-                if (this.math_problem['counter'] < 2) {
+                if (this.math_problem['counter'] < 3) {
                     this.generateNewProblem();
                     this.resetDigits();
                 } else {
