@@ -159,12 +159,10 @@ class Example extends Phaser.Scene {
         //this.staticText.setScale(this.scaleRatio);
 
 
-        //let generatedSums = 0;
-        //const maxSumsToGenerate = 4;
-        this.generateNewProblem['counter'] = 0;
+        let generatedSums = 0;
+        const maxSumsToGenerate = 4;
         this.generateNewProblem = () => {
-           // if (generatedSums < maxSumsToGenerate) {
-            if(this.generateNewProblem['counter'] < 4) {
+           if (generatedSums < maxSumsToGenerate) {
                 const randomSum = this.getRandomSum(this.math_problem['level']);
                 const tens = Math.floor(randomSum / 10);
                 const ones = randomSum % 10;
@@ -186,7 +184,7 @@ class Example extends Phaser.Scene {
                 const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
                 this.staticText.setText(newProblemText);  
             } else {
-                console.log('Game over - Reached the limit of generated sums');
+                console.log('Game over');
                 this.level_complete_music.play();
                 
             }
