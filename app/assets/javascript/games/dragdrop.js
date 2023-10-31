@@ -1,5 +1,7 @@
 class Button {
 
+    button = null;
+    
     constructor(x, y, label, scene, callback) {
         this.button = scene.add.text(x, y, label)
             .setOrigin(0.5)
