@@ -51,7 +51,7 @@ class Example extends Phaser.Scene {
         this.load.image('bucket', 'assets/images/purple_bucket.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
-        this.load.audio('level_complete', 'assets/audio/level_complete.wav')
+        this.load.audio('level_complete', 'assets/audio/level_complete_sound.wav')
     }
     
     getRandomSum(level) {
@@ -203,7 +203,7 @@ class Example extends Phaser.Scene {
                 digitSprite.setGravityY(-350);
             });
         };
-
+        this.level_complete_music = this.sound.add('level_complete');
 
         this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
             console.log('clicked on level button');
@@ -211,6 +211,7 @@ class Example extends Phaser.Scene {
             game.math_problem['level']++;
             game.nextLevelButton.hide();
             game.generateNewProblem();
+            this.level_complete_music.play();
             
             
             // Hide the button by setting its visibility to false
@@ -223,10 +224,7 @@ class Example extends Phaser.Scene {
                 if (this.math_problem['counter'] < 2) {
                     this.generateNewProblem();
                     this.resetDigits();
-                 
-                } else if (this.math_problem['counter'] == 4) { 
-                    console.log('Game Over');
-                    this.level_complete_music.play();
+               
                 } else {
                     this.resetDigits();
                     console.log('Level Complete');
