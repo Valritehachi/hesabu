@@ -157,27 +157,37 @@ class Example extends Phaser.Scene {
 
         });
         //this.staticText.setScale(this.scaleRatio);
+
+
+        let generatedSums = 0;
+        const maxSumsToGenerate = 4;
         this.generateNewProblem = () => {
-            const randomSum = this.getRandomSum(this.math_problem['level']);
-            const tens = Math.floor(randomSum / 10);
-            const ones = randomSum % 10;
-            const tensDigit = "digit_" + tens;
-            const onesDigit = "digit_" + ones;
-            const scaleFactor = 0.5;
-            this.sum.remove(this.tensSprite, true, true);
-            this.sum.remove(this.onesSprite, true, true);
-            this.tensSprite = this.sum.create(760, 360, tensDigit);
-            this.tensSprite.setScale(scaleFactor);
-            this.onesSprite = this.sum.create(860, 360, onesDigit );
-            this.onesSprite.setScale(scaleFactor);
-            this.math_problem['sum'] = randomSum;
-            this.math_problem['status'] = 'active';
+            if (generatedSums < maxSumsToGenerate) {
+                const randomSum = this.getRandomSum(this.math_problem['level']);
+                const tens = Math.floor(randomSum / 10);
+                const ones = randomSum % 10;
+                const tensDigit = "digit_" + tens;
+                const onesDigit = "digit_" + ones;
+                const scaleFactor = 0.5;
+                this.sum.remove(this.tensSprite, true, true);
+                this.sum.remove(this.onesSprite, true, true);
+                this.tensSprite = this.sum.create(760, 360, tensDigit);
+                this.tensSprite.setScale(scaleFactor);
+                this.onesSprite = this.sum.create(860, 360, onesDigit );
+                this.onesSprite.setScale(scaleFactor);
+                this.math_problem['sum'] = randomSum;
+                this.math_problem['status'] = 'active';
 
+                generatedSums++;
 
-
-            // Display the new problem text
-            const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
-            this.staticText.setText(newProblemText);  
+                // Display the new problem text
+                const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
+                this.staticText.setText(newProblemText);  
+            } else {
+                console.log('Game over - Reached the limit of generated sums');
+                this.level_complete_music.play();
+                
+            }
         };
 
 
