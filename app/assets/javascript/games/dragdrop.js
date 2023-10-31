@@ -159,10 +159,12 @@ class Example extends Phaser.Scene {
         //this.staticText.setScale(this.scaleRatio);
 
 
-        let generatedSums = 0;
-        const maxSumsToGenerate = 4;
+        //let generatedSums = 0;
+        //const maxSumsToGenerate = 4;
+        this.generateNewProblem['counter'] = 0;
         this.generateNewProblem = () => {
-            if (generatedSums < maxSumsToGenerate) {
+           // if (generatedSums < maxSumsToGenerate) {
+            if(this.generateNewProblem['counter'] < 4) {
                 const randomSum = this.getRandomSum(this.math_problem['level']);
                 const tens = Math.floor(randomSum / 10);
                 const ones = randomSum % 10;
