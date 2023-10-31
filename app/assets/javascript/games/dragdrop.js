@@ -203,7 +203,7 @@ class Example extends Phaser.Scene {
                 digitSprite.setGravityY(-350);
             });
         };
-        this.level_complete_music = this.sound.add('level_complete');
+        
 
         this.nextLevelButton = new Button(630, 515, 'Next Level', this, function () {
             console.log('clicked on level button');
@@ -211,7 +211,7 @@ class Example extends Phaser.Scene {
             game.math_problem['level']++;
             game.nextLevelButton.hide();
             game.generateNewProblem();
-            this.level_complete_music.play();
+            this.level_complete_music = this.sound.add('level_complete');
             
             
             // Hide the button by setting its visibility to false
