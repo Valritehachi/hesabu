@@ -223,6 +223,10 @@ class Example extends Phaser.Scene {
                 if (this.math_problem['counter'] < 2) {
                     this.generateNewProblem();
                     this.resetDigits();
+                 
+                } else if (this.math_problem['counter'] === 4) { 
+                    console.log('Game Over');
+                    this.level_complete_music.play();
                 } else {
                     this.resetDigits();
                     console.log('Level Complete');
@@ -233,7 +237,7 @@ class Example extends Phaser.Scene {
                     this.math_problem['level_complete'] = true;
                     game.nextLevelButton.show()
                 }
-            }, 4000); 
+            }, 3500); 
         };
 
          this.wrong_answer_music = this.sound.add('wrong_answer');
@@ -285,6 +289,8 @@ class Example extends Phaser.Scene {
                
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
+
+            
                
                 // Generate a new addition problem after a brief delay
                 // if the counter is less than 2 generate a new problem else end the level 
