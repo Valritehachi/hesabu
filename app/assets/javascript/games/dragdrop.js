@@ -15,8 +15,15 @@ class Button {
     destroy() {
         this.button.destroy();
     }
-}
 
+    hide() {
+        this.button.setVisibility(false);
+    }
+
+    show() {
+        this.button.setVisibility(true);
+    }
+}
 // Then later in one of your scenes, create a new button:
 
 
@@ -200,7 +207,7 @@ class Example extends Phaser.Scene {
             game.math_problem['counter'] = 0;
             game.math_problem['level']++;
             game.generateNewProblem();
-            game.nextLevelButton.destroy();
+            game.nextLevelButton.hide();
             
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
