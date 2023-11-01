@@ -215,8 +215,7 @@ class Example extends Phaser.Scene {
             game.generateNewProblem();
             
             
-            //game.level_complete_music.play();
-            //game.gameOver.setVisible(true); 
+            
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
@@ -236,20 +235,20 @@ class Example extends Phaser.Scene {
                     this.generateNewProblem();
                     this.resetDigits();
 
-                } else if
-                    (this.math_problem['counter'] === 4) {
-                    this.level_complete_music.play();
-                    this.gameOver.setVisible(true); 
-               
                 } else {
                     this.resetDigits();
                     console.log('Level Complete');
-                    // Display the new problem text
-                   
-                    const newProblemText = 'Level Completed';
-                    this.staticText.setText(newProblemText);
-                    this.math_problem['level_complete'] = true;
-                    game.nextLevelButton.show()
+                    // Display the new problem tex
+                    if (game.math_problem['level'] === 2){
+                    //game complete
+                        game.level_complete_music.play();
+                        game.gameOver.setVisible(true); 
+                    } else {
+                        const newProblemText = 'Level Completed';
+                        this.staticText.setText(newProblemText);
+                        this.math_problem['level_complete'] = true;
+                        game.nextLevelButton.show();
+                    }
                 }
             }, 3500); 
         };
