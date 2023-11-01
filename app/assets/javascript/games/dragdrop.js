@@ -238,8 +238,8 @@ class Example extends Phaser.Scene {
 
                 } else if
                     (this.math_problem['counter'] === 4) {
-                    game.level_complete_music.play();
-                    game.gameOver.setVisible(true); 
+                    this.level_complete_music.play();
+                    this.gameOver.setVisible(true); 
                
                 } else {
                     this.resetDigits();
