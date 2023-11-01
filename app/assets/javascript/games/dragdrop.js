@@ -215,7 +215,8 @@ class Example extends Phaser.Scene {
             game.generateNewProblem();
             
             
-            game.level_complete_music.play(); 
+            game.level_complete_music.play();
+            this.gameOver.setVisible(true); 
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
@@ -223,7 +224,9 @@ class Example extends Phaser.Scene {
         this.gameOver = this.gameOverGroup.create(
             window.DragDropGame.config.width/2, 
             window.DragDropGame.config.height/2,
-            'game_over')
+            'game_over');
+        this.gameOver.setVisible(false);
+
 
         this.showNextProblem = () => {
             setTimeout(() => {
