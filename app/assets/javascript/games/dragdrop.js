@@ -214,7 +214,7 @@ class Example extends Phaser.Scene {
             game.generateNewProblem();
             
             
-            this.level_complete_music.play(); 
+            game.level_complete_music.play(); 
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
