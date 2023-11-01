@@ -215,8 +215,8 @@ class Example extends Phaser.Scene {
             game.generateNewProblem();
             
             
-            game.level_complete_music.play();
-            game.gameOver.setVisible(true); 
+            //game.level_complete_music.play();
+            //game.gameOver.setVisible(true); 
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
@@ -228,13 +228,18 @@ class Example extends Phaser.Scene {
             
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
-        this.cameras.main.setRenderToTexture('blurBackground');
+
 
         this.showNextProblem = () => {
             setTimeout(() => {
                 if (this.math_problem['counter'] < 2) {
                     this.generateNewProblem();
                     this.resetDigits();
+
+                } else if
+                    (this.math_problem['counter'] === 4) {
+                    game.level_complete_music.play();
+                    game.gameOver.setVisible(true); 
                
                 } else {
                     this.resetDigits();
