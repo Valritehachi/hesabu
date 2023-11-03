@@ -206,10 +206,7 @@ class Example extends Phaser.Scene {
 
 
         this.clearScreen = () => {
-           // 
-            //digitSprites.setVisible(false);
-            //this.platforms.setVisible(false);
-
+       
             digitSprites.forEach((digitSprite, index) => {
                 const newIndex = digitIndices[index];
     
@@ -223,10 +220,7 @@ class Example extends Phaser.Scene {
             rect4.setVisible(false);
             this.staticText.setVisible(false);
             this.tensSprite.setVisible(false);
-            this.onesSprite.setVisible(false);
-            //this.generateNewProblem.setVisible(false);
-            //this.groundGroup.setVisible(false);
-           
+            this.onesSprite.setVisible(false); 
             
         };
         
@@ -239,10 +233,6 @@ class Example extends Phaser.Scene {
             game.nextLevelButton.hide();
             game.generateNewProblem();
             
-            
-            
-            // Hide the button by setting its visibility to false
-            //this.nextLevelButton.setVisible(false);
         });
         //this.gameOverGroup = this.physics.add.staticGroup();
         this.gameOver = this.physics.add.image(
@@ -251,7 +241,6 @@ class Example extends Phaser.Scene {
             window.DragDropGame.config.height/2,
             'game_over');
         
-        //this.gameOver.setBounce(0.5);
         //this.gameOver.setCollideWorldBounds(true);
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
