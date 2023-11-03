@@ -207,7 +207,7 @@ class Example extends Phaser.Scene {
 
         this.clearScreen = () => {
             this.staticText.setVisible(false);
-            //this.platforms.setVisible(false);
+            this.platforms.setVisible(false);
         };
         
         this.level_complete_music = this.sound.add('level_complete');
