@@ -208,7 +208,7 @@ class Example extends Phaser.Scene {
 
         this.clearScreen = () => {
             
-            digitSprite.setVisible(false);
+            this.platforms.setVisible(false);
         };
         
         this.level_complete_music = this.sound.add('level_complete');
@@ -247,7 +247,7 @@ class Example extends Phaser.Scene {
                     // Display the new problem tex
                     if (game.math_problem['level'] === 2){
                     //game complete
-                        game.clearScreen();
+                        this.clearScreen();
                         game.level_complete_music.play();
                         game.gameOver.setVisible(true); 
                     } else {
