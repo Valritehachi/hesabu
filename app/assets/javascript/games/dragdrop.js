@@ -249,8 +249,9 @@ class Example extends Phaser.Scene {
             window.DragDropGame.config.width/2, 
             window.DragDropGame.config.height/2,
             'game_over');
-        this.gameOver.setBounce(1); // Adjust the bounce value (1 means maximum bounce)
-        this.gameOver.setCollideWorldBounds(true);  
+        
+        //this.gameOver.setBounce(1);
+        this.gameOver.setCollideWorldBounds(true);
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
 
