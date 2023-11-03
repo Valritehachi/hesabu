@@ -222,8 +222,9 @@ class Example extends Phaser.Scene {
             rect3.setVisible(false);
             rect4.setVisible(false);
             this.staticText.setVisible(false);
-            this.generateNewProblem.setVisible(false);
-            this.ground.setVisible(false);
+            //this.generateNewProblem.setVisible(false);
+            this.groundGroup.setVisible(false);
+           
             
         };
         
