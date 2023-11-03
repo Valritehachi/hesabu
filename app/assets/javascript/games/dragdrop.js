@@ -204,6 +204,13 @@ class Example extends Phaser.Scene {
                 digitSprite.setGravityY(-350);
             });
         };
+
+
+        this.clearScreen = () => {
+            // Hide or remove any game objects that you want to clear
+            // For example, if you have sprites or text, hide or destroy them
+            this.digitSprite.setVisible(false);
+          };
         
         this.level_complete_music = this.sound.add('level_complete');
 
@@ -241,6 +248,7 @@ class Example extends Phaser.Scene {
                     // Display the new problem tex
                     if (game.math_problem['level'] === 2){
                     //game complete
+                        game.clearScreen();
                         game.level_complete_music.play();
                         game.gameOver.setVisible(true); 
                     } else {
