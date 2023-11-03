@@ -184,7 +184,6 @@ class Example extends Phaser.Scene {
         };
 
 
-
             // Define a reset function to shuffle the digitSprites
         this.resetDigits = () => {
             // Shuffle the indices
@@ -207,8 +206,8 @@ class Example extends Phaser.Scene {
 
 
         this.clearScreen = () => {
-            
-            this.platforms.setVisible(false);
+            this.staticText.setVisible(false);
+            //this.platforms.setVisible(false);
         };
         
         this.level_complete_music = this.sound.add('level_complete');
