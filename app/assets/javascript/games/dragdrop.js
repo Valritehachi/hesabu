@@ -215,6 +215,14 @@ class Example extends Phaser.Scene {
     
                 digitSprite.setVisible(false);
             });
+
+            r1.setVisible(false);
+            rect1.setVisible(false);
+            rect2.setVisible(false);
+            rect3.setVisible(false);
+            rect4.setVisible(false);
+
+            
         };
         
         this.level_complete_music = this.sound.add('level_complete');
