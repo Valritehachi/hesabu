@@ -234,19 +234,16 @@ class Example extends Phaser.Scene {
             game.generateNewProblem();
             
         });
-        //this.gameOverGroup = this.physics.add.staticGroup();
-        this.gameOver = this.physics.add.image(
-        //this.gameOver = this.gameOverGroup.create(
+        this.gameOverGroup = this.physics.add.staticGroup();
+        //this.gameOver = this.physics.add.image(
+        this.gameOver = this.gameOverGroup.create(
             window.DragDropGame.config.width/2, 
             window.DragDropGame.config.height/2,
-            'game_over');
-        
-        //this.gameOver.setCollideWorldBounds(true);
+            'game_over'
+        );
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
-        //this.gameOver.setVelocity(100);
-        //this.gameOver.setGravity(300);
-        //this.gameOver.setBounce(0.4);
+        
 
 
         this.showNextProblem = () => {
