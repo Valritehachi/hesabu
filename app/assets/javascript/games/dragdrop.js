@@ -207,6 +207,7 @@ class Example extends Phaser.Scene {
 
         this.clearScreen = () => {
             this.staticText.setVisible(false);
+            digitSprites.setVisible(false);
             this.platforms.setVisible(false);
         };
         
