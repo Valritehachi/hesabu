@@ -250,7 +250,7 @@ class Example extends Phaser.Scene {
                     //game complete
                         
                         game.level_complete_music.play();
-                        this.clearScreen();
+                        game.clearScreen();
                         game.gameOver.setVisible(true); 
                     } else {
                         const newProblemText = 'Level Completed';
