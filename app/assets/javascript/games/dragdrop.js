@@ -251,10 +251,11 @@ class Example extends Phaser.Scene {
             window.DragDropGame.config.height/2,
             'game_over');
         
-        this.gameOver.setBounce(0.5);
-        this.gameOver.setCollideWorldBounds(true);
+        //this.gameOver.setBounce(0.5);
+        //this.gameOver.setCollideWorldBounds(true);
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
+        this.gameOver.setGravityY(-350);
 
 
         this.showNextProblem = () => {
