@@ -244,8 +244,9 @@ class Example extends Phaser.Scene {
             // Hide the button by setting its visibility to false
             //this.nextLevelButton.setVisible(false);
         });
-        this.gameOverGroup = this.physics.add.staticGroup();
-        this.gameOver = this.gameOverGroup.create(
+        //this.gameOverGroup = this.physics.add.staticGroup();
+        this.gameOver = this.physics.add.image(
+        //this.gameOver = this.gameOverGroup.create(
             window.DragDropGame.config.width/2, 
             window.DragDropGame.config.height/2,
             'game_over');
