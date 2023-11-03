@@ -255,8 +255,9 @@ class Example extends Phaser.Scene {
         //this.gameOver.setCollideWorldBounds(true);
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
-        this.gameOver.setGravity(-350);
-        this.gameOver.setBounce(0.4);
+        //this.gameOver.setVelocity(100);
+        //this.gameOver.setGravity(300);
+        //this.gameOver.setBounce(0.4);
 
 
         this.showNextProblem = () => {
