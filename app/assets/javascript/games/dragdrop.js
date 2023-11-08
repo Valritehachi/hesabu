@@ -25,7 +25,6 @@ class Button {
         this.button.setVisible(true);
     }
 }
-// Then later in one of your scenes, create a new button:
 
 
 class Example extends Phaser.Scene {
@@ -88,12 +87,7 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect);
         rect.setData('name', 'addend1');
 
-        //x      =====  
-        //       =   =
-        //       =   =
-        //========   ========
-        //=        x        =
-        //========   ========/
+
         const data = [ 
             0,50,
             50,50,
@@ -244,8 +238,6 @@ class Example extends Phaser.Scene {
         this.gameOver.setVisible(false);
         this.gameOver.setDepth(9999);
         
-
-
         this.showNextProblem = () => {
             setTimeout(() => {
                 if (this.math_problem['counter'] < 2) {
@@ -261,6 +253,8 @@ class Example extends Phaser.Scene {
                         game.clearScreen();
                         game.level_complete_music.play();
                         game.gameOver.setVisible(true); 
+                        console.log('Correct Attempts: ${correctAttempts}');
+                        console.log('Wrong Attempts: ${wrongAttempts}');
                     } else {
                         const newProblemText = 'Level Completed';
                         this.staticText.setText(newProblemText);
@@ -294,12 +288,17 @@ class Example extends Phaser.Scene {
             this.math_problem['status'] = 'summing';
 
             const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
-    
+            
+
+
+            let correctAttempts = 0;
+            let wrongAttempts = 0;
             if (sum === this.math_problem['sum']) {
                
                 console.log('Good Job!');
                 this.math_problem['status'] = 'completed';
                 this.math_problem['counter']++;
+                correctAttempts++;
 
                
                 const tensDigit = this.math_problem['addend1_digit'];
@@ -330,6 +329,7 @@ class Example extends Phaser.Scene {
                 console.log('Try again!');
                 this.wrong_answer_music.play();
                 setTimeout(this.wrong_answer_music_complete, 2000);
+                wrongAttempts++; 
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
@@ -410,10 +410,6 @@ class Example extends Phaser.Scene {
         });   
         //game.physics.add.collider(gameObjectGroup, game.ground);
     }
-
-
-
-    
    
     update(){
         if (this.math_problem['status'] == 'active') {
