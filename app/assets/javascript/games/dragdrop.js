@@ -233,7 +233,7 @@ class Example extends Phaser.Scene {
             this.staticText.setVisible(false);
             this.tensSprite.setVisible(false);
             this.onesSprite.setVisible(false); 
-            
+            this.staticText.setVisible(false);
         };
 
         
