@@ -131,7 +131,7 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
-        this.staticText2 = this.add.text(170, 550, 
+        this.staticText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
@@ -233,7 +233,7 @@ class Example extends Phaser.Scene {
             this.staticText.setVisible(false);
             this.tensSprite.setVisible(false);
             this.onesSprite.setVisible(false); 
-            this.staticText2.setVisible(false);
+            this.staticText.setVisible(false);
         };
 
         
