@@ -81,7 +81,7 @@ class Example extends Phaser.Scene {
 
         };
         this.groundGroup = this.physics.add.staticGroup();
-        this.ground = this.groundGroup.create(500, (600 - 45 / 2), 'ground').refreshBody();
+        this.ground = this.groundGroup.create(530, (600 - 45 / 2), 'ground').refreshBody();
         //this.ground.setScale(this.scaleRatio);
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
@@ -324,8 +324,6 @@ class Example extends Phaser.Scene {
                 this.math_problem['addend1'] = null; 
                 this.math_problem['addend2'] = null;
 
-            
-               
                 // Generate a new addition problem after a brief delay
                 // if the counter is less than 2 generate a new problem else end the level 
 
@@ -440,7 +438,7 @@ class Example extends Phaser.Scene {
         this.config = {
           type: Phaser.AUTO,
           width: 1100,
-          height: 620,
+          height: 650,
           canvas: null,
           transparent: true,
           physics: {
