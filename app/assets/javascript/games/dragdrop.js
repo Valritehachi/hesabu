@@ -156,8 +156,8 @@ class Example extends Phaser.Scene {
 
         });
 
-        this.staticText = this.add.text(170, 600, 
-            'SCORE' + this.math_problem['score'],{
+        this.staticText = this.add.text(170, 550, 
+            'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
