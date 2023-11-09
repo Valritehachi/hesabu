@@ -81,7 +81,7 @@ class Example extends Phaser.Scene {
 
         };
         this.groundGroup = this.physics.add.staticGroup();
-        this.ground = this.groundGroup.create(500, 630, 'ground').refreshBody();
+        this.ground = this.groundGroup.create(500, 620, 'ground').refreshBody();
         //this.ground.setScale(this.scaleRatio);
         this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
@@ -155,6 +155,14 @@ class Example extends Phaser.Scene {
             align: 'center'
 
         });
+
+        this.staticText = this.add.text(170, 600, 
+            'SCORE' + this.math_problem['score'],{
+            fontFamily: 'Arial Black',
+            fontSize: '30px',
+            color: '#000000',
+            align: 'center'
+        });
         //this.staticText.setScale(this.scaleRatio);
 
 
@@ -178,6 +186,10 @@ class Example extends Phaser.Scene {
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             this.staticText.setText(newProblemText);  
+
+            const scoreText = 'SCORE: ' + this.math_problem['score'];
+            this.staticText.setText(newscoreText); 
+
            
         };
 
@@ -221,6 +233,7 @@ class Example extends Phaser.Scene {
             this.onesSprite.setVisible(false); 
             
         };
+
         
         this.level_complete_music = this.sound.add('level_complete');
 
