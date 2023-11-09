@@ -156,13 +156,13 @@ class Example extends Phaser.Scene {
 
         });
 
-        this.staticText = this.add.text(170, 550, 
+       /* this.staticText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
             align: 'center'
-        });
+        }); */
         //this.staticText.setScale(this.scaleRatio);
 
 
@@ -187,8 +187,8 @@ class Example extends Phaser.Scene {
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             this.staticText.setText(newProblemText);  
 
-           // const scoreText = 'SCORE: ' + this.math_problem['score'];
-            //this.staticText.setText(newscoreText); 
+            const scoreText = 'SCORE: ' + this.math_problem['score'];
+            this.staticText.setText(newscoreText); 
 
            
         };
