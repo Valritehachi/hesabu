@@ -131,6 +131,18 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
+        this.staticText = this.add.text(170, 550, 
+            'SCORE: ' + this.math_problem['score'],{
+            fontFamily: 'Arial Black',
+            fontSize: '30px',
+            color: '#000000',
+            align: 'center'
+        }); 
+
+        
+        const scoreText = 'SCORE: ' + this.math_problem['score'];
+        this.staticText.setText(scoreText); 
+
         const randomSum = this.getRandomSum(this.math_problem['level']);
         const tens = Math.floor(randomSum / 10);
         const ones = randomSum % 10;
@@ -156,13 +168,7 @@ class Example extends Phaser.Scene {
 
         });
 
-       /* this.staticText = this.add.text(170, 550, 
-            'SCORE: ' + this.math_problem['score'],{
-            fontFamily: 'Arial Black',
-            fontSize: '30px',
-            color: '#000000',
-            align: 'center'
-        }); */
+       
         //this.staticText.setScale(this.scaleRatio);
 
 
@@ -186,10 +192,6 @@ class Example extends Phaser.Scene {
             // Display the new problem text
             const newProblemText = 'Pick any two numbers that add up to ' + randomSum;
             this.staticText.setText(newProblemText);  
-
-            const scoreText = 'SCORE: ' + this.math_problem['score'];
-            this.staticText.setText(newscoreText); 
-
            
         };
 
