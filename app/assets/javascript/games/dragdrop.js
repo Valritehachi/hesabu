@@ -132,12 +132,14 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
+        var scoreSprite;
+        this.scoreGroup = this.physics.add.staticGroup();
+        scoreSprite = this.scoreGroup.create(800, 550, 'score');
+        scoreSprite.setVisible(true);
 
-    
-
-       // this.scoreGroup = this.physics.add.staticGroup();
-       // this.score = this.score.create(800, 550, 'score');
-       // this.score.setVisible(true);
+        //this.scoreGroup = this.physics.add.staticGroup();
+        //this.score = this.score.create(800, 550, 'score');
+        //this.score.setVisible(true);
         
 
        /*this.scoreText = this.add.text(170, 550, 
