@@ -141,13 +141,13 @@ class Example extends Phaser.Scene {
     
         
 
-       /*this.scoreText = this.add.text(170, 550, 
-            'SCORE: ' + this.math_problem['score'],{
+       this.scoreText = this.add.text(1075, 570, 
+            'score' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
             align: 'center'
-        }); */
+        }); 
 
         
 
@@ -460,7 +460,7 @@ class Example extends Phaser.Scene {
 
 
 
-       // this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
+        this.scoreText.setText('' + this.math_problem['totalScore']); 
 
     }
 }
