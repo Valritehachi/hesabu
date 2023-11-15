@@ -138,10 +138,7 @@ class Example extends Phaser.Scene {
         scoreSprite.setVisible(true);
         
 
-    
-        
-
-       this.scoreText = this.add.text(1075, 580, 
+       this.scoreText = this.add.text(1075, 585, 
             'score' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
