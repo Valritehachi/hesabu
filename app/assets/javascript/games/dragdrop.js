@@ -134,7 +134,7 @@ class Example extends Phaser.Scene {
 
         var scoreSprite;
         this.scoreGroup = this.physics.add.staticGroup();
-        scoreSprite = this.scoreGroup.create(1090, 590, 'score');
+        scoreSprite = this.scoreGroup.create(1095, 590, 'score');
         scoreSprite.setVisible(true);
         scoreSprite.setDepth(9999);
 
@@ -168,7 +168,7 @@ class Example extends Phaser.Scene {
         this.math_problem['status'] = 'active';
         console.log('generating math problem', this.math_problem);
         // Create a static text object
-        this.staticText = this.add.text(170, 500, 
+        this.staticText = this.add.text(170, 510, 
             'pick any two numbers that add up to ' + randomSum, {
             fontFamily: 'Arial Black',
             fontSize: '30px',
