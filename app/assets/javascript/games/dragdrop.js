@@ -314,9 +314,9 @@ class Example extends Phaser.Scene {
                 this.math_problem['counter']++;
                 this.math_problem['rightAnswers']++;
 
-                this.math_problem['score'] = this.math_problem['rightAnswers'] * 50 - this.math_problem['wrongAnswers'] * 10
-                console.log('score:', this.math_problem);
-                this.math_problem['totalScore'] += this.math_problem['score'];
+                // this.math_problem['score'] = this.math_problem['rightAnswers'] * 50 - this.math_problem['wrongAnswers'] * 10
+                // console.log('score:', this.math_problem);
+                this.math_problem['totalScore'] += 50;
                 this.math_problem['rightAnswers'] = 0
                 this.math_problem['wrongAnswers'] = 0
 
@@ -347,6 +347,7 @@ class Example extends Phaser.Scene {
                 this.wrong_answer_music.play();
                 setTimeout(this.wrong_answer_music_complete, 2000);
                 this.math_problem['wrongAnswers']++; 
+                this.math_problem['totalScore']-= 10;
             }
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
