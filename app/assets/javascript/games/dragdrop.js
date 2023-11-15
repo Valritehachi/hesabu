@@ -48,6 +48,7 @@ class Example extends Phaser.Scene {
 
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
+        this.load.image('score_image', 'assets/images/score.PNG');
         this.load.image('game_over', 'assets/images/game_over.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
@@ -83,7 +84,7 @@ class Example extends Phaser.Scene {
         this.groundGroup = this.physics.add.staticGroup();
         this.ground = this.groundGroup.create(500, 620, 'ground').refreshBody();
         //this.ground.setScale(this.scaleRatio);
-        this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
+        //this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
         const rect = this.add.rectangle(180, 430, 130, 20, 0xff66ff);
@@ -131,13 +132,17 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
-        this.scoreText = this.add.text(170, 550, 
+
+     this.scoreGroup = this.physics.add.staticGroup();
+     this.score = this.scoreGroup.create(800, 550, 'score')
+
+      /*  this.scoreText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
             align: 'center'
-        }); 
+        }); */
 
         
 
@@ -448,7 +453,7 @@ class Example extends Phaser.Scene {
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
 
-        this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
+        this.scoreGroup.setImage(this.math_problem['totalScore']); 
 
     }
 }
