@@ -458,7 +458,9 @@ class Example extends Phaser.Scene {
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
 
-        this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
+
+        
+       // this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
 
     }
 }
