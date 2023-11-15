@@ -134,11 +134,11 @@ class Example extends Phaser.Scene {
 
         var scoreSprite;
         this.scoreGroup = this.physics.add.staticGroup();
-        scoreSprite = this.scoreGroup.create(1100, 430, 'score');
+        scoreSprite = this.scoreGroup.create(1100, 380, 'score');
         scoreSprite.setVisible(true);
         
 
-       this.scoreText = this.add.text(1075, 430, 
+       this.scoreText = this.add.text(1075, 410, 
             'score' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
