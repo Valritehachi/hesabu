@@ -134,7 +134,7 @@ class Example extends Phaser.Scene {
 
         var scoreSprite;
         this.scoreGroup = this.physics.add.staticGroup();
-        scoreSprite = this.scoreGroup.create(1000, 580, 'score');
+        scoreSprite = this.scoreGroup.create(1100, 580, 'score');
         scoreSprite.setVisible(true);
         scoreSprite.setDepth(9999);
 
@@ -467,7 +467,7 @@ class Example extends Phaser.Scene {
   DragDropGame = function() {
         this.config = {
           type: Phaser.AUTO,
-          width: 1250,
+          width: 1200,
           height: 650,
           canvas: null,
           transparent: true,
