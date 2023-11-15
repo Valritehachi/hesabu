@@ -467,7 +467,7 @@ class Example extends Phaser.Scene {
   DragDropGame = function() {
         this.config = {
           type: Phaser.AUTO,
-          width: 1100,
+          width: 1250,
           height: 650,
           canvas: null,
           transparent: true,
