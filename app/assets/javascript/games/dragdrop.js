@@ -131,7 +131,7 @@ class Example extends Phaser.Scene {
         //rect4.setScale(this.scaleRatio);
      // Enable Arcade Physics for the text object
 
-        this.staticText = this.add.text(170, 550, 
+        this.scoreText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
@@ -140,8 +140,7 @@ class Example extends Phaser.Scene {
         }); 
 
         
-        const scoreText = 'SCORE: ' + this.math_problem['score'];
-        this.staticText.setText(scoreText); 
+
 
         const randomSum = this.getRandomSum(this.math_problem['level']);
         const tens = Math.floor(randomSum / 10);
@@ -215,7 +214,6 @@ class Example extends Phaser.Scene {
                 digitSprite.setGravityY(-350);
             });
         };
-
 
         this.clearScreen = () => {
        
@@ -319,7 +317,9 @@ class Example extends Phaser.Scene {
                 this.math_problem['score'] = this.math_problem['rightAnswers'] * 50 - this.math_problem['wrongAnswers'] * 10
                 console.log('score:', this.math_problem);
                 this.math_problem['totalScore'] += this.math_problem['score'];
-               
+                this.math_problem['rightAnswers'] = 0
+                this.math_problem['wrongAnswers'] = 0
+
                 const tensDigit = this.math_problem['addend1_digit'];
                 //tensDigit.body.y = tensDigit.body.y - 20;
                 const onesDigit = this.math_problem['addend2_digit'];
@@ -446,6 +446,8 @@ class Example extends Phaser.Scene {
             this.nextLevelButton.y = this.staticText.y;
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
+
+        this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
 
     }
 }
