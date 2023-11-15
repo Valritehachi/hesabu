@@ -48,7 +48,7 @@ class Example extends Phaser.Scene {
 
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
-        this.load.image('score_image', 'assets/images/score.PNG');
+        this.load.image('score', 'assets/images/score.PNG');
         this.load.image('game_over', 'assets/images/game_over.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
