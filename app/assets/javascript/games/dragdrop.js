@@ -141,13 +141,13 @@ class Example extends Phaser.Scene {
         this.score.setVisible(true);
         
 
-       this.scoreText = this.add.text(170, 550, 
+       /*this.scoreText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
             align: 'center'
-        });
+        }); */
 
         
 
