@@ -134,8 +134,9 @@ class Example extends Phaser.Scene {
 
         var scoreSprite;
         this.scoreGroup = this.physics.add.staticGroup();
-        scoreSprite = this.scoreGroup.create(1000, 600, 'score');
+        scoreSprite = this.scoreGroup.create(1000, 620, 'score');
         scoreSprite.setVisible(true);
+        scoreSprite.setDepth(9999);
 
     
         
