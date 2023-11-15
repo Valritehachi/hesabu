@@ -136,13 +136,13 @@ class Example extends Phaser.Scene {
      this.scoreGroup = this.physics.add.staticGroup();
      this.score = this.scoreGroup.create(800, 550, 'score')
 
-      /*  this.scoreText = this.add.text(170, 550, 
+       this.scoreText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
             align: 'center'
-        }); */
+        });
 
         
 
@@ -453,7 +453,7 @@ class Example extends Phaser.Scene {
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
 
-        this.scoreGroup.setImage(this.math_problem['totalScore']); 
+        this.scoreText.setText('SCORE: ' + this.math_problem['totalScore']); 
 
     }
 }
