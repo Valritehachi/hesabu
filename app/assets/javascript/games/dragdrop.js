@@ -133,8 +133,13 @@ class Example extends Phaser.Scene {
      // Enable Arcade Physics for the text object
 
 
-     this.scoreGroup = this.physics.add.staticGroup();
-     this.score = this.scoreGroup.create(800, 550, 'score')
+     //this.scoreGroup = this.physics.add.staticGroup();
+     //this.score = this.scoreGroup.create(800, 550, 'score')
+
+        this.scoreGroup = this.physics.add.staticGroup();
+        this.score = this.score.create(800, 550, 'score');
+        this.score.setVisible(true);
+        
 
        this.scoreText = this.add.text(170, 550, 
             'SCORE: ' + this.math_problem['score'],{
