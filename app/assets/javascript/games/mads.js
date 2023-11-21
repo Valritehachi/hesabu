@@ -102,7 +102,7 @@ class Example extends Phaser.Scene {
         rect.setData('name', 'addend1');
 
 
-        const data = [ 
+      /**  const data = [ 
             0,50,
             50,50,
             50,0,
@@ -120,7 +120,7 @@ class Example extends Phaser.Scene {
         //const data = [50, 0, 0, 100, 100, 100];
         const r1 = this.add.polygon(330, 430, data, 0x6666ff);
         r1.setScale(.75);
-        r1.setStrokeStyle(4, 0xbcffff);
+        r1.setStrokeStyle(4, 0xbcffff);*/
        
         this.operator = this.platforms.create(
             200, 200,
