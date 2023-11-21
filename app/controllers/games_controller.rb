@@ -9,6 +9,7 @@ class GamesController < ApplicationController
     end
 
     def mads
+        @type = params[:type] || 'add'
     end
-    
+
 end
