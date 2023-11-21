@@ -255,8 +255,8 @@ class Example extends Phaser.Scene {
         this.gameOverGroup = this.physics.add.staticGroup();
         //this.gameOver = this.physics.add.image(
         this.gameOver = this.gameOverGroup.create(
-            window.DragDropGame.config.width/2, 
-            window.DragDropGame.config.height/2,
+            window.MADSGame.config.width/2, 
+            window.MADSGame.config.height/2,
             'game_over'
         );
         this.gameOver.setVisible(false);
@@ -364,7 +364,7 @@ class Example extends Phaser.Scene {
 
         const digitSprites = [];
         const spriteX = [];
-        const slotWidth = window.DragDropGame.config.width/10;
+        const slotWidth = window.MADSGame.config.width/10;
         for(let i=0;i<10;i++){
             spriteX[i] = i * slotWidth;
         }
@@ -461,7 +461,7 @@ class Example extends Phaser.Scene {
 
     }
 }
-  DragDropGame = function() {
+  MADSGame = function() {
         this.config = {
           type: Phaser.AUTO,
           width: 1200,
@@ -479,20 +479,20 @@ class Example extends Phaser.Scene {
       };
   };
   
-  DragDropGame.prototype.InitInterface = function()
+  MADSGame.prototype.InitInterface = function()
   {
       var canvas = document.getElementById('hello_game');
-      window.DragDropGame.config.canvas = canvas;
-      this.game = new Phaser.Game(window.DragDropGame.config);
+      window.MADSGame.config.canvas = canvas;
+      this.game = new Phaser.Game(window.MADSGame.config);
   };
 
-  window.DragDropGame = new DragDropGame();
+  window.MADSGame = new MADSGame();
   
   window.addEventListener("load", function load(event){
     window.removeEventListener("load", load, false); 
-    console.log("DragDropGame MODULE LOADED");
-    window.DragDropGame.InitInterface();
+    console.log("MADSGame MODULE LOADED");
+    window.MADSGame.InitInterface();
   },false);
   
-  (window.DragDropGame=window.DragDropGame||{},window);
+  (window.MADSGame=window.MADSGame||{},window);
 
