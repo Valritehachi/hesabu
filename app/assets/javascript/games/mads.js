@@ -69,7 +69,7 @@ class Example extends Phaser.Scene {
         const game = this;
         this.scaleRatio = window.devicePixelRatio / 3;
         this.math_problem = {
-                'type': <%= @type %>,
+                'type': 'add',
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
@@ -482,7 +482,10 @@ class Example extends Phaser.Scene {
   
   MADSGame.prototype.InitInterface = function()
   {
-      var canvas = document.getElementById('hello_game');
+      var canvas = document.getElementById('game_canvas');
+      var type = $(canvas).attr('data-type');
+      console.log('canvas type ', type);
+      
       window.MADSGame.config.canvas = canvas;
       this.game = new Phaser.Game(window.MADSGame.config);
   };
