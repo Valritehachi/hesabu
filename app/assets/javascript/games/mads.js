@@ -127,7 +127,9 @@ class Example extends Phaser.Scene {
             window.MADSGame.config.problem_type + '_operator'
             );
         this.operator.setPosition(330,430);
+        this.operator.setScale(.75);
         this.platforms.add(this.operator);
+        
         
         const rect1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
