@@ -60,7 +60,6 @@ class Example extends Phaser.Scene {
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
         this.load.audio('level_complete', 'assets/audio/level_complete.wav');
 
-
     }
    
     getRandomSum(level) {
@@ -255,6 +254,7 @@ class Example extends Phaser.Scene {
             this.tensSprite.setVisible(false);
             this.onesSprite.setVisible(false); 
             this.staticText.setVisible(false);
+            this.operator.setVisible(false);
         };
 
         
