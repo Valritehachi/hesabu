@@ -48,11 +48,19 @@ class Example extends Phaser.Scene {
 
         this.load.image('ground', 'assets/images/ground_1920x45.png');
         this.load.image('bucket', 'assets/images/purple_bucket.png');
+
+        this.load.image('add_operator', 'assets/images/add_operator.png');
+        this.load.image('sub_operator', 'assets/images/sub_operator.png');
+        this.load.image('div_operator', 'assets/images/div_operator.png');
+        this.load.image('mul_operator', 'assets/images/mul_operator.png');
+
         this.load.image('score', 'assets/images/score_image.png');
         this.load.image('game_over', 'assets/images/game_over.png');
         this.load.audio('wrong_answer', 'assets/audio/wrong_answer_song.wav');
         this.load.audio('right_answer', 'assets/audio/right_answer_sound.wav');
         this.load.audio('level_complete', 'assets/audio/level_complete.wav');
+
+
     }
    
     getRandomSum(level) {
@@ -69,7 +77,7 @@ class Example extends Phaser.Scene {
         const game = this;
         this.scaleRatio = window.devicePixelRatio / 3;
         this.math_problem = {
-                'type': 'add',
+                'type': window.MADSGame.config.problem_type,
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
@@ -114,7 +122,12 @@ class Example extends Phaser.Scene {
         r1.setScale(.75);
         r1.setStrokeStyle(4, 0xbcffff);
        
-        this.platforms.add(r1);
+        this.operator = this.platforms.create(
+            200, 200,
+            window.MADSGame.config.problem_type + '_operator'
+            );
+        this.operator.setPosition(330,430);
+        this.platforms.add(this.operator);
         
         const rect1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
         this.platforms.add(rect1);
@@ -483,10 +496,9 @@ class Example extends Phaser.Scene {
   MADSGame.prototype.InitInterface = function()
   {
       var canvas = document.getElementById('game_canvas');
-      var type = $(canvas).attr('data-type');
-      console.log('canvas type ', type);
-      
+ 
       window.MADSGame.config.canvas = canvas;
+      window.MADSGame.config.problem_type =  $(canvas).attr('data-type');
       this.game = new Phaser.Game(window.MADSGame.config);
   };
 
