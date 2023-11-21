@@ -354,8 +354,8 @@ class Example extends Phaser.Scene {
                 // this.math_problem['score'] = this.math_problem['rightAnswers'] * 50 - this.math_problem['wrongAnswers'] * 10
                 // console.log('score:', this.math_problem);
                 this.math_problem['totalScore'] += 50;
-                this.math_problem['rightAnswers'] = 0
-                this.math_problem['wrongAnswers'] = 0
+                this.math_problem['rightAnswers'] = 0;
+                this.math_problem['wrongAnswers'] = 0;
 
                 const tensDigit = this.math_problem['addend1_digit'];
                 //tensDigit.body.y = tensDigit.body.y - 20;
