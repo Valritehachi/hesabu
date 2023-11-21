@@ -127,7 +127,7 @@ class Example extends Phaser.Scene {
             window.MADSGame.config.problem_type + '_operator'
             );
         this.operator.setPosition(330,430);
-        this.operator.setScale(.75);
+        this.operator.setScale(.65);
         this.platforms.add(this.operator);
         
         
@@ -182,7 +182,7 @@ class Example extends Phaser.Scene {
         console.log('generating math problem', this.math_problem);
         // Create a static text object
         this.staticText = this.add.text(170, 510, 
-            'pick any two numbers that ' + this.math_problem['type'] + ' add up to ' + randomSum, {
+            'pick any two numbers that ' + this.math_problem['type'] + ' up to ' + randomSum, {
             fontFamily: 'Arial Black',
             fontSize: '30px',
             color: '#000000',
