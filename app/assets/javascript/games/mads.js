@@ -325,10 +325,26 @@ class Example extends Phaser.Scene {
             }
             this.math_problem['status'] = 'summing';
 
-            const sum = this.math_problem['addend1'] + this.math_problem['addend2'];
+            let ans = null;
+            switch(this.math_problem['type'])
+            {
+                case 'add':
+                    ans = this.math_problem['addend1'] + this.math_problem['addend2'];
+                break;
+                case 'sub':
+                    ans = this.math_problem['addend1'] - this.math_problem['addend2'];
+                break;
+                case 'div':
+                    ans = this.math_problem['addend1'] / this.math_problem['addend2'];
+                break;
+                case 'mul':
+                    ans = this.math_problem['addend1'] * this.math_problem['addend2'];
+                break;
+
+            }
             
 
-            if (sum === this.math_problem['sum']) {
+            if (ans === this.math_problem['sum']) {
                
                 console.log('Good Job!');
                 this.math_problem['status'] = 'completed';
