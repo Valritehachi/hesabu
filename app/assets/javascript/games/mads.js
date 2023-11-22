@@ -74,17 +74,29 @@ class Example extends Phaser.Scene {
 
 
 
-    getRandomSub(level) {
+    getRandomNumbers() {
+        const firstDigit = Math.floor(Math.random() * 9) + 1;
+        const secondDigit = Math.floor(Math.random() * firstDigit);
+        const firstNumber = firstDigit * 10 + secondDigit;
+        let secondNumber = Math.floor(Math.random() * 9) + 1;
+        while (firstNumber <= secondNumber) {
+            secondNumber = Math.floor(Math.random() * 9) + 1;
+        }
     
-        const tensDigit = Math.floor(Math.random() * 9) + 1;
-        const onesDigit = Math.floor(Math.random() * tensDigit);
-        const minuend = tensDigit * 10 + onesDigit;
-        const subtrahend = Math.floor(Math.random() * 9) + 1;
-        const ans = minuend - subtrahend;
+        const firstNumberPosition = { x: 180, y: 430 };
+        const secondNumberPosition = { x: 480, y: 430 };
+
+        console.log(`First Number: ${firstNumber} at (${firstNumberPosition.x}, ${firstNumberPosition.y})`);
+        console.log(`Second Number: ${secondNumber} at (${secondNumberPosition.x}, ${secondNumberPosition.y})`);
     
-        console.log(`Minuend: ${minuend}, Subtrahend: ${subtrahend}, Answer: ${ans}`);
-        return { minuend, subtrahend, ans };
+        return {
+            firstNumber,
+            secondNumber,
+            firstNumberPosition,
+            secondNumberPosition,
+        };
     }
+    
 
 
 
@@ -352,7 +364,7 @@ class Example extends Phaser.Scene {
                     ans = this.math_problem['addend1'] + this.math_problem['addend2'];
                 break;
                 case 'sub':
-                    const subtractionProblem = this.getRandomSub(1);
+                    const subtractionProblem = this.getRandomNumbers(1);
                     ans = subtractionProblem.ans;
                     // Assuming you have digit sprites named 'tensDigit' and 'onesDigit'
                     const tensDigit = this.math_problem['addend1_digit'];
