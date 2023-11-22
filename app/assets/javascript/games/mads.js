@@ -245,7 +245,7 @@ class Example extends Phaser.Scene {
                 digitSprite.setVisible(false);
             });
             rect.setVisible(false);
-            r1.setVisible(false);
+            //r1.setVisible(false);
             rect1.setVisible(false);
             rect2.setVisible(false);
             rect3.setVisible(false);
