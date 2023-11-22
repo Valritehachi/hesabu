@@ -352,7 +352,7 @@ class Example extends Phaser.Scene {
                     ans = this.math_problem['addend1'] + this.math_problem['addend2'];
                 break;
                 case 'sub':
-                    const subtractionProblem = this.getRandomSubtraction(1);
+                    const subtractionProblem = this.getRandomSub(1);
                     ans = subtractionProblem.ans;
                     // Assuming you have digit sprites named 'tensDigit' and 'onesDigit'
                     const tensDigit = this.math_problem['addend1_digit'];
