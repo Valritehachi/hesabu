@@ -256,16 +256,6 @@ class Example extends Phaser.Scene {
             this.operator.setVisible(false);
         };
 
-
-
-
-
-        const tensDigitFirst = this.createDigitSprite(180, 430);
-        const onesDigitFirst = this.createDigitSprite(330, 430);
-        const tensDigitSecond = this.createDigitSprite(480, 430);
-        const onesDigitSecond = this.createDigitSprite(630, 430);
-
-        this.physics.add.collider([tensDigitFirst, onesDigitFirst, tensDigitSecond, onesDigitSecond], this.platforms);
         
         this.level_complete_music = this.sound.add('level_complete');
 
@@ -398,10 +388,6 @@ class Example extends Phaser.Scene {
                 this.math_problem['totalScore']-= 10;
             }
         };
-
-
-
-
 
         this.createDigitSprite = (x, y) => {
             const digitIndex = Phaser.Utils.Array.RemoveRandomElement(digitIndices);
