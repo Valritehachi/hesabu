@@ -72,6 +72,24 @@ class Example extends Phaser.Scene {
         return (randomNum);
     }
 
+
+
+    getRandomSub(level) {
+    
+        const tensDigit = Math.floor(Math.random() * 9) + 1;
+        const onesDigit = Math.floor(Math.random() * tensDigit);
+        const minuend = tensDigit * 10 + onesDigit;
+        const subtrahend = Math.floor(Math.random() * 9) + 1;
+        const ans = minuend - subtrahend;
+    
+        console.log(`Minuend: ${minuend}, Subtrahend: ${subtrahend}, Answer: ${ans}`);
+        return { minuend, subtrahend, ans };
+    }
+
+
+
+
+
     create() {
         const game = this;
         this.scaleRatio = window.devicePixelRatio / 3;
@@ -334,7 +352,15 @@ class Example extends Phaser.Scene {
                     ans = this.math_problem['addend1'] + this.math_problem['addend2'];
                 break;
                 case 'sub':
-                    ans = this.math_problem['addend1'] - this.math_problem['addend2'];
+                    const subtractionProblem = this.getRandomSubtraction(1);
+                    ans = subtractionProblem.ans;
+                    // Assuming you have digit sprites named 'tensDigit' and 'onesDigit'
+                    const tensDigit = this.math_problem['addend1_digit'];
+                    const onesDigit = this.math_problem['addend2_digit'];
+
+                    // Set digit sprites on the platforms
+                    this.setDigitOnPlatform(tensDigit, subtractionProblem.minuend);
+                    this.setDigitOnPlatform(onesDigit, subtractionProblem.subtrahend);
                 break;
                 case 'div':
                     ans = this.math_problem['addend1'] / this.math_problem['addend2'];
