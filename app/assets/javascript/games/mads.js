@@ -73,35 +73,6 @@ class Example extends Phaser.Scene {
     }
 
 
-
-    getRandomNumbers() {
-        const firstDigit = Math.floor(Math.random() * 9) + 1;
-        const secondDigit = Math.floor(Math.random() * firstDigit);
-        const firstNumber = firstDigit * 10 + secondDigit;
-        let secondNumber = Math.floor(Math.random() * 9) + 1;
-        while (firstNumber <= secondNumber) {
-            secondNumber = Math.floor(Math.random() * 9) + 1;
-        }
-    
-        const firstNumberPosition = { x: 180, y: 430 };
-        const secondNumberPosition = { x: 480, y: 430 };
-
-        console.log(`First Number: ${firstNumber} at (${firstNumberPosition.x}, ${firstNumberPosition.y})`);
-        console.log(`Second Number: ${secondNumber} at (${secondNumberPosition.x}, ${secondNumberPosition.y})`);
-    
-        return {
-            firstNumber,
-            secondNumber,
-            firstNumberPosition,
-            secondNumberPosition,
-        };
-    }
-    
-
-
-
-
-
     create() {
         const game = this;
         this.scaleRatio = window.devicePixelRatio / 3;
@@ -219,9 +190,7 @@ class Example extends Phaser.Scene {
 
         });
 
-       
-        //this.staticText.setScale(this.scaleRatio);
-
+        
 
         this.generateNewProblem = () => {
         
@@ -287,6 +256,16 @@ class Example extends Phaser.Scene {
             this.operator.setVisible(false);
         };
 
+
+
+
+
+        const tensDigitFirst = this.createDigitSprite(180, 430);
+        const onesDigitFirst = this.createDigitSprite(330, 430);
+        const tensDigitSecond = this.createDigitSprite(480, 430);
+        const onesDigitSecond = this.createDigitSprite(630, 430);
+
+        this.physics.add.collider([tensDigitFirst, onesDigitFirst, tensDigitSecond, onesDigitSecond], this.platforms);
         
         this.level_complete_music = this.sound.add('level_complete');
 
@@ -364,15 +343,7 @@ class Example extends Phaser.Scene {
                     ans = this.math_problem['addend1'] + this.math_problem['addend2'];
                 break;
                 case 'sub':
-                    const subtractionProblem = this.getRandomNumbers(1);
-                    ans = subtractionProblem.ans;
-                    // Assuming you have digit sprites named 'tensDigit' and 'onesDigit'
-                    const tensDigit = this.math_problem['addend1_digit'];
-                    const onesDigit = this.math_problem['addend2_digit'];
-
-                    // Set digit sprites on the platforms
-                    this.setDigitOnPlatform(tensDigit, subtractionProblem.minuend);
-                    this.setDigitOnPlatform(onesDigit, subtractionProblem.subtrahend);
+                    ans = this.math_problem['addend1_digit'].getData('value') - this.math_problem['addend2_digit'].getData('value');
                 break;
                 case 'div':
                     ans = this.math_problem['addend1'] / this.math_problem['addend2'];
@@ -426,6 +397,39 @@ class Example extends Phaser.Scene {
                 this.math_problem['wrongAnswers']++; 
                 this.math_problem['totalScore']-= 10;
             }
+        };
+
+
+
+
+
+        this.createDigitSprite = (x, y) => {
+            const digitIndex = Phaser.Utils.Array.RemoveRandomElement(digitIndices);
+            const digitSprite = this.physics.add.sprite(x, y, 'digit_' + digitIndex);
+            
+            digitSprite.setScale(0.5);
+            digitSprite.setCollideWorldBounds(true);
+            digitSprite.setInteractive({ draggable: true });
+            digitSprite.setGravityY(-200);
+    
+            digitSprite.on('drag', (pointer, dragX, dragY) => digitSprite.setPosition(dragX, dragY));
+    
+            this.physics.add.collider(digitSprite, this.platforms, () => {
+                if (this.math_problem['status'] === 'completed') return;
+    
+                digitSprite.body.stop();
+                digitSprite.body.setVelocity(0);
+                digitSprite.setGravityY(-200);
+                digitSprite.setInteractive({ draggable: false });
+    
+                digitSprite.setPosition(x, y - digitSprite.body.height / 2);
+                
+                const name = this.platforms.getChildren().find(platform => platform.x === x && platform.y === y).getData('name');
+                this.math_problem[name] = digitIndex;
+                this.math_problem[name + '_digit'] = digitSprite;
+            });
+    
+            return digitSprite;
         };
         const digitIndices = Phaser.Utils.Array.NumberArray(0, 9);
 
