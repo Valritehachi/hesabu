@@ -230,6 +230,10 @@ class Example extends Phaser.Scene {
             
                 // Set the new x-position for the digitSprite
                 digitSprite.x = newX;
+                console.log('digit ',
+                    index,'body w,h = ', 
+                    [digitSprite.body.width, digitSprite.body.height]
+                );
                 digitSprite.y = digitSprite.body.height/2;
                 digitSprite.setInteractive({draggable: true});
                 digitSprite.setGravityY(-350);
