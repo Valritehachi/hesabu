@@ -469,7 +469,7 @@ class Example extends Phaser.Scene {
         addDigit(0, 0);
         console.log("GameObjectGroup:", gameObjectGroup);
        
-
+        this.resetDigits();
            // Add a collider between the digits and the platforms
         this.physics.add.collider(digitSprites, this.platforms, (digit, platform) => {
             //console.log("collide", digit, platform);
