@@ -101,26 +101,6 @@ class Example extends Phaser.Scene {
         this.platforms.add(rect);
         rect.setData('name', 'addend1');
 
-
-      /**  const data = [ 
-            0,50,
-            50,50,
-            50,0,
-            70,0,
-            70,50,
-            120,50,
-            120,70,
-            70, 70,
-            70, 120,
-            50, 120,
-            50, 70,
-            0,70
-        ];
-    
-        //const data = [50, 0, 0, 100, 100, 100];
-        const r1 = this.add.polygon(330, 430, data, 0x6666ff);
-        r1.setScale(.75);
-        r1.setStrokeStyle(4, 0xbcffff);*/
        
         this.operator = this.platforms.create(
             200, 200,
@@ -190,8 +170,6 @@ class Example extends Phaser.Scene {
 
         });
 
-        
-
         this.generateNewProblem = () => {
         
             const randomSum = this.getRandomSum(this.math_problem['level']);
@@ -230,10 +208,6 @@ class Example extends Phaser.Scene {
             
                 // Set the new x-position for the digitSprite
                 digitSprite.x = newX;
-                console.log('digit ',
-                    index,'body w,h = ', 
-                    [digitSprite.body.width, digitSprite.body.height]
-                );
                 digitSprite.y = digitSprite.body.height/2;
                 digitSprite.setInteractive({draggable: true});
                 digitSprite.setGravityY(-350);
@@ -248,7 +222,6 @@ class Example extends Phaser.Scene {
                 digitSprite.setVisible(false);
             });
             rect.setVisible(false);
-            //r1.setVisible(false);
             rect1.setVisible(false);
             rect2.setVisible(false);
             rect3.setVisible(false);
@@ -347,7 +320,6 @@ class Example extends Phaser.Scene {
                 break;
 
             }
-            
 
             if (ans === this.math_problem['sum']) {
                
@@ -518,8 +490,6 @@ class Example extends Phaser.Scene {
             this.nextLevelButton.y = this.staticText.y;
             this.nextLevelButton.x = this.staticText.x + this.staticText.width;
         }
-
-
 
         this.scoreText.setText('' + this.math_problem['totalScore']); 
 
