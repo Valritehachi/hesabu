@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: 'hesabu#index'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get '/reportbug', to: 'hesabu#reportbug'
   get '/profile', to: 'hesabu#profile'
   get '/games', to: 'games#index'
-  get '/mads/:type', to: 'games#mads'
+  get '/games/mads/:type', to: 'games#mads'
+
   resources :profiles
 end
