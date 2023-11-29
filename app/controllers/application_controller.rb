@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
             },
             "games" => {
                 "title" => "games",
-                "path" => "/Games"
+                "path" => "/games"
             }
         }
         @right_nav = {
