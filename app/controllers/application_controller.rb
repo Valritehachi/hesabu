@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
             "gameinstructions" => {
                 "title" => "Instructions",
                 "path" => "/gameinstructions"
-            }
+            },
             "games" => {
                 "title" => "games",
                 "path" => "/Games"
