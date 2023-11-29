@@ -192,8 +192,6 @@ class Example extends Phaser.Scene {
             this.staticText.setText(newProblemText);  
            
         };
-
-
             // Define a reset function to shuffle the digitSprites
         this.resetDigits = () => {
             // Shuffle the indices
