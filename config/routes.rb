@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/login', to: 'hesabu#login'
   post '/login', to: 'hesabu#login_user'
   get '/instructions', to: 'hesabu#instructions'
-  get '/start', to: 'hesabu#start'
+  get '/start', to: 'games#start'
   get '/signup', to: 'hesabu#signup'
   get '/settings', to: 'hesabu#settings'
   get '/gameinstructions', to: 'hesabu#gameinstructions'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/reportbug', to: 'hesabu#reportbug'
   get '/profile', to: 'hesabu#profile'
   get '/games', to: 'games#index'
-  get '/games/mads/:type', to: 'games#mads'
+  get '/games/start/mads/:type', to: 'games#mads'
 
   resources :profiles
 end
