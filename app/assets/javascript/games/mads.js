@@ -78,6 +78,9 @@ class Example extends Phaser.Scene {
         this.scaleRatio = window.devicePixelRatio / 3;
         this.math_problem = {
                 'type': window.MADSGame.config.problem_type,
+                'difficulty_levels': [],
+                'difficulty': 0,
+                'terms': [null, null, null],
                 'addend1': null,
                 'addend2': null,
                 'sum':null,
@@ -92,41 +95,40 @@ class Example extends Phaser.Scene {
         };
         this.groundGroup = this.physics.add.staticGroup();
         this.ground = this.groundGroup.create(500, 620, 'ground').refreshBody();
-        //this.ground.setScale(this.scaleRatio);
-        //this.add.text(16, 16, 'Drag the Sprite').setFontSize(24).setShadow(1, 1);
        
         this.platforms = this.physics.add.staticGroup();
-        const rect = this.add.rectangle(180, 430, 130, 20, 0xff66ff);
-        //rect.setScale(this.scaleRatio);
-        this.platforms.add(rect);
-        rect.setData('name', 'addend1');
 
-       
+        // platform_0
+        const platform_0 = this.add.rectangle(180, 430, 130, 20, 0xff66ff);
+        this.platforms.add(platform_0);
+        platform_0.setData('name', 'platform_0');
+        // operator
         this.operator = this.platforms.create(
             200, 200,
             window.MADSGame.config.problem_type + '_operator'
             );
+       
         this.operator.setPosition(330,430);
         this.operator.setScale(.65);
         this.platforms.add(this.operator);
-        
-        
-        const rect1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
-        this.platforms.add(rect1);
-        rect1.setData('name', 'addend2');
-        //rect1.setScale(this.scaleRatio);
-        // the equal sign 
-        const rect2 = this.add.rectangle(630, 420, 75, 15, 0x6666ff);
-        rect2.setStrokeStyle(2, 0xefc53f); 
-        //rect2.setScale(this.scaleRatio);
-        const rect3 = this.add.rectangle(630, 440, 75, 15, 0x6666ff);
-        rect3.setStrokeStyle(2, 0xefc53f); 
-        //rect3.setScale(this.scaleRatio);
 
-        const rect4 = this.add.rectangle(800, 430, 200, 20, 0xff66ff);
-        this.platforms.add(rect4);
-        //rect4.setScale(this.scaleRatio);
-     // Enable Arcade Physics for the text object
+        // platform_1
+        const platform_1 = this.add.rectangle(480, 430, 130, 20, 0xff66ff);
+        this.platforms.add(platform_1);
+        platform_1.setData('name', 'platform_1');
+        
+        // the equal sign 
+        const equal_top = this.add.rectangle(630, 420, 75, 15, 0x6666ff);
+        equal_top.setStrokeStyle(2, 0xefc53f); 
+        
+        const equal_bottom = this.add.rectangle(630, 440, 75, 15, 0x6666ff);
+        equal_bottom.setStrokeStyle(2, 0xefc53f); 
+        
+        // platform_2
+        const platform_2 = this.add.rectangle(800, 430, 200, 20, 0xff66ff);
+        this.platforms.add(platform_2);
+        
+        // Enable Arcade Physics for the text object
 
         var scoreSprite;
         this.scoreGroup = this.physics.add.staticGroup();
@@ -449,7 +451,7 @@ class Example extends Phaser.Scene {
             const value = digit.getData('value'); 
             if (value == undefined) return;
 
-            const name = platform.getData('name' );
+            const name = platform.getData('name');
             if (name == undefined) return;
 
             // Attach the digit to the platform when they collide
@@ -462,8 +464,11 @@ class Example extends Phaser.Scene {
                 console.log('collision', value, name,  [digit.body.x, digit.body.y], [platform.x,platform.y],digit.height, platform.y - platform.height/2 - digit.body.height/2);
                 console.log('gravity', digit.body.gravity);
                 digit.setPosition(platform.x, platform.y - platform.height - digit.body.height/2);
-                this.math_problem[name] = value;
-                this.math_problem[name + '_digit'] = digit;
+                var  platformNumber = name.split('_').pop();
+                var addendNumber = parseInt(platformNumber) + 1;
+                var addendId = 'addend' + addendNumber;
+                this.math_problem[addendId] = value;
+                this.math_problem[addendId + '_digit'] = digit;
                 console.log('math problem', this.math_problem);
             }
         });   
@@ -517,6 +522,8 @@ class Example extends Phaser.Scene {
  
       window.MADSGame.config.canvas = canvas;
       window.MADSGame.config.problem_type =  $(canvas).attr('data-type');
+      window.MADSGame.config.difficulty_levels =  $(canvas).attr('data-difficulty-levels').split(',');
+      window.MADSGame.config.difficulty = 0;
       this.game = new Phaser.Game(window.MADSGame.config);
   };
 
