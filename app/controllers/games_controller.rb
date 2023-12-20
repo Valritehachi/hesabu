@@ -16,7 +16,7 @@ class GamesController < ApplicationController
             'div': %w[AAB ABA BBA]
         }
         @type = params[:type] || 'add'
-        @difficulty = difficulties[@type]
+        @difficulty = difficulties[@type.to_sym]
     end
 
 end
