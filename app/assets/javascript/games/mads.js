@@ -221,11 +221,11 @@ class Example extends Phaser.Scene {
     
                 digitSprite.setVisible(false);
             });
-            rect.setVisible(false);
-            rect1.setVisible(false);
-            rect2.setVisible(false);
-            rect3.setVisible(false);
-            rect4.setVisible(false);
+            platform_0.setVisible(false);
+            platform_1.setVisible(false);
+            equal_top.setVisible(false);
+            equal_bottom.setVisible(false);
+            platform_2.setVisible(false);
             this.staticText.setVisible(false);
             this.tensSprite.setVisible(false);
             this.onesSprite.setVisible(false); 
@@ -339,8 +339,8 @@ class Example extends Phaser.Scene {
                 const onesDigit = this.math_problem['addend2_digit'];
                 this.right_answer_music.play();
                    
-                onesDigit.body.y = rect1.y - onesDigit.body.height/2 - 20
-                tensDigit.body.y = rect1.y - tensDigit.body.height/2 - 20;
+                onesDigit.body.y = platform_1.y - onesDigit.body.height/2 - 20
+                tensDigit.body.y = platform_1.y - tensDigit.body.height/2 - 20;
 
                 setTimeout(() => {
                     onesDigit.setInteractive({draggable: true});
