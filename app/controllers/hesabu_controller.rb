@@ -30,6 +30,9 @@ class HesabuController < ApplicationController
     def settings
     end
 
+    def about
+    end
+
     def gameinstructions
         @current_page = 'gameinstructions'
     end
