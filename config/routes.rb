@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/start', to: 'games#start'
   get '/signup', to: 'hesabu#signup'
   get '/settings', to: 'hesabu#settings'
+  get '/about', to: 'hesabu#about'
   get '/gameinstructions', to: 'hesabu#gameinstructions'
   get '/feedback', to: 'hesabu#feedback'
   get '/reportbug', to: 'hesabu#reportbug'
