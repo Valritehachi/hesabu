@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
                 "path" => "/gameinstructions"
             },
             "games" => {
-                "title" => "games",
+                "title" => "Games",
                 "path" => "/games"
+            },
+            "about" => {
+                "title" => "About",
+                "path" => "/about"
             }
         }
         @right_nav = {
