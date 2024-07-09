@@ -41,3 +41,5 @@ Here are a few related projects that might be of interest:
 -  Cool Math Games
 -  Khan Academy Kids
 
+![image](https://github.com/Valritehachi/hesabu/assets/136268876/cbfc114e-b4d8-4e50-8fe9-3d67e1b127bf)
+
